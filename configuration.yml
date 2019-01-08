@@ -1,0 +1,17 @@
+apiName: "Fleur's API"
+
+assets:
+  mappings:
+    /assets: /
+  overrides:
+    /: ../workshop-client/dist/workshop-client/
+
+server:
+  rootPath: /api/*
+  adminContextPath: /admin
+  applicationConnectors:
+    - type: http
+      port: 8080
+  adminConnectors:
+    - type: http
+      port: 8081
