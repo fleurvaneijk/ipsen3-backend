@@ -1,10 +1,10 @@
-apiName: "Fleur's API"
+apiName: "Dubio IPSEN3 API"
 
 assets:
   mappings:
     /assets: /
   overrides:
-    /: ../workshop-client/dist/workshop-client/
+    /: ../ipsen3/dist/ipsen3/
 
 server:
   rootPath: /api/*
