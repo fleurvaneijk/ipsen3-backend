@@ -161,6 +161,7 @@ public class UserDAO
     public void add(User[] user)
     {
         for (User u : user){
+
             String SQL = "INSERT INTO users "
                     + "VALUES(?,?,?,?,?)";
 
@@ -175,9 +176,9 @@ public class UserDAO
 
                 pstmt.setString(1, u.getEmailAddress());
                 pstmt.setString(2, u.getFirstname());
-                pstmt.setString(3, u.getFirstname());
+                pstmt.setString(3, u.getLastname());
                 pstmt.setString(4, hashedPassword);
-                pstmt.setString(5, u.getPassword());
+                pstmt.setString(5, u.getRole());
 
                 pstmt.executeUpdate();
 
