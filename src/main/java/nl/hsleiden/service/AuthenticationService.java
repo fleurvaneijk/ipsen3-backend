@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import nl.hsleiden.model.User;
 import nl.hsleiden.persistence.UserDAO;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -42,5 +43,20 @@ public class AuthenticationService implements Authenticator<BasicCredentials, Us
     public boolean authorize(User user, String roleName)
     {
         return user.hasRole(roleName);
+    }
+
+    /**
+     * With this we want to check whether the plaintext password corresponds to hashed password from the
+     * database
+     * @param plaintext a simple not hashed password from inputfield
+     * @param hashedPassword a hashed password from the database
+     * @return bool (true or false)
+     * @author Robin Silverio
+     */
+    public boolean checkPassword(String plaintext, String hashedPassword){
+        boolean corresponds = true;
+        if (!BCrypt.checkpw(plaintext, hashedPassword))
+            corresponds = false;
+        return corresponds;
     }
 }

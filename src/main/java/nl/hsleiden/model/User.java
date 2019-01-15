@@ -17,71 +17,66 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class User implements Principal
 {
     @NotEmpty
-    @Length(min = 3, max = 100)
-    @JsonView(View.Public.class)
-    private String fullName;
-    
-    @NotEmpty
-    @Length(min = 6, max = 7)
-    @JsonView(View.Public.class)
-    private String postcode;
-    
-    @NotEmpty
-    @Length(min = 1, max = 10)
-    @JsonView(View.Public.class)
-    private String streetnumber;
-    
-    @NotEmpty
     @Email
     @JsonView(View.Public.class)
-    private String emailAddress;
+    private String email;
+
+    @NotEmpty
+    @Length(max = 100)
+    @JsonView(View.Public.class)
+    private String firstname;
+
+    @NotEmpty
+    @Length(max = 100)
+    @JsonView(View.Public.class)
+    private String lastname;
     
     @NotEmpty
-    @Length(min = 8)
+    @Length(min = 5)
     @JsonView(View.Protected.class)
     private String password;
     
     @JsonView(View.Private.class)
-    private String[] roles;
+    private String role;
 
-    public String getFullName()
-    {
-        return fullName;
+    private String[] roleList = { "PARENT", "ADMIN", "ONDERADMIN" };
+
+    public User(String email, String firstname, String lastname, String password, String role) {
+        this.email = email;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.password = password;
+        this.role = role;
     }
 
-    public void setFullName(String fullName)
+    public User() { }
+
+    public String getFirstname()
     {
-        this.fullName = fullName;
+        return firstname;
     }
 
-    public String getPostcode()
+    public void setFirstname(String firstname)
     {
-        return postcode;
+        this.firstname = firstname;
     }
 
-    public void setPostcode(String postcode)
-    {
-        this.postcode = postcode;
+    public String getLastname() {
+        return lastname;
     }
 
-    public String getStreetnumber()
-    {
-        return streetnumber;
-    }
-
-    public void setStreetnumber(String streetnumber)
-    {
-        this.streetnumber = streetnumber;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getEmailAddress()
     {
-        return emailAddress;
+        return email;
     }
 
-    public void setEmailAddress(String emailAddress)
+    public void setEmailAddress(String email)
     {
-        this.emailAddress = emailAddress;
+        this.email = email;
     }
 
     public String getPassword()
@@ -98,24 +93,24 @@ public class User implements Principal
     @JsonIgnore
     public String getName()
     {
-        return fullName;
+        return firstname;
     }
     
-    public String[] getRoles()
+    public String getRole()
     {
-        return roles;
+        return role;
     }
 
-    public void setRoles(String[] roles)
+    public void setRole(String roles)
     {
-        this.roles = roles;
+        this.role = roles;
     }
     
     public boolean hasRole(String roleName)
     {
-        if (roles != null)
+        if (roleList != null)
         {
-            for(String role : roles)
+            for(String role : roleList)
             {
                 if(roleName.equals(role))
                 {
@@ -129,6 +124,6 @@ public class User implements Principal
     
     public boolean equals(User user)
     {
-        return emailAddress.equals(user.getEmailAddress());
+        return email.equals(user.getEmailAddress());
     }
 }

@@ -39,7 +39,7 @@ public class UserDAOTest
         System.out.println("test get success");
         
         String expectedName = "Second user";
-        User actual = subject.get(1);
+        User actual = subject.get("a");
         
         assertNotNull(actual);
         assertEquals(expectedName, actual.getName());
@@ -50,7 +50,7 @@ public class UserDAOTest
     {
         System.out.println("Test get failed");
         
-        User actual = subject.get(6);
+        User actual = subject.get("b");
         
         assertNull(actual);
     }
@@ -83,9 +83,9 @@ public class UserDAOTest
         System.out.println("Test add");
         
         User user = new User();
-        user.setFullName("Peter van Vliet");
+        user.setFirstname("Peter van Vliet");
         
-        subject.add(user);
+//        subject.add(user);
         
         int expectedSize = 3;
         int actualSize = subject.getAll().size();
@@ -97,11 +97,11 @@ public class UserDAOTest
     public void testUpdate()
     {
         User expected = new User();
-        expected.setFullName("Peter van Vliet");
+        expected.setFirstname("Peter van Vliet");
         
-        subject.update(1, expected);
+        subject.update("a", expected);
         
-        User actual = subject.get(1);
+        User actual = subject.get("a");
         
         assertSame(expected, actual);
     }
@@ -109,9 +109,9 @@ public class UserDAOTest
     @Test
     public void testDelete()
     {
-        subject.delete(1);
+        subject.delete("test@gmail.ocm");
         
-        User actual = subject.get(1);
+        User actual = subject.get("test@gmail.com");
         
         assertNull(actual);
     }

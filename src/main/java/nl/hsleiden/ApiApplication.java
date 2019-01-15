@@ -13,6 +13,8 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import java.util.EnumSet;
 import javax.servlet.DispatcherType;
+
+import nl.hsleiden.database.Database;
 import nl.hsleiden.model.User;
 import nl.hsleiden.service.AuthenticationService;
 import org.eclipse.jetty.servlet.FilterHolder;
@@ -32,6 +34,7 @@ public class ApiApplication extends Application<ApiConfiguration>
     private GuiceBundle guiceBundle;
     
     private String name;
+    private static Database database;
     
     @Override
     public String getName()
@@ -48,6 +51,16 @@ public class ApiApplication extends Application<ApiConfiguration>
         bootstrap.addBundle(assetsBundle);
         bootstrap.addBundle(guiceBundle);
     }
+
+    public static Database getDatabase() {
+        return database;
+    }
+
+    public void initieerDatabase(){
+        database = new Database();
+        database.verbinden();
+
+    }
     
     @Override
     public void run(ApiConfiguration configuration, Environment environment)
@@ -58,6 +71,7 @@ public class ApiApplication extends Application<ApiConfiguration>
         
         setupAuthentication(environment);
         configureClientFilter(environment);
+        initieerDatabase();
     }
     
     private GuiceBundle createGuiceBundle(Class<ApiConfiguration> configurationClass, Module module)
