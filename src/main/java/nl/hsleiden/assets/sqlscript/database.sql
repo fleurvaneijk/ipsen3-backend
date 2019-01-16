@@ -122,3 +122,26 @@ INSERT INTO child VALUES(DEFAULT,(SELECT id FROM couple WHERE parent_email_1 = '
 
 INSERT INTO users
 VALUES ('mijkesmit@dubio.nl', 'Mijke', 'Smit', 'dubio100', 'ADMIN');
+
+-- dilemma voorbeelden
+INSERT INTO dilemma_subject
+VALUES ('babies','www.link.nl', 1);
+
+INSERT INTO dilemma
+VALUES (1,'babies',FALSE ,1);
+INSERT INTO dilemma
+VALUES (2,'babies',FALSE ,2);
+INSERT INTO dilemma
+VALUES (3,'babies',FALSE ,3);
+INSERT INTO dilemma
+VALUES (4,'babies',FALSE ,4);
+INSERT INTO dilemma
+VALUES (5,'babies',TRUE ,1);
+INSERT INTO dilemma
+VALUES (6,'babies',TRUE ,2);
+INSERT INTO dilemma
+VALUES (7,'babies',TRUE ,3);
+INSERT INTO dilemma
+VALUES (8,'babies',TRUE ,4);
+INSERT INTO dilemma
+VALUES (9,'babies',TRUE ,5);
