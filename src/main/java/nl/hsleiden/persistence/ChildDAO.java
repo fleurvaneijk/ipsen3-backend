@@ -29,7 +29,7 @@ public class ChildDAO {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         try {
-            pstmt = this.database.connect().prepareStatement(SQL);
+            pstmt = this.database.getConnection().prepareStatement(SQL);
             rs = pstmt.executeQuery();
             int columnCount = rs.getMetaData().getColumnCount();
             while(rs.next()){
@@ -68,7 +68,7 @@ public class ChildDAO {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         try {
-            pstmt = this.database.connect().prepareStatement(SQL);
+            pstmt = this.database.getConnection().prepareStatement(SQL);
             pstmt.setInt(1, id);
             rs = pstmt.executeQuery();
             while(rs.next()){
@@ -102,7 +102,7 @@ public class ChildDAO {
 
         try {
 
-            pstmt = this.database.connect().prepareStatement(SQL);
+            pstmt = this.database.getConnection().prepareStatement(SQL);
 
             SimpleDateFormat dateOfBirth = new SimpleDateFormat("dd-MM-yyyy");
             java.util.Date date = dateOfBirth.parse(child.getBirthdate());
@@ -137,7 +137,7 @@ public class ChildDAO {
         PreparedStatement pstmt = null;
 
         try {
-            pstmt = this.database.connect().prepareStatement(SQL);
+            pstmt = this.database.getConnection().prepareStatement(SQL);
             pstmt.setInt(1, id);
             pstmt.executeQuery();
 

@@ -19,7 +19,7 @@ public class Database {
      * Hiermee willen we ervoor zorgen dat de applicatie met de database verbonden is
      * @author Yme Brugts, Robin Silverio, Fleur van Eijk
      */
-    public void verbinden(){
+    public void connect(){
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
@@ -36,7 +36,7 @@ public class Database {
         if (conn != null) {
             System.out.println("Database is connected.");
         } else {
-            System.out.println("Couldn't connect with the database.");
+            System.out.println("Couldn't getConnection with the database.");
         }
     }
 
@@ -45,7 +45,7 @@ public class Database {
      * @return a Connection object
      * @author Robin Silverio
      */
-    public Connection connect() throws SQLException {
+    public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, user, pass);
     }
 

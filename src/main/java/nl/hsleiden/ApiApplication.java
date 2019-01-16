@@ -58,7 +58,7 @@ public class ApiApplication extends Application<ApiConfiguration>
 
     public void initieerDatabase(){
         database = new Database();
-        database.verbinden();
+        database.connect();
 
     }
     

@@ -47,7 +47,7 @@ public class UserDAO
 //        PreparedStatement pstmt = null;
 //        ResultSet rs = null;
 //        try {
-//            pstmt = this.database.connect().prepareStatement(SQL);
+//            pstmt = this.database.getConnection().prepareStatement(SQL);
 //            rs = pstmt.executeQuery();
 //            int columnCount = rs.getMetaData().getColumnCount();
 //            while(rs.next()){
@@ -81,7 +81,7 @@ public class UserDAO
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         try {
-            pstmt = this.database.connect().prepareStatement(SQL);
+            pstmt = this.database.getConnection().prepareStatement(SQL);
             rs = pstmt.executeQuery();
             int columnCount = rs.getMetaData().getColumnCount();
             while(rs.next()){
@@ -122,7 +122,7 @@ public class UserDAO
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         try {
-            pstmt = this.database.connect().prepareStatement(SQL);
+            pstmt = this.database.getConnection().prepareStatement(SQL);
             pstmt.setString(1, id);
             rs = pstmt.executeQuery();
             while(rs.next()){
@@ -171,7 +171,7 @@ public class UserDAO
 
             try {
 
-                pstmt = this.database.connect().prepareStatement(SQL);
+                pstmt = this.database.getConnection().prepareStatement(SQL);
 
 
                 pstmt.setString(1, u.getEmailAddress());
@@ -204,7 +204,7 @@ public class UserDAO
         PreparedStatement pstmt = null;
 
         try {
-            pstmt = this.database.connect().prepareStatement(SQL);
+            pstmt = this.database.getConnection().prepareStatement(SQL);
             pstmt.setString(1, id);
             pstmt.executeQuery();
 

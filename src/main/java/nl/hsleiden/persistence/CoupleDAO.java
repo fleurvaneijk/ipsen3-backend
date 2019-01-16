@@ -2,17 +2,13 @@ package nl.hsleiden.persistence;
 
 import nl.hsleiden.database.Database;
 import nl.hsleiden.model.Couple;
-import nl.hsleiden.model.User;
-import org.mindrot.jbcrypt.BCrypt;
 
 import javax.inject.Singleton;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 
 @Singleton
 public class CoupleDAO {
@@ -31,7 +27,7 @@ public class CoupleDAO {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         try {
-            pstmt = this.database.connect().prepareStatement(SQL);
+            pstmt = this.database.getConnection().prepareStatement(SQL);
             rs = pstmt.executeQuery();
             int columnCount = rs.getMetaData().getColumnCount();
             while(rs.next()){
@@ -72,7 +68,7 @@ public class CoupleDAO {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         try {
-            pstmt = this.database.connect().prepareStatement(SQL);
+            pstmt = this.database.getConnection().prepareStatement(SQL);
             pstmt.setInt(1, id);
             rs = pstmt.executeQuery();
             while(rs.next()){
@@ -108,7 +104,7 @@ public class CoupleDAO {
 
         try {
 
-            pstmt = this.database.connect().prepareStatement(SQL);
+            pstmt = this.database.getConnection().prepareStatement(SQL);
 
 
             pstmt.setString(1, couple.getParentMail1());
@@ -140,7 +136,7 @@ public class CoupleDAO {
         PreparedStatement pstmt = null;
 
         try {
-            pstmt = this.database.connect().prepareStatement(SQL);
+            pstmt = this.database.getConnection().prepareStatement(SQL);
             pstmt.setInt(1, id);
             pstmt.executeQuery();
 
