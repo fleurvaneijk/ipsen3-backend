@@ -32,7 +32,7 @@ public class User implements Principal
     private String lastname;
     
     @NotEmpty
-    @Length(min = 5)
+    @Length(min = 3)
     @JsonView(View.Protected.class)
     private String password;
     
