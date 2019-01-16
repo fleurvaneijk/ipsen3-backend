@@ -10,6 +10,11 @@
 -- drop table rating cascade;
 -- drop table user_roles cascade;
 
+CREATE TABLE user_roles
+(
+  role VARCHAR(25) PRIMARY KEY
+);
+
 CREATE TABLE users (
   email     VARCHAR(60),
   firstname VARCHAR(30),
@@ -18,11 +23,6 @@ CREATE TABLE users (
   role      VARCHAR(25) REFERENCES user_roles(role),
   PRIMARY KEY (email)
 );
-
-CREATE TABLE user_roles
-(
-  role VARCHAR(25) PRIMARY KEY
-)
 
 CREATE TABLE couple
 (
@@ -100,7 +100,7 @@ CREATE TABLE rating
 -- Insert tests
 INSERT INTO user_roles VALUES('PARENT');
 INSERT INTO user_roles VALUES('ADMIN');
-INSERT INTO user_roles VALUES('ONDERADMIN');
+INSERT INTO user_roles VALUES('MEDEWERKER');
 
 -- User 1
 INSERT INTO users
@@ -121,4 +121,4 @@ VALUES(DEFAULT, 'yme@hotmail.com', 'dilisha@hotmail.com', FALSE, 0, 36);
 INSERT INTO child VALUES(DEFAULT,(SELECT id FROM couple WHERE parent_email_1 = 'yme@hotmail.com'), '14-01-2019');
 
 INSERT INTO users
-VALUES ('mijkesmit@dubio.nl', 'Mijke', 'Smit', 'dubio100', 'ADMIN');
+VALUES ('mijkesmit@dubio.nl', 'Mijke', 'Smit', '$2a$10$PojNWQ3v/MlhrThEoQ.0EurE7mOLDjfd0jHjBYmMfQe8EfIAW4/Am', 'ADMIN');
