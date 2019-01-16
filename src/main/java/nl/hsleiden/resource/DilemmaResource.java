@@ -29,6 +29,7 @@ public class DilemmaResource {
     @GET
     @JsonView(View.Public.class)
     public Collection<Dilemma> retrieveAll() {
+        System.out.println("GET WERKT !!!!!!");
         return service.getAll();
     }
 
