@@ -104,7 +104,7 @@ public class ChildDAO {
 
             pstmt = this.database.getConnection().prepareStatement(SQL);
 
-            SimpleDateFormat dateOfBirth = new SimpleDateFormat("dd-MM-yyyy");
+            SimpleDateFormat dateOfBirth = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date date = dateOfBirth.parse(child.getBirthdate());
             java.sql.Date sqlBirthDate = new java.sql.Date(date.getTime());
 
