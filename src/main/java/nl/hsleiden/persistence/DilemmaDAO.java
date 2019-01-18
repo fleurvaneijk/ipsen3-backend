@@ -24,7 +24,7 @@ public class DilemmaDAO {
         ResultSet rs = null;
 
         try {
-            statement = this.database.connect().prepareStatement(SQL);
+            statement = this.database.getConnection().prepareStatement(SQL);
             rs = statement.executeQuery();
             while (rs.next()) {
                 dilemmas.add(
@@ -61,7 +61,7 @@ public class DilemmaDAO {
         ResultSet rs = null;
 
         try {
-            statement = this.database.connect().prepareStatement(SQL);
+            statement = this.database.getConnection().prepareStatement(SQL);
             statement.setInt(1, id);
             rs = statement.executeQuery();
             while (rs.next()) {
