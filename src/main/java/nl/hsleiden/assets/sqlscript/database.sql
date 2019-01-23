@@ -108,7 +108,7 @@ VALUES('robinsilverio@hotmail.com', 'Robin', 'Silvério', 'dubio100', 'PARENT');
 INSERT INTO users
 VALUES('fleur@hotmail.com', 'Fleur', 'van Eijk', 'dubio100', 'PARENT');
 INSERT INTO couple
-VALUES(DEFAULT, 'robinsilverio@hotmail.com', 'fleur@hotmail.com', TRUE, 30, 30)
+VALUES(DEFAULT, 'robinsilverio@hotmail.com', 'fleur@hotmail.com', TRUE, 30, 30);
 
 -- User 2
 INSERT INTO users
@@ -118,7 +118,7 @@ VALUES('dilisha@hotmail.com', 'Dilisha', 'weetgeenachternaam', 'dubio100', 'PARE
 INSERT INTO couple
 VALUES(DEFAULT, 'yme@hotmail.com', 'dilisha@hotmail.com', FALSE, 0, 36);
 
-INSERT INTO child VALUES(DEFAULT,(SELECT id FROM couple WHERE parent_email_1 = 'yme@hotmail.com'), '14-01-2019');
+INSERT INTO child VALUES(DEFAULT,(SELECT id FROM couple WHERE parent_email_1 = 'yme@hotmail.com'), '2019-01-14');
 
 -- Users 3 met kleine wachtwoorden (wachtwoord is abc).
 INSERT INTO users
@@ -130,7 +130,7 @@ VALUES('gulag@ussr.com', 'Josef', 'Stalin', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5
 INSERT INTO couple
 VALUES(DEFAULT, 'koen@gmail.com', 'gulag@ussr.com', TRUE, 30, 30);
 
-INSERT INTO child VALUES(DEFAULT,(SELECT id FROM couple WHERE parent_email_1 = 'koen@gmail.com'), '14-01-2019');
+INSERT INTO child VALUES(DEFAULT,(SELECT id FROM couple WHERE parent_email_1 = 'koen@gmail.com'), '2019-01-14');
 
 -- Admin met kleine wachtwoord (wachtwoord is abc).
 INSERT INTO users
