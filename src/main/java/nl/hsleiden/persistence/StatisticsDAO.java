@@ -22,7 +22,6 @@ public class StatisticsDAO {
     }
 
     public List getRatingPerSubject() {
-        ArrayList row = new ArrayList();
         ArrayList ratingPerSubjectList = new ArrayList();
 
         try {
@@ -31,8 +30,8 @@ public class StatisticsDAO {
             PreparedStatement statement = database.getConnection().prepareStatement(query);
             resultSet = statement.executeQuery();
 
-            while (resultSet.next())
-            {
+            while(resultSet.next()) {
+                ArrayList row = new ArrayList();
                 row.add(resultSet.getBoolean("pregnant"));
                 row.add(resultSet.getString("subject"));
                 row.add(resultSet.getInt("rating"));
@@ -55,5 +54,4 @@ public class StatisticsDAO {
     public void setDatabase(Database database) {
         this.database = database;
     }
-
 }
