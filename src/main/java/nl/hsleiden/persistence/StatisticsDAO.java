@@ -25,7 +25,7 @@ public class StatisticsDAO {
         ArrayList ratingPerSubjectList = new ArrayList();
 
         try {
-            String query =  "SELECT couple.pregnant, dilemma.subject, SUM(rating_dilemma) AS rating FROM rating JOIN dilemma ON(dilemma_id = id) JOIN couple ON(parent_email = parent_email_1 OR parent_email = parent_email_2) GROUP BY couple.pregnant, dilemma.subject";
+            String query =  "SELECT couple.pregnant, dilemma.subject, ROUND(AVG(rating_dilemma)::numeric,1) AS rating FROM rating JOIN dilemma ON(dilemma_id = id) JOIN couple ON(parent_email = parent_email_1 OR parent_email = parent_email_2) GROUP BY couple.pregnant, dilemma.subject";
 
             PreparedStatement statement = database.getConnection().prepareStatement(query);
             resultSet = statement.executeQuery();
@@ -34,7 +34,7 @@ public class StatisticsDAO {
                 ArrayList row = new ArrayList();
                 row.add(resultSet.getBoolean("pregnant"));
                 row.add(resultSet.getString("subject"));
-                row.add(resultSet.getInt("rating"));
+                row.add(resultSet.getDouble("rating"));
 
                 ratingPerSubjectList.add(row);
             }

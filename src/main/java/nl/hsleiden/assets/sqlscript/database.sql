@@ -153,3 +153,12 @@ INSERT INTO dilemma VALUES (6,'persoonlijk',TRUE ,2);
 INSERT INTO dilemma VALUES (7,'relatie',TRUE ,3);
 INSERT INTO dilemma VALUES (8,'opvoeding',TRUE ,4);
 INSERT INTO dilemma VALUES (9,'sociaal',TRUE ,5);
+
+insert into rating values('fleur@hotmail.com', '1', '12', '3');
+insert into rating values('fleur@hotmail.com', '2', '12', '5');
+insert into rating values('fleur@hotmail.com', '3', '12', '4');
+insert into rating values('fleur@hotmail.com', '4', '12', '2');
+insert into rating values('yme@hotmail.com', '1', '12', '4');
+insert into rating values('yme@hotmail.com', '2', '12', '2');
+insert into rating values('yme@hotmail.com', '3', '12', '3');
+insert into rating values('yme@hotmail.com', '4', '12', '5');
