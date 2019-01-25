@@ -108,7 +108,7 @@ VALUES('robinsilverio@hotmail.com', 'Robin', 'Silvério', 'dubio100', 'PARENT');
 INSERT INTO users
 VALUES('fleur@hotmail.com', 'Fleur', 'van Eijk', 'dubio100', 'PARENT');
 INSERT INTO couple
-VALUES(DEFAULT, 'robinsilverio@hotmail.com', 'fleur@hotmail.com', TRUE, 30, 30)
+VALUES(DEFAULT, 'robinsilverio@hotmail.com', 'fleur@hotmail.com', TRUE, 30, 30);
 
 -- User 2
 INSERT INTO users
@@ -118,7 +118,7 @@ VALUES('dilisha@hotmail.com', 'Dilisha', 'weetgeenachternaam', 'dubio100', 'PARE
 INSERT INTO couple
 VALUES(DEFAULT, 'yme@hotmail.com', 'dilisha@hotmail.com', FALSE, 0, 36);
 
-INSERT INTO child VALUES(DEFAULT,(SELECT id FROM couple WHERE parent_email_1 = 'yme@hotmail.com'), '14-01-2019');
+INSERT INTO child VALUES(DEFAULT,(SELECT id FROM couple WHERE parent_email_1 = 'yme@hotmail.com'), '2019-01-14');
 
 -- Users 3 met kleine wachtwoorden (wachtwoord is abc).
 INSERT INTO users
@@ -130,37 +130,15 @@ VALUES('gulag@ussr.com', 'Josef', 'Stalin', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5
 INSERT INTO couple
 VALUES(DEFAULT, 'koen@gmail.com', 'gulag@ussr.com', TRUE, 30, 30);
 
-INSERT INTO child VALUES(DEFAULT,(SELECT id FROM couple WHERE parent_email_1 = 'koen@gmail.com'), '14-01-2019');
+INSERT INTO child VALUES(DEFAULT,(SELECT id FROM couple WHERE parent_email_1 = 'koen@gmail.com'), '2019-01-14');
 
 -- Admin met kleine wachtwoord (wachtwoord is abc).
 INSERT INTO users
 VALUES ('mijkesmit@dubio.nl', 'Mijke', 'Smit', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'ADMIN');
+INSERT INTO users
+VALUES ('loicq@dubio.nl', 'Loicq', 'Rabarison', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'MEDEWERKER');
 
 -- dilemma voorbeelden
-INSERT INTO dilemma_subject
-VALUES ('babies','www.link.nl', 1);
-
-INSERT INTO dilemma
-VALUES (1,'babies',FALSE ,1);
-INSERT INTO dilemma
-VALUES (2,'babies',FALSE ,2);
-INSERT INTO dilemma
-VALUES (3,'babies',FALSE ,3);
-INSERT INTO dilemma
-VALUES (4,'babies',FALSE ,4);
-INSERT INTO dilemma
-VALUES (5,'babies',TRUE ,1);
-INSERT INTO dilemma
-VALUES (6,'babies',TRUE ,2);
-INSERT INTO dilemma
-VALUES (7,'babies',TRUE ,3);
-INSERT INTO dilemma
-VALUES (8,'babies',TRUE ,4);
-INSERT INTO dilemma
-VALUES (9,'babies',TRUE ,5);
-
-
-
 INSERT INTO dilemma_option
 VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/slapendeBaby.png', 'Dilemma 1: Alle slapende babies die je ziet moet je wakker maken', 1);
 INSERT INTO dilemma_option
@@ -177,3 +155,27 @@ INSERT INTO dilemma_option
 VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/yoga.jpg', 'Dilemma 1: yoga', 4);
 INSERT INTO dilemma_option
 VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/kickboksen.jpg', 'Dilemma 2: boxen', 4);
+
+INSERT INTO dilemma_subject VALUES ('sociaal','www.link.nl/sociaal', 1);
+INSERT INTO dilemma_subject VALUES ('persoonlijk','www.link.nl/persoonlijk', 1);
+INSERT INTO dilemma_subject VALUES ('relatie','www.link.nl/relatie', 1);
+INSERT INTO dilemma_subject VALUES ('opvoeding','www.link.nl/opvoeding', 1);
+
+INSERT INTO dilemma VALUES (1,'sociaal',FALSE ,1);
+INSERT INTO dilemma VALUES (2,'persoonlijk',FALSE ,2);
+INSERT INTO dilemma VALUES (3,'relatie',FALSE ,3);
+INSERT INTO dilemma VALUES (4,'opvoeding',FALSE ,4);
+INSERT INTO dilemma VALUES (5,'sociaal',TRUE ,1);
+INSERT INTO dilemma VALUES (6,'persoonlijk',TRUE ,2);
+INSERT INTO dilemma VALUES (7,'relatie',TRUE ,3);
+INSERT INTO dilemma VALUES (8,'opvoeding',TRUE ,4);
+INSERT INTO dilemma VALUES (9,'sociaal',TRUE ,5);
+
+insert into rating values('fleur@hotmail.com', '1', '12', '3');
+insert into rating values('fleur@hotmail.com', '2', '12', '5');
+insert into rating values('fleur@hotmail.com', '3', '12', '4');
+insert into rating values('fleur@hotmail.com', '4', '12', '2');
+insert into rating values('yme@hotmail.com', '1', '12', '4');
+insert into rating values('yme@hotmail.com', '2', '12', '2');
+insert into rating values('yme@hotmail.com', '3', '12', '3');
+insert into rating values('yme@hotmail.com', '4', '12', '5');
