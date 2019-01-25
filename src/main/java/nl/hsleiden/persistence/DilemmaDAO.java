@@ -46,7 +46,6 @@ public class DilemmaDAO {
                 e.printStackTrace();
             }
         }
-        System.out.println(dilemmas);
         return dilemmas;
     }
 

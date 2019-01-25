@@ -164,4 +164,16 @@ VALUES (9,'babies',TRUE ,5);
 INSERT INTO dilemma_option
 VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/slapendeBaby.png', 'Dilemma 1: Alle slapende babies die je ziet moet je wakker maken', 1);
 INSERT INTO dilemma_option
-VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/poppenwagen.jpg', 'Dilemma 2: Je loopt altijd met een poppenwagen rond', 1)
+VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/poppenwagen.jpg', 'Dilemma 2: Je loopt altijd met een poppenwagen rond', 1);
+INSERT INTO dilemma_option
+VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/thuisBevallen.jpg', 'Dilemma 1: thuis', 2);
+INSERT INTO dilemma_option
+VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/ziekenhuisBevallen.jpg', 'Dilemma 2: Ziekenhuis', 2);
+INSERT INTO dilemma_option
+VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/vetvrij.jpg', 'Dilemma 1: vetvrij', 3);
+INSERT INTO dilemma_option
+VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/geenDieet.jpg', 'Dilemma 2: lekker vet', 3);
+INSERT INTO dilemma_option
+VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/yoga.jpg', 'Dilemma 1: yoga', 4);
+INSERT INTO dilemma_option
+VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/kickboksen.jpg', 'Dilemma 2: boxen', 4);
