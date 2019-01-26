@@ -41,7 +41,7 @@ public class UserResource
     
     @GET
     @JsonView(View.Public.class)
-    @RolesAllowed("PARENT")
+//    @RolesAllowed("PARENT")
     public Collection<User> retrieveAll()
     {
         return service.getAll();
@@ -54,6 +54,16 @@ public class UserResource
     public User retrieve(@PathParam("id") String id)
     {
         return service.get(id);
+    }
+
+    @GET
+    @Path("/admins")
+    @JsonView(View.Public.class)
+//    @RolesAllowed({"ADMIN", "MEDEWERKER"})
+    public Collection<User> retrieveAllAdmins()
+    {
+        System.out.println(service.getAllAdmins());
+        return service.getAllAdmins();
     }
     
     @POST

@@ -19,25 +19,12 @@ import org.mindrot.jbcrypt.BCrypt;
 public class UserDAO
 {
     private final List<User> users;
+    private final List<User> admins;
     private Database database;
     
-    public UserDAO()
-    {
-        User user1 = new User();
-        user1.setFirstname("First user");
-        user1.setEmailAddress("first@user.com");
-        user1.setPassword("first");
-        user1.setRole("ADMIN");
-
-        User user2 = new User();
-        user2.setFirstname("Second user");
-        user2.setEmailAddress("second@user.com");
-        user2.setPassword("second");
-        user2.setRole("PARENT");
-
+    public UserDAO() {
         users = new ArrayList<>();
-        users.add(user1);
-        users.add(user2);
+        admins = new ArrayList<>();
     }
     
     public List<User> getAll()
@@ -109,6 +96,42 @@ public class UserDAO
             }
         }
         return users;
+
+    }
+
+    public List<User> getAllAdmins() {
+        List<User> users = new ArrayList<User>();
+        String SQL = "SELECT * FROM users WHERE role = ? OR role = ?";
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        try {
+            pstmt = this.database.getConnection().prepareStatement(SQL);
+            pstmt.setString(1, "ADMIN");
+            pstmt.setString(1, "MEDEWERKER");
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                admins.add(
+                        new User(
+                                rs.getString("email"),
+                                rs.getString("firstname"),
+                                rs.getString("lastname"),
+                                rs.getString("password"),
+                                rs.getString("role")
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try{
+                rs.close();
+                pstmt.close();
+            } catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+        return admins;
 
     }
     

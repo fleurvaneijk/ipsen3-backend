@@ -34,6 +34,11 @@ public class UserService extends BaseService<User>
     {
         return requireResult(dao.get(id));
     }
+
+    public Collection<User> getAllAdmins()
+    {
+        return dao.getAllAdmins();
+    }
     
     public void add(User[] user)
     {
