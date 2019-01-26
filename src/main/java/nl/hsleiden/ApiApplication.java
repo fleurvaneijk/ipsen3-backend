@@ -9,14 +9,20 @@ import io.dropwizard.auth.AuthDynamicFeature;
 import io.dropwizard.auth.AuthValueFactoryProvider;
 import io.dropwizard.auth.basic.BasicCredentialAuthFilter;
 import io.dropwizard.bundles.assets.ConfiguredAssetsBundle;
+import io.dropwizard.db.DataSourceFactory;
+import io.dropwizard.hibernate.HibernateBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import java.util.EnumSet;
 import javax.servlet.DispatcherType;
 
 import nl.hsleiden.database.Database;
+import nl.hsleiden.model.Dilemma;
 import nl.hsleiden.model.User;
+import nl.hsleiden.persistence.DilemmaDAO;
+import nl.hsleiden.resource.DilemmaResource;
 import nl.hsleiden.service.AuthenticationService;
+import nl.hsleiden.service.DilemmaService;
 import org.eclipse.jetty.servlet.FilterHolder;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 import org.slf4j.Logger;
@@ -47,9 +53,10 @@ public class ApiApplication extends Application<ApiConfiguration>
     {
         assetsBundle = (ConfiguredBundle) new ConfiguredAssetsBundle("/assets/", "/client", "index.html");
         guiceBundle = createGuiceBundle(ApiConfiguration.class, new ApiGuiceModule());
-        
+        bootstrap.addBundle(hibernateBundle);
         bootstrap.addBundle(assetsBundle);
         bootstrap.addBundle(guiceBundle);
+
     }
 
     public static Database getDatabase() {
@@ -68,7 +75,7 @@ public class ApiApplication extends Application<ApiConfiguration>
         name = configuration.getApiName();
         
         logger.info(String.format("Set API name to %s", name));
-        
+
         setupAuthentication(environment);
         configureClientFilter(environment);
         initieerDatabase();
@@ -110,7 +117,20 @@ public class ApiApplication extends Application<ApiConfiguration>
             EnumSet.allOf(DispatcherType.class)
         );
     }
-    
+
+    /**
+     * Hibernate bundle.
+     */
+    public static final HibernateBundle<ApiConfiguration> hibernateBundle
+            = new HibernateBundle<ApiConfiguration>(Dilemma.class) {
+
+        @Override
+        public DataSourceFactory getDataSourceFactory(ApiConfiguration configuration) {
+            return configuration.getDataSourceFactory();
+        }
+    };
+
+
     public static void main(String[] args) throws Exception
     {
         new ApiApplication().run(args);

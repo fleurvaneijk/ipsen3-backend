@@ -33,7 +33,7 @@ public class StatisticsResource {
     @GET
     @Path("/ratingPerSubject")
     @JsonView(View.Public.class)
-    @RolesAllowed({"ADMIN", "MEDEWERKER"})
+//    @RolesAllowed({"ADMIN", "MEDEWERKER"})
     public List retrieveRatingPerSubject()
     {
         return service.getRatingPerSubject();
