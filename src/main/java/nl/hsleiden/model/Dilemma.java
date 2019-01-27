@@ -20,7 +20,7 @@ public class Dilemma {
 
     @Column(name = "subject", length = 30)
     @JsonView(View.Public.class)
-    private String Subject;
+    private String subject;
 
     @Column(name = "pregnant", nullable = false)
     @JsonView(View.Public.class)
@@ -34,7 +34,7 @@ public class Dilemma {
 
     public Dilemma(int dilemmaId, String subject, boolean pregnant, int weekNr) {
         this.dilemmaId = dilemmaId;
-        Subject = subject;
+        this.subject = subject;
         this.pregnant = pregnant;
         this.weekNr = weekNr;
     }
@@ -48,11 +48,11 @@ public class Dilemma {
     }
 
     public String getSubject() {
-        return Subject;
+        return this.subject;
     }
 
     public void setSubject(String subject) {
-        Subject = subject;
+        this.subject = subject;
     }
 
     public boolean isPregnant() {
