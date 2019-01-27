@@ -77,10 +77,10 @@ CREATE TABLE dilemma_option
 
 CREATE TABLE answer
 (
-  parent_email  VARCHAR(60),
-  dilemma_id    int,
-  answered_time TIMESTAMP,
-  answer        int,
+  parent_email    VARCHAR(60),
+  dilemma_id      int,
+  answered_time   TIMESTAMP,
+  answer          int,
   PRIMARY KEY (parent_email, dilemma_id),
   CONSTRAINT fk_dilemma FOREIGN KEY (dilemma_id) REFERENCES dilemma (id) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT fk_parent FOREIGN KEY (parent_email) REFERENCES users (email) ON DELETE CASCADE ON UPDATE CASCADE
@@ -88,14 +88,15 @@ CREATE TABLE answer
 
 CREATE TABLE rating
 (
-  parent_email VARCHAR(60),
-  dilemma_id   int,
-  rating_time      int,
-  rating_dilemma   int,
+  parent_email    VARCHAR(60),
+  dilemma_id      int,
+  rating_time     int,
+  rating_dilemma  int,
   PRIMARY KEY (parent_email, dilemma_id),
   CONSTRAINT fk_dilemma FOREIGN KEY (dilemma_id) REFERENCES dilemma (id) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT fk_parent FOREIGN KEY (parent_email) REFERENCES users (email) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
 
 -- Insert tests
 INSERT INTO user_roles VALUES('PARENT');
@@ -139,6 +140,23 @@ INSERT INTO users
 VALUES ('loicq@dubio.nl', 'Loicq', 'Rabarison', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'MEDEWERKER');
 
 -- dilemma voorbeelden
+INSERT INTO dilemma_option
+VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/slapendeBaby.png', 'Dilemma 1: Alle slapende babies die je ziet moet je wakker maken', 1);
+INSERT INTO dilemma_option
+VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/poppenwagen.jpg', 'Dilemma 2: Je loopt altijd met een poppenwagen rond', 1);
+INSERT INTO dilemma_option
+VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/thuisBevallen.jpg', 'Dilemma 1: thuis', 2);
+INSERT INTO dilemma_option
+VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/ziekenhuisBevallen.jpg', 'Dilemma 2: Ziekenhuis', 2);
+INSERT INTO dilemma_option
+VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/vetvrij.jpg', 'Dilemma 1: vetvrij', 3);
+INSERT INTO dilemma_option
+VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/geenDieet.jpg', 'Dilemma 2: lekker vet', 3);
+INSERT INTO dilemma_option
+VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/yoga.jpg', 'Dilemma 1: yoga', 4);
+INSERT INTO dilemma_option
+VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/kickboksen.jpg', 'Dilemma 2: boxen', 4);
+
 INSERT INTO dilemma_subject VALUES ('sociaal','www.link.nl/sociaal', 1);
 INSERT INTO dilemma_subject VALUES ('persoonlijk','www.link.nl/persoonlijk', 1);
 INSERT INTO dilemma_subject VALUES ('relatie','www.link.nl/relatie', 1);
@@ -154,11 +172,28 @@ INSERT INTO dilemma VALUES (7,'relatie',TRUE ,3);
 INSERT INTO dilemma VALUES (8,'opvoeding',TRUE ,4);
 INSERT INTO dilemma VALUES (9,'sociaal',TRUE ,5);
 
-insert into rating values('fleur@hotmail.com', '1', '12', '3');
-insert into rating values('fleur@hotmail.com', '2', '12', '5');
-insert into rating values('fleur@hotmail.com', '3', '12', '4');
-insert into rating values('fleur@hotmail.com', '4', '12', '2');
-insert into rating values('yme@hotmail.com', '1', '12', '4');
-insert into rating values('yme@hotmail.com', '2', '12', '2');
-insert into rating values('yme@hotmail.com', '3', '12', '3');
-insert into rating values('yme@hotmail.com', '4', '12', '5');
+INSERT INTO answer VALUES ('fleur@hotmail.com', 1, '2018-12-10 09:10:25', 1);
+INSERT INTO answer VALUES ('fleur@hotmail.com', 2, '2018-12-18 09:10:25', 2);
+INSERT INTO answer VALUES ('fleur@hotmail.com', 3, '2018-12-27 09:10:23', 1);
+INSERT INTO answer VALUES ('fleur@hotmail.com', 4, '2018-12-31 09:10:25', 1);
+INSERT INTO answer VALUES ('fleur@hotmail.com', 5, '2019-01-07 01:10:25', 1);
+INSERT INTO answer VALUES ('fleur@hotmail.com', 6, '2019-01-15 20:10:25', 2);
+INSERT INTO answer VALUES ('fleur@hotmail.com', 7, '2019-01-23 20:10:23', 1);
+INSERT INTO answer VALUES ('fleur@hotmail.com', 8, '2019-01-31 20:10:25', 1);
+INSERT INTO answer VALUES ('yme@hotmail.com', 1, '2018-12-11 13:10:25', 1);
+INSERT INTO answer VALUES ('yme@hotmail.com', 2, '2018-12-23 14:10:25', 2);
+INSERT INTO answer VALUES ('yme@hotmail.com', 3, '2018-12-24 15:10:23', 1);
+INSERT INTO answer VALUES ('yme@hotmail.com', 4, '2018-12-31 21:10:25', 1);
+INSERT INTO answer VALUES ('yme@hotmail.com', 5, '2019-01-07 21:10:25', 1);
+INSERT INTO answer VALUES ('yme@hotmail.com', 6, '2019-01-15 09:10:25', 2);
+INSERT INTO answer VALUES ('yme@hotmail.com', 7, '2019-01-21 09:10:23', 1);
+INSERT INTO answer VALUES ('yme@hotmail.com', 8, '2019-01-29 18:10:25', 1);
+
+insert into rating values('fleur@hotmail.com', '1', '4', '3');
+insert into rating values('fleur@hotmail.com', '2', '2', '5');
+insert into rating values('fleur@hotmail.com', '3', '5', '4');
+insert into rating values('fleur@hotmail.com', '4', '3', '2');
+insert into rating values('yme@hotmail.com', '1', '5', '4');
+insert into rating values('yme@hotmail.com', '2', '4', '2');
+insert into rating values('yme@hotmail.com', '3', '3', '3');
+insert into rating values('yme@hotmail.com', '4', '4', '5');
