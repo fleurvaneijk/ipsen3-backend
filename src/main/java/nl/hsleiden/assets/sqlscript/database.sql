@@ -77,10 +77,11 @@ CREATE TABLE dilemma_option
 
 CREATE TABLE answer
 (
-  parent_email  VARCHAR(60),
-  dilemma_id    int,
-  answered_time TIMESTAMP,
-  answer        int,
+  parent_email    VARCHAR(60),
+  dilemma_id      int,
+  answered_time   TIMESTAMP,
+  answer          int,
+
   PRIMARY KEY (parent_email, dilemma_id),
   CONSTRAINT fk_dilemma FOREIGN KEY (dilemma_id) REFERENCES dilemma (id) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT fk_parent FOREIGN KEY (parent_email) REFERENCES users (email) ON DELETE CASCADE ON UPDATE CASCADE
@@ -88,10 +89,10 @@ CREATE TABLE answer
 
 CREATE TABLE rating
 (
-  parent_email VARCHAR(60),
-  dilemma_id   int,
-  rating_time      int,
-  rating_dilemma   int,
+  parent_email    VARCHAR(60),
+  dilemma_id      int,
+  rating_time     int,
+  rating_dilemma  int,
   PRIMARY KEY (parent_email, dilemma_id),
   CONSTRAINT fk_dilemma FOREIGN KEY (dilemma_id) REFERENCES dilemma (id) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT fk_parent FOREIGN KEY (parent_email) REFERENCES users (email) ON DELETE CASCADE ON UPDATE CASCADE
@@ -154,11 +155,11 @@ INSERT INTO dilemma VALUES (7,'relatie',TRUE ,3);
 INSERT INTO dilemma VALUES (8,'opvoeding',TRUE ,4);
 INSERT INTO dilemma VALUES (9,'sociaal',TRUE ,5);
 
-insert into rating values('fleur@hotmail.com', '1', '12', '3');
-insert into rating values('fleur@hotmail.com', '2', '12', '5');
-insert into rating values('fleur@hotmail.com', '3', '12', '4');
-insert into rating values('fleur@hotmail.com', '4', '12', '2');
-insert into rating values('yme@hotmail.com', '1', '12', '4');
-insert into rating values('yme@hotmail.com', '2', '12', '2');
-insert into rating values('yme@hotmail.com', '3', '12', '3');
-insert into rating values('yme@hotmail.com', '4', '12', '5');
+insert into rating values('fleur@hotmail.com', '1', '4', '3');
+insert into rating values('fleur@hotmail.com', '2', '2', '5');
+insert into rating values('fleur@hotmail.com', '3', '5', '4');
+insert into rating values('fleur@hotmail.com', '4', '3', '2');
+insert into rating values('yme@hotmail.com', '1', '5', '4');
+insert into rating values('yme@hotmail.com', '2', '4', '2');
+insert into rating values('yme@hotmail.com', '3', '3', '3');
+insert into rating values('yme@hotmail.com', '4', '4', '5');
