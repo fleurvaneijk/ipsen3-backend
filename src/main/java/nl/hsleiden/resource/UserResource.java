@@ -41,7 +41,7 @@ public class UserResource
     
     @GET
     @JsonView(View.Public.class)
-    @RolesAllowed("PARENT")
+//    @RolesAllowed("PARENT")
     public Collection<User> retrieveAll()
     {
         return service.getAll();
@@ -50,7 +50,7 @@ public class UserResource
     @GET
     @Path("/{id}")
     @JsonView(View.Public.class)
-    @RolesAllowed("PARENT")
+//    @RolesAllowed("PARENT")
     public User retrieve(@PathParam("id") String id)
     {
         return service.get(id);
@@ -68,7 +68,7 @@ public class UserResource
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)
-    @RolesAllowed("PARENT")
+//    @RolesAllowed("PARENT")
     public void update(@PathParam("id") String id, @Auth User authenticator, User user)
     {
         service.update(authenticator, id, user);
@@ -76,7 +76,7 @@ public class UserResource
     
     @DELETE
     @Path("/{id}")
-    @RolesAllowed("ADMIN")
+//    @RolesAllowed("ADMIN")
     public void delete(@PathParam("id") String id)
     {
         service.delete(id);
