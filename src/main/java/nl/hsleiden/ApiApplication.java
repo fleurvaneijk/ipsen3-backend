@@ -15,6 +15,7 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import java.util.EnumSet;
 import javax.servlet.DispatcherType;
+import javax.servlet.FilterRegistration;
 
 import nl.hsleiden.database.Database;
 import nl.hsleiden.model.Dilemma;
@@ -24,6 +25,7 @@ import nl.hsleiden.resource.DilemmaResource;
 import nl.hsleiden.service.AuthenticationService;
 import nl.hsleiden.service.DilemmaService;
 import org.eclipse.jetty.servlet.FilterHolder;
+import org.eclipse.jetty.servlets.CrossOriginFilter;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -75,7 +77,7 @@ public class ApiApplication extends Application<ApiConfiguration>
         name = configuration.getApiName();
         
         logger.info(String.format("Set API name to %s", name));
-
+        configureCors(environment);
         setupAuthentication(environment);
         configureClientFilter(environment);
         initieerDatabase();
@@ -134,5 +136,21 @@ public class ApiApplication extends Application<ApiConfiguration>
     public static void main(String[] args) throws Exception
     {
         new ApiApplication().run(args);
+    }
+
+
+    private void configureCors(Environment environment) {
+        final FilterRegistration.Dynamic cors =
+                environment.servlets().addFilter("CORS", CrossOriginFilter.class);
+
+        // Configure CORS parameters
+        cors.setInitParameter(CrossOriginFilter.ALLOWED_ORIGINS_PARAM, "*");
+        cors.setInitParameter(CrossOriginFilter.ALLOWED_HEADERS_PARAM, "X-Requested-With,Content-Type,Accept,Origin,Authorization");
+        cors.setInitParameter(CrossOriginFilter.ALLOWED_METHODS_PARAM, "OPTIONS,GET,PUT,POST,DELETE,HEAD");
+        cors.setInitParameter(CrossOriginFilter.ALLOW_CREDENTIALS_PARAM, "true");
+
+        // Add URL mapping
+        cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
+
     }
 }
