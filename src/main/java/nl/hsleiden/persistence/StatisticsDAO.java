@@ -49,6 +49,7 @@ public class StatisticsDAO {
             }
         }
         return ratingPerSubjectList;
+
     }
 
     public void setDatabase(Database database) {
