@@ -1,6 +1,7 @@
 package nl.hsleiden.resource;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import io.dropwizard.hibernate.UnitOfWork;
 import nl.hsleiden.View;
 import nl.hsleiden.model.Dilemma;
 import nl.hsleiden.service.DilemmaService;
@@ -27,6 +28,7 @@ public class DilemmaResource {
     }
 
     @GET
+    @UnitOfWork
     @JsonView(View.Public.class)
     public Collection<Dilemma> retrieveAll() {
         System.out.println("GET WERKT !!!!!!");
@@ -34,6 +36,7 @@ public class DilemmaResource {
     }
 
     @GET
+    @UnitOfWork
     @Path("/{id}")
     @JsonView(View.Public.class)
     public Dilemma retrieve(@PathParam("id") int id) {

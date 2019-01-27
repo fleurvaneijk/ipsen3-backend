@@ -1,87 +1,59 @@
 package nl.hsleiden.persistence;
 
+import io.dropwizard.hibernate.AbstractDAO;
+import nl.hsleiden.ApiApplication;
 import nl.hsleiden.database.Database;
 import nl.hsleiden.model.Dilemma;
+import org.hibernate.SessionFactory;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DilemmaDAO {
+/**
+ * This DAO works based on the Hibernate Framework.
+ *
+ * @return list of all dilemma stored in the database
+ * @Author Yme Brugts
+ */
+@Singleton
+public class DilemmaDAO extends AbstractDAO<Dilemma> {
 
-    private Database database;
+    private final SessionFactory sessionFactory;
 
+    @Inject
     public DilemmaDAO() {
-
+        super(ApiApplication.hibernateBundle.getSessionFactory());
+        sessionFactory = ApiApplication.hibernateBundle.getSessionFactory();
     }
 
     public List<Dilemma> getAll() {
-        List<Dilemma> dilemmas = new ArrayList<>();
-        String SQL = "SELECT*FROM dilemma";
-        PreparedStatement statement = null;
-        ResultSet rs = null;
-
-        try {
-            statement = this.database.getConnection().prepareStatement(SQL);
-            rs = statement.executeQuery();
-            while (rs.next()) {
-                dilemmas.add(
-                        new Dilemma(
-                                rs.getInt("id"),
-                                rs.getString("subject"),
-                                rs.getBoolean("pregnant"),
-                                rs.getInt("week_no")
-                        )
-                );
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                rs.close();
-                statement.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        System.out.println(dilemmas);
-        return dilemmas;
-    }
-
-    public void setDatabase(Database database) {
-        this.database = database;
+        CriteriaBuilder builder = currentSession().getCriteriaBuilder();
+        CriteriaQuery<Dilemma> criteria = builder.createQuery(Dilemma.class);
+        criteria.from(Dilemma.class);
+        return currentSession().createQuery(criteria).getResultList();
     }
 
     public Dilemma get(int id) {
-        Dilemma dilemma = null;
-        String SQL = "SELECT * FROM dilemma WHERE id = ?";
-        PreparedStatement statement = null;
-        ResultSet rs = null;
-
-        try {
-            statement = this.database.getConnection().prepareStatement(SQL);
-            statement.setInt(1, id);
-            rs = statement.executeQuery();
-            while (rs.next()) {
-                dilemma = new Dilemma();
-                dilemma.setDilemmaId(rs.getInt("id"));
-                dilemma.setSubject(rs.getString("subject"));
-                dilemma.setPregnant(rs.getBoolean("pregnant"));
-                dilemma.setWeekNr(rs.getInt("week_no"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                rs.close();
-                statement.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        return dilemma;
+        return currentSession().get(Dilemma.class, id);
     }
 
+    public void delete(Dilemma dilemma) {
+        currentSession().delete(dilemma);
+    }
+
+    public void update(Dilemma dilemma) {
+        currentSession().saveOrUpdate(dilemma);
+    }
+
+    public Dilemma insert(Dilemma dilemma) {
+        return persist(dilemma);
+    }
+    
 }

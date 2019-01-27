@@ -16,7 +16,7 @@ public class DilemmaService extends BaseService<Dilemma>{
     @Inject
     public DilemmaService(DilemmaDAO dao){
         this.dao = dao;
-        this.dao.setDatabase(ApiApplication.getDatabase());
+//        this.dao.setDatabase(ApiApplication.getDatabase());
     }
 
     public Collection<Dilemma> getAll(){
