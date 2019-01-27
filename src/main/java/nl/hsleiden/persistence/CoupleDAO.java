@@ -58,6 +58,43 @@ public class CoupleDAO {
 
     }
 
+    public Couple get(String email)
+    {
+        // Voer query uit (middels een prepared statement!)
+        // Maak een nieuw Serie object aan met gegevens uit de database
+        // Retourneer Serie object
+        Couple couple = null;
+        String SQL = "SELECT*FROM couple WHERE email = ?";
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        try {
+            pstmt = this.database.getConnection().prepareStatement(SQL);
+            pstmt.setString(1, email);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                couple = new Couple();
+                couple.setParentMail1(rs.getString("parent_email_1"));
+                couple.setParentMail2(rs.getString("parent_email_2"));
+                couple.setPregnant(rs.getBoolean("pregnant"));
+                couple.setWeeksPregnant(rs.getInt("weeks_pregnant"));
+                couple.setLastAnswerWeekNo(rs.getInt("last_answer_week_no"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try{
+                rs.close();
+                pstmt.close();
+                System.out.println("Preparedstatement individuele koppel selecteren gestopt");
+            }
+            catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+        return couple;
+    }
+
     public Couple get(int id)
     {
         // Voer query uit (middels een prepared statement!)
