@@ -12,6 +12,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -37,6 +38,24 @@ public class StatisticsResource {
     public List retrieveRatingPerSubject()
     {
         return service.getRatingPerSubject();
+    }
+
+    @GET
+    @Path("/answerDates")
+    @JsonView(View.Public.class)
+//    @RolesAllowed({"ADMIN", "MEDEWERKER"})
+    public List retrieveAnswerDates()
+    {
+        return service.getAnswerDates();
+    }
+
+    @GET
+    @Path("/answerTimes")
+    @JsonView(View.Public.class)
+//    @RolesAllowed({"ADMIN", "MEDEWERKER"})
+    public List retrieveAnswerTimes()
+    {
+        return service.getAnswerTimes();
     }
 
 }
