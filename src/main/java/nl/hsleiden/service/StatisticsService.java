@@ -2,14 +2,8 @@ package nl.hsleiden.service;
 
 import nl.hsleiden.ApiApplication;
 import nl.hsleiden.persistence.StatisticsDAO;
-
 import javax.inject.Inject;
-import java.sql.Time;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 /**
