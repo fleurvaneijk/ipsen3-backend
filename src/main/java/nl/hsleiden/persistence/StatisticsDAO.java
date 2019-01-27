@@ -53,7 +53,31 @@ public class StatisticsDAO {
             }
         }
         return ratingPerSubjectList;
+    }
 
+    public List getAnswerDateTimes() {
+        ArrayList<String> answerDateTimes = new ArrayList<>();
+
+        try {
+            String query =  "SELECT answered_time FROM answer";
+
+            PreparedStatement statement = database.getConnection().prepareStatement(query);
+            resultSet = statement.executeQuery();
+
+            while(resultSet.next()) {
+                answerDateTimes.add(resultSet.getString("answered_time"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                resultSet.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return answerDateTimes;
     }
 
     public void setDatabase(Database database) {

@@ -4,7 +4,12 @@ import nl.hsleiden.ApiApplication;
 import nl.hsleiden.persistence.StatisticsDAO;
 
 import javax.inject.Inject;
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -24,4 +29,29 @@ public class StatisticsService {
         return dao.getRatingPerSubject();
     }
 
+    public ArrayList<String> getAnswerDates(){
+        List dateTimes = dao.getAnswerDateTimes();
+        String date;
+        ArrayList<String> dates = new ArrayList<String>();
+        for(Object row : dateTimes){
+            String dateTime = row.toString();
+            date = dateTime.substring(0, dateTime.indexOf(' '));
+            dates.add(date);
+        }
+        System.out.println("de data zijn: " + dates);
+        return dates;
+    }
+
+    public List getAnswerTimes(){
+        List dateTimes = dao.getAnswerDateTimes();
+        String time;
+        ArrayList<String> times = new ArrayList<String>();
+        for(Object row : dateTimes){
+            String dateTime = row.toString();
+            time = dateTime.substring(dateTime.indexOf(' ') + 1);
+            times.add(time);
+        }
+        System.out.println("de tijden zijn: " + times);
+        return times;
+    }
 }
