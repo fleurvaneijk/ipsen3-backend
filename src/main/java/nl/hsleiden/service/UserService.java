@@ -29,6 +29,11 @@ public class UserService extends BaseService<User>
     {
         return dao.getAll();
     }
+
+    public Collection<User> getAllParents()
+    {
+        return dao.getAllParent();
+    }
     
     public User get(String id)
     {

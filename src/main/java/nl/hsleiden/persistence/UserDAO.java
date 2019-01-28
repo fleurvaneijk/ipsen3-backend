@@ -77,6 +77,44 @@ public class UserDAO
         return users;
 
     }
+
+    public List<User> getAllParent()
+    {
+        List<User> usersOuders = new ArrayList<User>();
+        String SQL = "SELECT*FROM users WHERE role = 'PARENT'";
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        try {
+            statement = this.database.getConnection().prepareStatement(SQL);
+            rs = statement.executeQuery();
+            int columnCount = rs.getMetaData().getColumnCount();
+            while(rs.next()){
+                usersOuders.add(
+                        new User(
+                                rs.getString("email"),
+                                rs.getString("firstname"),
+                                rs.getString("lastname"),
+                                rs.getString("password"),
+                                rs.getString("role")
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try{
+                rs.close();
+                statement.close();
+                System.out.println("Preparedstatement ouders selecteren gestopt");
+            }
+            catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+        return usersOuders;
+
+    }
     
     public User get(String id)
     {
