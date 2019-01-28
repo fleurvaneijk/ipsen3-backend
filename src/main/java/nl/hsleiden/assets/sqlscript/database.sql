@@ -139,6 +139,21 @@ VALUES ('mijkesmit@dubio.nl', 'Mijke', 'Smit', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.
 INSERT INTO users
 VALUES ('loicq@dubio.nl', 'Loicq', 'Rabarison', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'MEDEWERKER');
 
+INSERT INTO dilemma_subject VALUES ('sociaal','www.link.nl/sociaal', 1);
+INSERT INTO dilemma_subject VALUES ('persoonlijk','www.link.nl/persoonlijk', 1);
+INSERT INTO dilemma_subject VALUES ('relatie','www.link.nl/relatie', 1);
+INSERT INTO dilemma_subject VALUES ('opvoeding','www.link.nl/opvoeding', 1);
+
+INSERT INTO dilemma VALUES (1, 'sociaal', FALSE , 1);
+INSERT INTO dilemma VALUES (2, 'persoonlijk', FALSE , 2);
+INSERT INTO dilemma VALUES (3, 'relatie', FALSE , 3);
+INSERT INTO dilemma VALUES (4, 'opvoeding', FALSE , 4);
+INSERT INTO dilemma VALUES (5, 'sociaal', TRUE , 1);
+INSERT INTO dilemma VALUES (6, 'persoonlijk', TRUE , 2);
+INSERT INTO dilemma VALUES (7, 'relatie', TRUE , 3);
+INSERT INTO dilemma VALUES (8, 'opvoeding', TRUE , 4);
+INSERT INTO dilemma VALUES (9, 'sociaal', TRUE , 5);
+
 -- dilemma voorbeelden
 INSERT INTO dilemma_option
 VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/slapendeBaby.png', 'Dilemma 1: Alle slapende babies die je ziet moet je wakker maken', 1);
@@ -156,21 +171,6 @@ INSERT INTO dilemma_option
 VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/yoga.jpg', 'Dilemma 1: yoga', 4);
 INSERT INTO dilemma_option
 VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/kickboksen.jpg', 'Dilemma 2: boxen', 4);
-
-INSERT INTO dilemma_subject VALUES ('sociaal','www.link.nl/sociaal', 1);
-INSERT INTO dilemma_subject VALUES ('persoonlijk','www.link.nl/persoonlijk', 1);
-INSERT INTO dilemma_subject VALUES ('relatie','www.link.nl/relatie', 1);
-INSERT INTO dilemma_subject VALUES ('opvoeding','www.link.nl/opvoeding', 1);
-
-INSERT INTO dilemma VALUES (1,'sociaal',FALSE ,1);
-INSERT INTO dilemma VALUES (2,'persoonlijk',FALSE ,2);
-INSERT INTO dilemma VALUES (3,'relatie',FALSE ,3);
-INSERT INTO dilemma VALUES (4,'opvoeding',FALSE ,4);
-INSERT INTO dilemma VALUES (5,'sociaal',TRUE ,1);
-INSERT INTO dilemma VALUES (6,'persoonlijk',TRUE ,2);
-INSERT INTO dilemma VALUES (7,'relatie',TRUE ,3);
-INSERT INTO dilemma VALUES (8,'opvoeding',TRUE ,4);
-INSERT INTO dilemma VALUES (9,'sociaal',TRUE ,5);
 
 INSERT INTO answer VALUES ('fleur@hotmail.com', 1, '2018-12-10 09:10:25', 1);
 INSERT INTO answer VALUES ('fleur@hotmail.com', 2, '2018-12-18 09:10:25', 2);
