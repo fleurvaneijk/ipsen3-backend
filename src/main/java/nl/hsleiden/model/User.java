@@ -38,7 +38,7 @@ public class User implements Principal
     @JsonView(View.Protected.class)
     private String password;
     
-    @JsonView(View.Private.class)
+    @JsonView(View.Public.class)
     private String role;
 
     private String[] roleList = { "PARENT", "ADMIN", "MEDEWERKER" };

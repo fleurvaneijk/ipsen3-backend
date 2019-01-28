@@ -78,7 +78,7 @@ public class UserDAO
 
     }
 
-    public List<User> getAllParent()
+    public List<User> getAllParents()
     {
         List<User> usersOuders = new ArrayList<User>();
         String SQL = "SELECT*FROM users WHERE role = 'PARENT'";
@@ -107,6 +107,44 @@ public class UserDAO
                 rs.close();
                 statement.close();
                 System.out.println("Preparedstatement ouders selecteren gestopt");
+            }
+            catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+        return usersOuders;
+
+    }
+
+    public List<User> getAllAdmins()
+    {
+        List<User> usersOuders = new ArrayList<User>();
+        String SQL = "SELECT*FROM users WHERE role = 'ADMIN' OR role = 'MEDEWERKER'";
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        try {
+            statement = this.database.getConnection().prepareStatement(SQL);
+            rs = statement.executeQuery();
+            int columnCount = rs.getMetaData().getColumnCount();
+            while(rs.next()){
+                usersOuders.add(
+                        new User(
+                                rs.getString("email"),
+                                rs.getString("firstname"),
+                                rs.getString("lastname"),
+                                rs.getString("password"),
+                                rs.getString("role")
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try{
+                rs.close();
+                statement.close();
+                System.out.println("Preparedstatement administratoren selecteren gestopt");
             }
             catch (SQLException e){
                 e.printStackTrace();
