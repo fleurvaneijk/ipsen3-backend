@@ -46,4 +46,30 @@ public class DilemmaSubjectDAO {
         }
         return dilemmaSubjects;
     }
+
+    public List getAllSubjects() {
+        ArrayList subjects = new ArrayList();
+        ResultSet resultSet = null;
+
+        try {
+            String query =  "SELECT subject FROM dilemma_subject ORDER BY subject";
+
+            PreparedStatement statement = database.getConnection().prepareStatement(query);
+            resultSet = statement.executeQuery();
+
+            while(resultSet.next()) {
+                subjects.add(resultSet.getString("subject"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                resultSet.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return subjects;
+    }
 }

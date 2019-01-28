@@ -21,6 +21,10 @@ public class StatisticsDAO {
 
     }
 
+    /**
+     * Gets the average rating of each dilemma subject.
+     * For diagram 1 on the statistics page.
+     */
     public List getRatingPerSubject() {
         ArrayList ratingPerSubjectList = new ArrayList();
 
@@ -55,6 +59,50 @@ public class StatisticsDAO {
         return ratingPerSubjectList;
     }
 
+    /**
+     * Gets the amount of times a dilemma has been answered &
+     * the amount of times a feedback link has been clicked for that dilemma.
+     * For diagram 2 on the statistics page.
+     */
+    public List getAmountDilemmaAnswersFeedbackClicks() {
+        ArrayList dilemmaAnswersClicksAmount = new ArrayList();
+
+        try {
+            String query =  "SELECT dilemma_id, COUNT(dilemma_id) AS answer_amount, number_clicks " +
+                            "FROM dilemma d " +
+                                "JOIN answer ON(id = dilemma_id) " +
+                                "JOIN dilemma_subject s ON(d.subject = s.subject) " +
+                            "GROUP BY dilemma_id, number_clicks " +
+                            "ORDER BY dilemma_id";
+
+            PreparedStatement statement = database.getConnection().prepareStatement(query);
+            resultSet = statement.executeQuery();
+
+            while(resultSet.next()) {
+                ArrayList row = new ArrayList();
+                row.add(resultSet.getInt("dilemma_id"));
+                row.add(resultSet.getInt("answer_amount"));
+                row.add(resultSet.getInt("number_clicks"));
+
+                dilemmaAnswersClicksAmount.add(row);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                resultSet.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return dilemmaAnswersClicksAmount;
+    }
+
+    /**
+     * Gets the answers DateTimes to see what the most popular dates and times are to answer dilemmas.
+     * For diagram 4 and 5 on the statistics page.
+     */
     public List getAnswerDateTimes() {
         ArrayList<String> answerDateTimes = new ArrayList<>();
 

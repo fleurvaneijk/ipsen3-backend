@@ -7,6 +7,7 @@ import nl.hsleiden.persistence.DilemmaSubjectDAO;
 
 import javax.inject.Inject;
 import java.util.Collection;
+import java.util.List;
 
 public class DilemmaSubjectsService extends  BaseService {
 
@@ -17,6 +18,8 @@ public class DilemmaSubjectsService extends  BaseService {
         this.dao = dao;
         this.dao.setDatabase(ApiApplication.getDatabase());
     }
+
+    public List getAllSubjecs() { return dao.getAllSubjects(); }
 
     public Collection<DilemmaSubjects> getSubject(String subject) { return dao.getSubject(subject); }
 }

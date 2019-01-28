@@ -34,16 +34,25 @@ public class StatisticsResource {
     @GET
     @Path("/ratingPerSubject")
     @JsonView(View.Public.class)
-//    @RolesAllowed({"ADMIN", "MEDEWERKER"})
+    @RolesAllowed({"ADMIN", "MEDEWERKER"})
     public List retrieveRatingPerSubject()
     {
         return service.getRatingPerSubject();
     }
 
     @GET
-    @Path("/answerDates")
+    @Path("/dilemmaAnswersClicksAmount")
     @JsonView(View.Public.class)
 //    @RolesAllowed({"ADMIN", "MEDEWERKER"})
+    public List retrieveDilemmaAnswersClicksAmount()
+    {
+        return service.getAmountDilemmaAnswersFeedbackClicks();
+    }
+
+    @GET
+    @Path("/answerDates")
+    @JsonView(View.Public.class)
+    @RolesAllowed({"ADMIN", "MEDEWERKER"})
     public List retrieveAnswerDates()
     {
         return service.getAnswerDates();
@@ -52,7 +61,7 @@ public class StatisticsResource {
     @GET
     @Path("/answerTimes")
     @JsonView(View.Public.class)
-//    @RolesAllowed({"ADMIN", "MEDEWERKER"})
+    @RolesAllowed({"ADMIN", "MEDEWERKER"})
     public List retrieveAnswerTimes()
     {
         return service.getAnswerTimes();

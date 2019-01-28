@@ -23,6 +23,10 @@ public class StatisticsService {
         return dao.getRatingPerSubject();
     }
 
+    public List getAmountDilemmaAnswersFeedbackClicks() {
+        return dao.getAmountDilemmaAnswersFeedbackClicks();
+    }
+
     public ArrayList<String> getAnswerDates(){
         List dateTimes = dao.getAnswerDateTimes();
         String date;

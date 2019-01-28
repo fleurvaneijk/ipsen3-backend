@@ -26,6 +26,10 @@ public class DilemmaSubjectsResource {
     }
 
     @GET
+    @JsonView(View.Public.class)
+    public Collection retrieveAllSubjects() { return service.getAllSubjecs(); }
+
+    @GET
     @Path("/dilemmasubject")
     @JsonView(View.Public.class)
     public Collection retrieveSubject(String subject) { return service.getSubject(subject); }
