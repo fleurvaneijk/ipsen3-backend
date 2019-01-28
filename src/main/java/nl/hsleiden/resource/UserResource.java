@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.google.inject.Singleton;
 import io.dropwizard.auth.Auth;
 import java.util.Collection;
-import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.validation.Valid;
 import javax.ws.rs.Consumes;
@@ -45,6 +44,14 @@ public class UserResource
     public Collection<User> retrieveAll()
     {
         return service.getAll();
+    }
+
+    @GET
+    @Path("/parents")
+    @JsonView(View.Public.class)
+    public Collection<User> retrieveAllParents()
+    {
+        return service.getAllParents();
     }
     
     @GET
