@@ -3,6 +3,8 @@ package nl.hsleiden.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import java.security.Principal;
+import java.util.Arrays;
+
 import nl.hsleiden.View;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
@@ -125,5 +127,21 @@ public class User implements Principal
     public boolean equals(User user)
     {
         return email.equals(user.getEmailAddress());
+    }
+
+    /**
+     * This is only for testing purpose.
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                ", roleList=" + Arrays.toString(roleList) +
+                '}';
     }
 }

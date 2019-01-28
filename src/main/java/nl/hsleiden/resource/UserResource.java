@@ -72,13 +72,12 @@ public class UserResource
     }
     
     @PUT
-    @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)
 //    @RolesAllowed("PARENT")
-    public void update(@PathParam("id") String id, @Auth User authenticator, User user)
+    public void update(User user)
     {
-        service.update(authenticator, id, user);
+        service.update(user);
     }
     
     @DELETE

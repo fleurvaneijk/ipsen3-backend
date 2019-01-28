@@ -199,7 +199,21 @@ public class UserDAO
     
     public void update(User user)
     {
-        System.out.println(user.getFirstname());
+        String SQL = "UPDATE users SET email = ?, firstname = ?, lastname = ? WHERE email = ?";
+        PreparedStatement statement = null;
+
+        try{
+            statement = this.database.getConnection().prepareStatement(SQL);
+            statement.setString(1, user.getEmailAddress());
+            statement.setString(2, user.getFirstname());
+            statement.setString(3, user.getLastname());
+            statement.setString(4, user.getEmailAddress());
+            statement.executeQuery();
+            statement.close();
+            this.database.getConnection().close();
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
     }
     
     public void delete(String id)
