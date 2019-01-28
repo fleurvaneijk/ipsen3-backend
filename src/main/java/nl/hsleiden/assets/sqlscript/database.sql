@@ -104,17 +104,17 @@ INSERT INTO user_roles VALUES('MEDEWERKER');
 
 -- User 1
 INSERT INTO users
-VALUES('robinsilverio@hotmail.com', 'Robin', 'Silverio', 'dubio100', 'OUDER');
+VALUES('robinsilverio@hotmail.com', 'Robin', 'Silverio', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'OUDER');
 INSERT INTO users
-VALUES('fleur@hotmail.com', 'Fleur', 'van Eijk', 'dubio100', 'OUDER');
+VALUES('fleur@hotmail.com', 'Fleur', 'van Eijk', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'OUDER');
 INSERT INTO couple
 VALUES(DEFAULT, 'robinsilverio@hotmail.com', 'fleur@hotmail.com', TRUE, 30, 30);
 
 -- User 2
 INSERT INTO users
-VALUES('yme@hotmail.com', 'Yme', 'Brugts', 'dubio100', 'OUDER');
+VALUES('yme@hotmail.com', 'Yme', 'Brugts', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'OUDER');
 INSERT INTO users
-VALUES('dilisha@hotmail.com', 'Dilisha', 'weetgeenachternaam', 'dubio100', 'OUDER');
+VALUES('dilisha@hotmail.com', 'Dilisha', 'weetgeenachternaam', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'OUDER');
 INSERT INTO couple
 VALUES(DEFAULT, 'yme@hotmail.com', 'dilisha@hotmail.com', FALSE, 0, 36);
 
