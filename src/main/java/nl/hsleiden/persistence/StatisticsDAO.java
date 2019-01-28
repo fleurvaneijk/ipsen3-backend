@@ -2,6 +2,7 @@ package nl.hsleiden.persistence;
 
 import nl.hsleiden.database.Database;
 
+import javax.inject.Singleton;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +13,7 @@ import java.util.List;
  * DAO that gets statistics data from multiple tables.
  * @author Fleur van Eijk
  */
+@Singleton
 public class StatisticsDAO {
 
     private Database database;
@@ -52,6 +54,7 @@ public class StatisticsDAO {
         finally {
             try {
                 resultSet.close();
+                this.database.getConnection().close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -92,6 +95,7 @@ public class StatisticsDAO {
         finally {
             try {
                 resultSet.close();
+                this.database.getConnection().close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -121,6 +125,7 @@ public class StatisticsDAO {
         finally {
             try {
                 resultSet.close();
+                this.database.getConnection().close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

@@ -66,6 +66,7 @@ public class DilemmaSubjectDAO {
         finally {
             try {
                 resultSet.close();
+                this.database.getConnection().close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
