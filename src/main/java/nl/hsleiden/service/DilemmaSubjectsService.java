@@ -18,5 +18,5 @@ public class DilemmaSubjectsService extends  BaseService {
         this.dao.setDatabase(ApiApplication.getDatabase());
     }
 
-    public Collection<DilemmaSubjects> getAll(String subject) { return dao.getSubjects(subject); }
+    public Collection<DilemmaSubjects> getSubject(String subject) { return dao.getSubject(subject); }
 }

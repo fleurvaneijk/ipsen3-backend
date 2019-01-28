@@ -19,7 +19,7 @@ public class DilemmaSubjectDAO {
         this.database = database;
     }
 
-    public List getSubjects(String subject) {
+    public List getSubject(String subject) {
         List dilemmaSubjects = new ArrayList<>();
         String SQL = "SELECT * FROM dilemma_subject WHERE subject = ?";
         PreparedStatement statement = null;
