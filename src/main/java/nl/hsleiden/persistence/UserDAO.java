@@ -237,7 +237,7 @@ public class UserDAO
     
     public void update(User user)
     {
-        String SQL = "UPDATE users SET email = ?, firstname = ?, lastname = ? WHERE email = ?";
+        String SQL = "UPDATE users SET email = ?, firstname = ?, lastname = ?, role = ? WHERE email = ?";
         PreparedStatement statement = null;
 
         try{
@@ -245,7 +245,8 @@ public class UserDAO
             statement.setString(1, user.getEmailAddress());
             statement.setString(2, user.getFirstname());
             statement.setString(3, user.getLastname());
-            statement.setString(4, user.getEmailAddress());
+            statement.setString(4, user.getRole());
+            statement.setString(5, user.getEmailAddress());
             statement.executeQuery();
             statement.close();
             this.database.getConnection().close();
