@@ -4,7 +4,11 @@ import com.fasterxml.jackson.annotation.JsonView;
 import nl.hsleiden.View;
 
 import javax.persistence.*;
-
+/**
+ * This Model works based on the Hibernate Framework.
+ *
+ * @Author Yme Brugts
+ */
 @Entity
 @Table(
         name = "dilemma",

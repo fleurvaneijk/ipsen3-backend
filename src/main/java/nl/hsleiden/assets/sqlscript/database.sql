@@ -87,11 +87,12 @@ CREATE TABLE answer
 
 CREATE TABLE rating
 (
+  id              SERIAL,
   parent_email    VARCHAR(60),
   dilemma_id      int,
   rating_time     int,
   rating_dilemma  int,
-  PRIMARY KEY (parent_email, dilemma_id),
+  UNIQUE (parent_email, dilemma_id),
   CONSTRAINT fk_dilemma FOREIGN KEY (dilemma_id) REFERENCES dilemma (id) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT fk_parent FOREIGN KEY (parent_email) REFERENCES users (email) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -192,11 +193,11 @@ INSERT INTO answer VALUES ('yme@hotmail.com', 6, '2019-01-15 09:10:25', 2);
 INSERT INTO answer VALUES ('yme@hotmail.com', 7, '2019-01-21 09:10:23', 1);
 INSERT INTO answer VALUES ('yme@hotmail.com', 8, '2019-01-29 18:10:25', 1);
 
-insert into rating values('fleur@hotmail.com', '1', '4', '3');
-insert into rating values('fleur@hotmail.com', '2', '2', '5');
-insert into rating values('fleur@hotmail.com', '3', '5', '4');
-insert into rating values('fleur@hotmail.com', '4', '3', '2');
-insert into rating values('yme@hotmail.com', '1', '5', '4');
-insert into rating values('yme@hotmail.com', '2', '4', '2');
-insert into rating values('yme@hotmail.com', '3', '3', '3');
-insert into rating values('yme@hotmail.com', '4', '4', '5');
+insert into rating values(DEFAULT, 'fleur@hotmail.com', '1', '4', '3');
+insert into rating values(DEFAULT, 'fleur@hotmail.com', '2', '2', '5');
+insert into rating values(DEFAULT, 'fleur@hotmail.com', '3', '5', '4');
+insert into rating values(DEFAULT, 'fleur@hotmail.com', '4', '3', '2');
+insert into rating values(DEFAULT, 'yme@hotmail.com', '1', '5', '4');
+insert into rating values(DEFAULT, 'yme@hotmail.com', '2', '4', '2');
+insert into rating values(DEFAULT, 'yme@hotmail.com', '3', '3', '3');
+insert into rating values(DEFAULT, 'yme@hotmail.com', '4', '4', '5');

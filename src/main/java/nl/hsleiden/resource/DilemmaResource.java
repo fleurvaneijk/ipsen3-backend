@@ -14,7 +14,11 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.Collection;
-
+/**
+ * This Resource works based on the Hibernate Framework and is for the 'dilemma' table
+ *
+ * @Author Yme Brugts
+ */
 @Singleton
 @Path("/dilemma")
 @Produces(MediaType.APPLICATION_JSON)

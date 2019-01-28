@@ -27,7 +27,7 @@ public class CoupleService extends BaseService<Couple>
         this.dao.setDatabase(ApiApplication.getDatabase());
     }
 
-    public Collection<Couple> getAll()
+    public List<Couple> getAll()
     {
         return dao.getAll();
     }

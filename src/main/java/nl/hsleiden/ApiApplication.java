@@ -19,6 +19,8 @@ import javax.servlet.FilterRegistration;
 
 import nl.hsleiden.database.Database;
 import nl.hsleiden.model.Dilemma;
+import nl.hsleiden.model.DilemmaAdmin;
+import nl.hsleiden.model.Rating;
 import nl.hsleiden.model.User;
 import nl.hsleiden.persistence.DilemmaDAO;
 import nl.hsleiden.resource.DilemmaResource;
@@ -124,7 +126,7 @@ public class ApiApplication extends Application<ApiConfiguration>
      * Hibernate bundle.
      */
     public static final HibernateBundle<ApiConfiguration> hibernateBundle
-            = new HibernateBundle<ApiConfiguration>(Dilemma.class) {
+            = new HibernateBundle<ApiConfiguration>(Dilemma.class, Rating.class) {
 
         @Override
         public DataSourceFactory getDataSourceFactory(ApiConfiguration configuration) {
