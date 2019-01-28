@@ -52,7 +52,7 @@ public class UserService extends BaseService<User>
             assertSelf(authenticator, oldUser);
         }
         
-        dao.update(id, user);
+        dao.update(user);
     }
     
     public void delete(String id)

@@ -99,7 +99,7 @@ public class UserDAOTest
         User expected = new User();
         expected.setFirstname("Peter van Vliet");
         
-        subject.update("a", expected);
+        subject.update(expected);
         
         User actual = subject.get("a");
         

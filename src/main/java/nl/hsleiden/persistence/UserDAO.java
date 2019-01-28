@@ -42,40 +42,6 @@ public class UserDAO
     
     public List<User> getAll()
     {
-//        List<User> ouderList = new ArrayList<>();
-//        String SQL = "SELECT*FROM users WHERE role = 'PARENT'";
-//        PreparedStatement pstmt = null;
-//        ResultSet rs = null;
-//        try {
-//            pstmt = this.database.getConnection().prepareStatement(SQL);
-//            rs = pstmt.executeQuery();
-//            int columnCount = rs.getMetaData().getColumnCount();
-//            while(rs.next()){
-//                ouderList.add(
-//                        new User(
-//                                rs.getString("email"),
-//                                rs.getString("firstname"),
-//                                rs.getString("lastname"),
-//                                rs.getString("password"),
-//                                rs.getString("role")
-//                        )
-//                );
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        finally {
-//            try{
-//                rs.close();
-//                pstmt.close();
-//                System.out.println("Preparedstatement users selecteren gestopt");
-//            }
-//            catch (SQLException e){
-//                e.printStackTrace();
-//            }
-//        }
-//
-//        return ouderList;
         List<User> users = new ArrayList<User>();
         String SQL = "SELECT*FROM users";
         PreparedStatement pstmt = null;
@@ -193,9 +159,9 @@ public class UserDAO
         }
     }
     
-    public void update(String id, User user)
+    public void update(User user)
     {
-//        users.set(id, user); // Doing it later
+        System.out.println(user.getFirstname());
     }
     
     public void delete(String id)
