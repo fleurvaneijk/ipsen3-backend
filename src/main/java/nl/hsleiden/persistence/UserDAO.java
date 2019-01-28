@@ -81,7 +81,7 @@ public class UserDAO
     public List<User> getAllParents()
     {
         List<User> usersOuders = new ArrayList<User>();
-        String SQL = "SELECT*FROM users WHERE role = 'PARENT'";
+        String SQL = "SELECT*FROM users WHERE role = 'OUDER'";
         PreparedStatement statement = null;
         ResultSet rs = null;
         try {
@@ -119,7 +119,7 @@ public class UserDAO
     public List<User> getAllAdmins()
     {
         List<User> usersOuders = new ArrayList<User>();
-        String SQL = "SELECT*FROM users WHERE role = 'ADMIN' OR role = 'MEDEWERKER'";
+        String SQL = "SELECT*FROM users WHERE role = 'BEHEERDER' OR role = 'MEDEWERKER'";
         PreparedStatement statement = null;
         ResultSet rs = null;
         try {

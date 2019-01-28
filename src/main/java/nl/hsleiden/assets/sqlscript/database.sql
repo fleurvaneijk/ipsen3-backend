@@ -7,7 +7,6 @@
 -- drop table dilemma_option cascade;
 -- drop table dilemma cascade;
 -- drop table answer cascade;
--- drop table rating cascade;
 -- drop table user_roles cascade;
 
 CREATE TABLE user_roles
@@ -99,23 +98,23 @@ CREATE TABLE rating
 
 
 -- Insert tests
-INSERT INTO user_roles VALUES('PARENT');
-INSERT INTO user_roles VALUES('ADMIN');
+INSERT INTO user_roles VALUES('OUDER');
+INSERT INTO user_roles VALUES('BEHEERDER');
 INSERT INTO user_roles VALUES('MEDEWERKER');
 
 -- User 1
 INSERT INTO users
-VALUES('robinsilverio@hotmail.com', 'Robin', 'Silvério', 'dubio100', 'PARENT');
+VALUES('robinsilverio@hotmail.com', 'Robin', 'Silverio', 'dubio100', 'OUDER');
 INSERT INTO users
-VALUES('fleur@hotmail.com', 'Fleur', 'van Eijk', 'dubio100', 'PARENT');
+VALUES('fleur@hotmail.com', 'Fleur', 'van Eijk', 'dubio100', 'OUDER');
 INSERT INTO couple
 VALUES(DEFAULT, 'robinsilverio@hotmail.com', 'fleur@hotmail.com', TRUE, 30, 30);
 
 -- User 2
 INSERT INTO users
-VALUES('yme@hotmail.com', 'Yme', 'Brugts', 'dubio100', 'PARENT');
+VALUES('yme@hotmail.com', 'Yme', 'Brugts', 'dubio100', 'OUDER');
 INSERT INTO users
-VALUES('dilisha@hotmail.com', 'Dilisha', 'weetgeenachternaam', 'dubio100', 'PARENT');
+VALUES('dilisha@hotmail.com', 'Dilisha', 'weetgeenachternaam', 'dubio100', 'OUDER');
 INSERT INTO couple
 VALUES(DEFAULT, 'yme@hotmail.com', 'dilisha@hotmail.com', FALSE, 0, 36);
 
@@ -123,10 +122,10 @@ INSERT INTO child VALUES(DEFAULT,(SELECT id FROM couple WHERE parent_email_1 = '
 
 -- Users 3 met kleine wachtwoorden (wachtwoord is abc).
 INSERT INTO users
-VALUES('koen@gmail.com', 'Koen', 'Warner', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'PARENT');
+VALUES('koen@gmail.com', 'Koen', 'Warner', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'OUDER');
 
 INSERT INTO users
-VALUES('gulag@ussr.com', 'Josef', 'Stalin', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'PARENT');
+VALUES('gulag@ussr.com', 'Josef', 'Stalin', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'OUDER');
 
 INSERT INTO couple
 VALUES(DEFAULT, 'koen@gmail.com', 'gulag@ussr.com', TRUE, 30, 30);
@@ -135,9 +134,13 @@ INSERT INTO child VALUES(DEFAULT,(SELECT id FROM couple WHERE parent_email_1 = '
 
 -- Admin met kleine wachtwoord (wachtwoord is abc).
 INSERT INTO users
-VALUES ('mijkesmit@dubio.nl', 'Mijke', 'Smit', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'ADMIN');
+VALUES ('mijkesmit@dubio.nl', 'Mijke', 'Smit', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'BEHEERDER');
 INSERT INTO users
-VALUES ('loicq@dubio.nl', 'Loicq', 'Rabarison', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'MEDEWERKER');
+VALUES ('loicq@dubio.nl', 'Loicq', 'Rabarison', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'BEHEERDER');
+INSERT INTO users
+VALUES ('medewerker3@dubio.nl', 'John', 'Doe', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'MEDEWERKER');
+INSERT INTO users
+VALUES ('medewerker4@dubio.nl', 'Lorem', 'Ipsum', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'MEDEWERKER');
 
 INSERT INTO dilemma_subject VALUES ('sociaal','www.link.nl/sociaal', 1);
 INSERT INTO dilemma_subject VALUES ('persoonlijk','www.link.nl/persoonlijk', 1);
