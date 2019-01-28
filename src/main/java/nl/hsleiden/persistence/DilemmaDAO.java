@@ -17,9 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This DAO works based on the Hibernate Framework.
+ * This DAO works based on the Hibernate Framework and is for the 'dilemma' table
  *
- * @return list of all dilemma stored in the database
  * @Author Yme Brugts
  */
 @Singleton

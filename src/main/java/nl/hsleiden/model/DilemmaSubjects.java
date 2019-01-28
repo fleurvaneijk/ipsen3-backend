@@ -2,7 +2,11 @@ package nl.hsleiden.model;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import nl.hsleiden.View;
-
+/**
+ * This model is for the dilemma_subject information from the database
+ *
+ * @Author Yme Brugts
+ */
 public class DilemmaSubjects {
 
     @JsonView(View.Public.class)

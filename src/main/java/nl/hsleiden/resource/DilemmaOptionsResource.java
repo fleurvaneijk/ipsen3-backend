@@ -1,6 +1,7 @@
 package nl.hsleiden.resource;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import io.dropwizard.hibernate.UnitOfWork;
 import nl.hsleiden.View;
 import nl.hsleiden.model.DilemmaOptions;
 import nl.hsleiden.service.DilemmaOptionsService;

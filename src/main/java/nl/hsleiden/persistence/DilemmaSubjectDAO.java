@@ -2,12 +2,15 @@ package nl.hsleiden.persistence;
 
 import nl.hsleiden.database.Database;
 import nl.hsleiden.model.DilemmaSubjects;
+
+import javax.inject.Singleton;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Singleton
 public class DilemmaSubjectDAO {
     private Database database;
 
