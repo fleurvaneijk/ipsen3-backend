@@ -1,7 +1,7 @@
 package nl.hsleiden.persistence;
 
 import nl.hsleiden.database.Database;
-import nl.hsleiden.model.DilemmaSubjects;
+import nl.hsleiden.model.DilemmaSubject;
 
 import javax.inject.Singleton;
 import java.sql.PreparedStatement;
@@ -48,6 +48,38 @@ public class DilemmaSubjectDAO {
             }
         }
         return dilemmaSubjects;
+    }
+
+    public List getAllSubjectsAdmin() {
+        List<DilemmaSubject> subjects = new ArrayList<DilemmaSubject>();
+        ResultSet resultSet = null;
+
+        try {
+            String query =  "SELECT subject, link FROM dilemma_subject";
+
+            PreparedStatement statement = database.getConnection().prepareStatement(query);
+            resultSet = statement.executeQuery();
+
+            while(resultSet.next()){
+                subjects.add(
+                        new DilemmaSubject(
+                                resultSet.getString("subject"),
+                                resultSet.getString("link")
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                resultSet.close();
+                this.database.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return subjects;
     }
 
     public List getAllSubjects() {

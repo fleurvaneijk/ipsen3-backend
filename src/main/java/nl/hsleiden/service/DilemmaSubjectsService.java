@@ -2,7 +2,7 @@ package nl.hsleiden.service;
 
 import nl.hsleiden.ApiApplication;
 
-import nl.hsleiden.model.DilemmaSubjects;
+import nl.hsleiden.model.DilemmaSubject;
 import nl.hsleiden.persistence.DilemmaSubjectDAO;
 
 import javax.inject.Inject;
@@ -21,7 +21,7 @@ public class DilemmaSubjectsService extends  BaseService {
 
     public List getAllSubjecs() { return dao.getAllSubjects(); }
 
-    public Collection<DilemmaSubjects> getSubject(String subject) {
+    public Collection<DilemmaSubject> getSubject(String subject) {
         return dao.getSubject(subject);
 
     }

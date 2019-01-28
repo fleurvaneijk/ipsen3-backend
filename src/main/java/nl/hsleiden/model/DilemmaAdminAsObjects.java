@@ -1,6 +1,5 @@
 package nl.hsleiden.model;
 
-import java.util.ArrayList;
 import java.util.List;
 /**
  * This model is for getting all the lists for managing dilemma page in one object
@@ -13,16 +12,16 @@ public class DilemmaAdminAsObjects {
     List<Dilemma> DilemmaList;
     List<Rating> RatingList;
     List<DilemmaOptions> dilemmaOptionsList;
-    List<DilemmaSubjects> dilemmaSubjectsList;
+    List<DilemmaSubject> dilemmaSubjectList;
 
     public DilemmaAdminAsObjects(List<Dilemma> dilemmaList,
                                  List<Rating> ratingList,
                                  List<DilemmaOptions> dilemmaOptionsList,
-                                 List<DilemmaSubjects> dilemmaSubjectsList) {
+                                 List<DilemmaSubject> dilemmaSubjectList) {
         DilemmaList = dilemmaList;
         RatingList = ratingList;
         this.dilemmaOptionsList = dilemmaOptionsList;
-        this.dilemmaSubjectsList = dilemmaSubjectsList;
+        this.dilemmaSubjectList = dilemmaSubjectList;
     }
 
     public DilemmaAdminAsObjects() {
@@ -53,11 +52,11 @@ public class DilemmaAdminAsObjects {
         this.dilemmaOptionsList = dilemmaOptionsList;
     }
 
-    public List<DilemmaSubjects> getDilemmaSubjectsList() {
-        return dilemmaSubjectsList;
+    public List<DilemmaSubject> getDilemmaSubjectList() {
+        return dilemmaSubjectList;
     }
 
-    public void setDilemmaSubjectsList(List<DilemmaSubjects> dilemmaSubjectsList) {
-        this.dilemmaSubjectsList = dilemmaSubjectsList;
+    public void setDilemmaSubjectList(List<DilemmaSubject> dilemmaSubjectList) {
+        this.dilemmaSubjectList = dilemmaSubjectList;
     }
 }

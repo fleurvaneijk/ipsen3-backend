@@ -7,7 +7,7 @@ import nl.hsleiden.View;
  *
  * @Author Yme Brugts
  */
-public class DilemmaSubjects {
+public class DilemmaSubject {
 
     @JsonView(View.Public.class)
     private String subject;
@@ -15,13 +15,10 @@ public class DilemmaSubjects {
     @JsonView(View.Public.class)
     private String link;
 
-    @JsonView(View.Public.class)
-    private int number_clicks;
 
-    public DilemmaSubjects(String subject, String link, int number_clicks) {
+    public DilemmaSubject(String subject, String link) {
         this.subject = subject;
         this.link = link;
-        this.number_clicks = number_clicks;
     }
 
     public String getSubject() {
@@ -36,14 +33,6 @@ public class DilemmaSubjects {
 
     public void setLink(String Link) {
         this.link = link;
-    }
-
-    public int getNumber_clicks() {
-        return number_clicks;
-    }
-
-    public void setNumber_clicks(int number_clicks) {
-        this.number_clicks = number_clicks;
     }
 }
 
