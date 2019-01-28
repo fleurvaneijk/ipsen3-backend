@@ -1,7 +1,6 @@
 package nl.hsleiden.service;
 
 import java.util.Collection;
-import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -32,7 +31,12 @@ public class UserService extends BaseService<User>
 
     public Collection<User> getAllParents()
     {
-        return dao.getAllParent();
+        return dao.getAllParents();
+    }
+
+    public Collection<User> getAllAdmins()
+    {
+        return dao.getAllAdmins();
     }
     
     public User get(String id)
