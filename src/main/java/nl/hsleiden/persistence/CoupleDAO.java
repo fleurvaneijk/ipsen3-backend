@@ -54,6 +54,7 @@ public class CoupleDAO {
                 e.printStackTrace();
             }
         }
+        System.out.println(couples);
         return couples;
 
     }
@@ -63,8 +64,11 @@ public class CoupleDAO {
         // Voer query uit (middels een prepared statement!)
         // Maak een nieuw Serie object aan met gegevens uit de database
         // Retourneer Serie object
+
+        System.out.println(email);
+
         Couple couple = null;
-        String SQL = "SELECT*FROM couple WHERE email = ?";
+        String SQL = "SELECT*FROM couple WHERE ? IN (parent_email_1, parent_email_2)";
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         try {
@@ -162,7 +166,7 @@ public class CoupleDAO {
         }
     }
 
-    public void update(int id, Couple couple)
+    public void update(String id, Couple couple)
     {
 //        couples.set(id, couple); // Doing it later
     }

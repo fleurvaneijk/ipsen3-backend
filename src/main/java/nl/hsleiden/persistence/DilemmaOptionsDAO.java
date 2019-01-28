@@ -47,6 +47,7 @@ public class DilemmaOptionsDAO {
             try {
                 rs.close();
                 statement.close();
+                this.database.getConnection().close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

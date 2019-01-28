@@ -32,7 +32,7 @@ public class CoupleService extends BaseService<Couple>
         return dao.getAll();
     }
 
-    public Couple get(int id)
+    public Couple get(String id)
     {
         return requireResult(dao.get(id));
     }
@@ -42,7 +42,7 @@ public class CoupleService extends BaseService<Couple>
         dao.add(user);
     }
 
-    public void update(int id, Couple couple)
+    public void update(String id, Couple couple)
     {
         // Controleren of deze gebruiker wel bestaat
         Couple oldCouple = get(id);
