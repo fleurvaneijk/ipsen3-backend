@@ -41,7 +41,7 @@ public class CoupleResource
     @GET
     @Path("/{id}")
     @JsonView(View.Public.class)
-    public Couple retrieve(@PathParam("id") int id)
+    public Couple retrieve(@PathParam("id") String id)
     {
         return service.get(id);
     }
@@ -58,7 +58,7 @@ public class CoupleResource
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)
-    public void update(@PathParam("id") int id, Couple couple)
+    public void update(@PathParam("id") String id, Couple couple)
     {
         service.update(id, couple);
     }
