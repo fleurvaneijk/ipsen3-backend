@@ -1,8 +1,5 @@
 package nl.hsleiden.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-
-import java.sql.Date;
 
 public class Answer {
     private String _parent_email;

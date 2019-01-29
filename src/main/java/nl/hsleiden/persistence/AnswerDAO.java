@@ -7,7 +7,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Calendar;
 
 public class AnswerDAO {
     private Database database;
@@ -60,7 +59,7 @@ public class AnswerDAO {
 
             statement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            e.getStackTrace();
         }
     }
 
