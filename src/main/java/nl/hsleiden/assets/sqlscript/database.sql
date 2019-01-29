@@ -130,6 +130,7 @@ VALUES('gulag@ussr.com', 'Josef', 'Stalin', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5
 INSERT INTO couple
 VALUES(DEFAULT, 'koen@gmail.com', 'gulag@ussr.com', TRUE, 30, 30);
 
+
 -- Admin met kleine wachtwoord (wachtwoord is abc).
 INSERT INTO users
 VALUES ('mijkesmit@dubio.nl', 'Mijke', 'Smit', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'BEHEERDER');

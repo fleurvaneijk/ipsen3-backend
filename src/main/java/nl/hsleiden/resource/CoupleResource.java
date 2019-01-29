@@ -11,6 +11,8 @@ import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.Collection;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Meer informatie over resources:
@@ -68,5 +70,13 @@ public class CoupleResource
     public void delete(@PathParam("id") int id)
     {
         service.delete(id);
+    }
+
+    @GET
+    @Path("/coupleTableInfo")
+    @JsonView(View.Public.class)
+    public List retrieveCoupleTableInfo()
+    {
+        return service.getCoupleTableInfo();
     }
 }
