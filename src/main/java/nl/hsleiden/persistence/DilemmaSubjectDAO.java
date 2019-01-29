@@ -1,7 +1,7 @@
 package nl.hsleiden.persistence;
 
 import nl.hsleiden.database.Database;
-import nl.hsleiden.model.DilemmaSubject;
+import nl.hsleiden.model.DilemmaSubjectAdmin;
 
 import javax.inject.Singleton;
 import java.sql.PreparedStatement;
@@ -23,7 +23,7 @@ public class DilemmaSubjectDAO {
     }
 
     public List getSubject(String subject) {
-        List dilemmaSubjects = new ArrayList<>();
+        List dilemmaSubjectProperties = new ArrayList<>();
         String SQL = "SELECT * FROM dilemma_subject WHERE subject = ?";
         PreparedStatement statement = null;
         ResultSet rs = null;
@@ -33,9 +33,9 @@ public class DilemmaSubjectDAO {
             statement.setString(1, subject);
             rs = statement.executeQuery();
             while (rs.next()) {
-                dilemmaSubjects.add(rs.getString("subject"));
-                dilemmaSubjects.add(rs.getString("link"));
-                dilemmaSubjects.add(rs.getInt("number_clicks"));
+                dilemmaSubjectProperties.add(rs.getString("subject"));
+                dilemmaSubjectProperties.add(rs.getString("link"));
+                dilemmaSubjectProperties.add(rs.getInt("number_clicks"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -43,15 +43,16 @@ public class DilemmaSubjectDAO {
             try {
                 rs.close();
                 statement.close();
+                this.database.getConnection().close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
-        return dilemmaSubjects;
+        return dilemmaSubjectProperties;
     }
 
     public List getAllSubjectsAdmin() {
-        List<DilemmaSubject> subjects = new ArrayList<DilemmaSubject>();
+        List<DilemmaSubjectAdmin> subjects = new ArrayList<DilemmaSubjectAdmin>();
         ResultSet resultSet = null;
 
         try {
@@ -62,7 +63,7 @@ public class DilemmaSubjectDAO {
 
             while(resultSet.next()){
                 subjects.add(
-                        new DilemmaSubject(
+                        new DilemmaSubjectAdmin(
                                 resultSet.getString("subject"),
                                 resultSet.getString("link")
                         )

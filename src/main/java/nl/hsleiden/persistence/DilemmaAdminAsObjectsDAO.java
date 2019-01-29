@@ -27,7 +27,7 @@ public class DilemmaAdminAsObjectsDAO {
 
 
     private List<Dilemma> dilemmaList = new ArrayList<Dilemma>();
-    private List<DilemmaSubject> dilemmaSubjectList = new ArrayList<DilemmaSubject>();
+    private List<DilemmaSubjectAdmin> dilemmaSubjectAdminList = new ArrayList<DilemmaSubjectAdmin>();
     private List<DilemmaOptions> dilemmaOptionList = new ArrayList<DilemmaOptions>();
     private List<Rating> dilemmaRatingList = new ArrayList<Rating>();
 
@@ -50,7 +50,7 @@ public class DilemmaAdminAsObjectsDAO {
         dilemmaAdminAsObjects.setDilemmaOptionsList(dilemmaOptionsDAO.getAll());
         dilemmaAdminAsObjects.setRatingList(ratingDAO.getAll());
         dilemmaAdminAsObjects.setDilemmaList(dilemmaDAO.getAll());
-        dilemmaAdminAsObjects.setDilemmaSubjectList(dilemmaSubjectDAO.getAllSubjectsAdmin());
+        dilemmaAdminAsObjects.setDilemmaSubjectAdminList(dilemmaSubjectDAO.getAllSubjectsAdmin());
 
         return dilemmaAdminAsObjects;
     }

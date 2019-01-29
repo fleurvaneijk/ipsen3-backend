@@ -6,9 +6,11 @@ import nl.hsleiden.persistence.AnswerDAO;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.util.Collection;
+import java.util.List;
 
 @Singleton
-public class AnswerService extends BaseService<Answer> {
+public class AnswerService extends BaseService {
     private final AnswerDAO dao;
 
     @Inject
@@ -17,8 +19,13 @@ public class AnswerService extends BaseService<Answer> {
         this.dao.setDatabase(ApiApplication.getDatabase());
     }
 
-    public Answer get(String id) {
-        return requireResult(dao.get(id));
+
+    public Collection getSingleAnswer(String email, int id) {
+        return dao.getSingleAnswer(email, id);
+    }
+
+    public Collection getAllAnswers() {
+        return dao.getAllAnswers();
     }
 
     public void add(Answer answer) {

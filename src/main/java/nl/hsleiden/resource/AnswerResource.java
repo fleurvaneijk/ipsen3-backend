@@ -10,12 +10,13 @@ import javax.inject.Singleton;
 import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.awt.*;
+import java.util.Collection;
 
 @Singleton
 @Path("/answer")
 @Produces(MediaType.APPLICATION_JSON)
 public class AnswerResource {
+
     private final AnswerService service;
 
     @Inject
@@ -24,10 +25,14 @@ public class AnswerResource {
     }
 
     @GET
-    @Path("/{id}")
     @JsonView(View.Public.class)
-    public Answer retrieve(@PathParam("id") String id) {
-        return service.get(id);
+    public Collection retrieveAllAnswers() { return service.getAllAnswers(); }
+
+    @GET
+    @Path("/{email}/{id}")
+    @JsonView(View.Public.class)
+    public Collection retrieveAnswer(@PathParam("email") String email, @PathParam("id") int id) {
+        return service.getSingleAnswer(email, id);
     }
 
     @POST
