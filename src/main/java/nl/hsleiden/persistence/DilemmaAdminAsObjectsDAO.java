@@ -55,6 +55,11 @@ public class DilemmaAdminAsObjectsDAO {
         return dilemmaAdminAsObjects;
     }
 
+    public void addDilemmaAdminAsObject(DilemmaAdminAsObjects dilemma) {
+
+    }
+
+
 
     public void setDatabase() {
         this.database = ApiApplication.getDatabase();

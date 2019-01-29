@@ -15,6 +15,10 @@ import javax.persistence.*;
 @Table(
         name = "rating"
 )
+@NamedQueries({
+        @NamedQuery(name = "Rating.findAll",
+                query = "select e from Rating e")
+})
 public class Rating {
 
     @Id

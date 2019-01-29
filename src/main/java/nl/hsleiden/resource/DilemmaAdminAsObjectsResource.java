@@ -9,11 +9,10 @@ import nl.hsleiden.service.DilemmaAdminAsObjectsService;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.Collection;
+import java.util.List;
 
 @Singleton
 @Path("/dilemma/admin")
@@ -32,6 +31,13 @@ public class DilemmaAdminAsObjectsResource {
     @JsonView(View.Public.class)
     public DilemmaAdminAsObjects retrieveAll() {
         return dilemmaAdminAsObjectsService.getAll();
+    }
+
+    @POST
+    @Consumes
+    @JsonView(View.Public.class)
+    public void updateDilemmaAdminAsAttributes(List dilemmaAdminAsAttributes) {
+        dilemmaAdminAsObjectsService.AddDilemmaAdmin(dilemmaAdminAsAttributes);
     }
 
 
