@@ -21,7 +21,8 @@ public class AnswerService extends BaseService {
 
 
     public Collection getSingleAnswer(String email, int id) {
-        return dao.getSingleAnswer(email, id);
+        return null;
+//        return dao.getSingleAnswer(email, id);
     }
 
     public Collection getAllAnswers() {
