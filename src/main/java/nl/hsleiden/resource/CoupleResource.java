@@ -79,4 +79,14 @@ public class CoupleResource
     {
         return service.getCoupleTableInfo();
     }
+
+    @PUT
+    @Path("/updatePregnant{email}{pregnant}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @JsonView(View.Public.class)
+    public void updatePregnant(@PathParam("email") String parentEmail, @PathParam("pregnant") boolean pregnant)
+    {
+        System.out.println("RESOURCE RESOURCE RESOURCE RESOURCE");
+        service.updatePregnant(parentEmail, pregnant);
+    }
 }

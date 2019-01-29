@@ -199,3 +199,11 @@ insert into rating values(DEFAULT, 'yme@hotmail.com', '1', '5', '4');
 insert into rating values(DEFAULT, 'yme@hotmail.com', '2', '4', '2');
 insert into rating values(DEFAULT, 'yme@hotmail.com', '3', '3', '3');
 insert into rating values(DEFAULT, 'yme@hotmail.com', '4', '4', '5');
+
+-- tests
+INSERT INTO users
+VALUES('test@hotmail.com', 'test', 'tsast', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'OUDER');
+INSERT INTO users
+VALUES('test2@hotmail.com', 'test', 'test', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'OUDER');
+INSERT INTO couple
+VALUES(DEFAULT, 'test@hotmail.com', 'test2@hotmail.com', TRUE, 30, 30)

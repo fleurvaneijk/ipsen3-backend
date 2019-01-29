@@ -62,12 +62,6 @@ public class CoupleDAO {
 
     public Couple get(String email)
     {
-        // Voer query uit (middels een prepared statement!)
-        // Maak een nieuw Serie object aan met gegevens uit de database
-        // Retourneer Serie object
-
-        System.out.println(email);
-
         Couple couple = null;
         String SQL = "SELECT*FROM couple WHERE ? IN (parent_email_1, parent_email_2)";
         PreparedStatement pstmt = null;
@@ -92,13 +86,44 @@ public class CoupleDAO {
                 rs.close();
                 pstmt.close();
                 this.database.getConnection().close();
-                System.out.println("Preparedstatement individuele koppel selecteren gestopt");
+                System.out.println("Preparedstatement individuele koppel selecteren gestopt YOYOYOYOY");
             }
             catch (SQLException e){
                 e.printStackTrace();
             }
         }
         return couple;
+    }
+
+    public int getCoupleId(String email)
+    {
+        int id = 0;
+        String SQL = "SELECT id FROM couple WHERE ? = parent_email_1 or ? = parent_email_2";
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        try {
+            pstmt = this.database.getConnection().prepareStatement(SQL);
+            pstmt.setString(1, email);
+            pstmt.setString(2, email);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                id = rs.getInt("id");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try{
+                rs.close();
+                pstmt.close();
+                this.database.getConnection().close();
+                System.out.println("Koppel ID selecteren gestopt");
+            }
+            catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+        return id;
     }
 
     public Couple get(int id)
