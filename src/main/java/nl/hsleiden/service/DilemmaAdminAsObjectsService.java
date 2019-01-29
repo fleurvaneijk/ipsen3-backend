@@ -17,5 +17,10 @@ public class DilemmaAdminAsObjectsService {
     }
 
     public DilemmaAdminAsObjects getAll() { return dao.getDilemmaAdminAsObject(); }
+
+    public void AddDilemmaAdmin(List dilemmaAdminAsAttributes) {
+        System.out.println(dilemmaAdminAsAttributes);
+    }
 }
+
 

@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
@@ -29,10 +30,11 @@ public class RatingDAO extends AbstractDAO<Rating> {
     }
 
     public List<Rating> getAll() {
-        CriteriaBuilder builder = currentSession().getCriteriaBuilder();
-        CriteriaQuery<Rating> criteria = builder.createQuery(Rating.class);
-        criteria.from(Rating.class);
-        return currentSession().createQuery(criteria).getResultList();
+//        CriteriaBuilder builder = currentSession().getCriteriaBuilder();
+//        CriteriaQuery<Rating> criteria = builder.createQuery(Rating.class);
+//        criteria.from(Rating.class);
+//        return currentSession().createQuery(criteria).getResultList();
+        return list(namedQuery("Rating.findAll"));
     }
 
     public Rating get(int id) {

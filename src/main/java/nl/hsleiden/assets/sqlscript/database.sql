@@ -67,7 +67,7 @@ CREATE TABLE dilemma
 
 CREATE TABLE dilemma_option
 (
-  id         SERIAL,
+  id         int,
   image      VARCHAR(100),
   text       VARCHAR(255),
   dilemma_id int,
