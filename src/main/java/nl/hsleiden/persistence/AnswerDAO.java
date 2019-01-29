@@ -3,32 +3,35 @@ package nl.hsleiden.persistence;
 import nl.hsleiden.database.Database;
 import nl.hsleiden.model.Answer;
 
+import javax.inject.Singleton;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+@Singleton
 public class AnswerDAO {
     private Database database;
 
     public AnswerDAO() {
-
     }
 
-    public Answer get(String id) {
-        Answer answer = null;
-        String SQL = "SELECT * FROM answer WHERE parent_email = ?";
+    public List getSingleAnswer(String email, int id) {
+        List answer = new ArrayList();
+        String SQL = "SELECT * FROM answer WHERE parent_email = ? AND dilemma_id = ?";
         PreparedStatement statement = null;
         ResultSet rs = null;
         try {
             statement = this.database.getConnection().prepareStatement(SQL);
-            statement.setString(1, id);
+            statement.setString(1, email);
+            statement.setInt(2, id);
             rs = statement.executeQuery();
             while (rs.next()) {
-                answer = new Answer();
-                answer.setParent_email(rs.getString("parent_email"));
-                answer.setDilemma_id(rs.getInt("dilemma_id"));
-                answer.setAnswered_time(rs.getDate("answered_time"));
-                answer.setAnswer(rs.getInt("answer"));
+                answer.add(rs.getString("parent_email"));
+                answer.add(rs.getInt("dilemma_id"));
+                answer.add(rs.getDate("answered_time"));
+                answer.add(rs.getInt("answer"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -43,6 +46,39 @@ public class AnswerDAO {
         }
         return answer;
     }
+
+    public List getAllAnswers() {
+        String SQL = "SELECT * FROM answer";
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        ArrayList a = new ArrayList();
+        ArrayList answers = new ArrayList();
+        try {
+            statement = this.database.getConnection().prepareStatement(SQL);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                a.add(rs.getString("parent_email"));
+                a.add(rs.getInt("dilemma_id"));
+                a.add(rs.getDate("answered_time"));
+                a.add(rs.getInt("answer"));
+                answers.add(a);
+                System.out.println(a);
+                a = new ArrayList();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                rs.close();
+                statement.close();
+                this.database.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return answers;
+    }
+
 
     public void add(Answer answer) {
         String SQL = "INSERT INTO answer VALUES(DEFAULT,?,?,?,?)";

@@ -58,6 +58,7 @@ public class DilemmaOptionsDAO {
             try{
                 rs.close();
                 pstmt.close();
+                this.database.getConnection().close();
                 System.out.println("Preparedstatement users selecteren gestopt");
             }
             catch (SQLException e){

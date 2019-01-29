@@ -49,6 +49,7 @@ public class ChildDAO {
             try{
                 rs.close();
                 pstmt.close();
+                this.database.getConnection().close();
                 System.out.println("Preparedstatement kinderen selecteren gestopt");
             }
             catch (SQLException e){
@@ -85,6 +86,7 @@ public class ChildDAO {
             try{
                 rs.close();
                 pstmt.close();
+                this.database.getConnection().close();
                 System.out.println("Preparedstatement individuele kind selecteren gestopt");
             }
             catch (SQLException e){
@@ -118,6 +120,7 @@ public class ChildDAO {
             System.out.println("Kind is toegevoegd");
 
             pstmt.close();
+            this.database.getConnection().close();
             System.out.println("Preparedstatement kind toevoegen gestopt");
 
         } catch (SQLException ex) {
@@ -145,6 +148,7 @@ public class ChildDAO {
             System.out.println("kind is verwijderd");
 
             pstmt.close();
+            this.database.getConnection().close();
             System.out.println("Preparedstatement kind verwijderen gestopt");
         }
         catch (SQLException e){
