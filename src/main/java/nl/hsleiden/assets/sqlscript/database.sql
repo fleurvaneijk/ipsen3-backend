@@ -132,7 +132,6 @@ VALUES('gulag@ussr.com', 'Josef', 'Stalin', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5
 INSERT INTO couple
 VALUES(DEFAULT, 'koen@gmail.com', 'gulag@ussr.com', TRUE, 30, 30);
 
-INSERT INTO child VALUES(DEFAULT,(SELECT id FROM couple WHERE parent_email_1 = 'koen@gmail.com'), '2019-01-14');
 
 -- Admin met kleine wachtwoord (wachtwoord is abc).
 INSERT INTO users
