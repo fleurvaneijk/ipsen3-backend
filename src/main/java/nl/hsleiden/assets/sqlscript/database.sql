@@ -92,6 +92,7 @@ CREATE TABLE rating
   dilemma_id      int,
   rating_time     int,
   rating_dilemma  int,
+  PRIMARY (id),
   UNIQUE (parent_email, dilemma_id),
   CONSTRAINT fk_dilemma FOREIGN KEY (dilemma_id) REFERENCES dilemma (id) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT fk_parent FOREIGN KEY (parent_email) REFERENCES users (email) ON DELETE CASCADE ON UPDATE CASCADE
