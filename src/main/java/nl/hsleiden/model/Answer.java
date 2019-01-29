@@ -1,6 +1,5 @@
 package nl.hsleiden.model;
 
-
 public class Answer {
     private String _parent_email;
     private int _dilemma_id;
