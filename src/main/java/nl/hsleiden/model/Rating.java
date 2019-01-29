@@ -39,8 +39,9 @@ public class Rating {
     @JsonView(View.Public.class)
     int ratingDilemma;
 
-    public Rating(int id, int dilemmaId, int ratingTime, int ratingDilemma) {
+    public Rating(int id, String parent_email,int dilemmaId, int ratingTime, int ratingDilemma) {
         this.id = id;
+        this.email = parent_email;
         this.dilemmaId = dilemmaId;
         this.ratingTime = ratingTime;
         this.ratingDilemma = ratingDilemma;
