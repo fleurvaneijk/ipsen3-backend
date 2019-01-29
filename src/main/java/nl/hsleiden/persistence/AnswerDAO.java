@@ -4,6 +4,7 @@ import nl.hsleiden.database.Database;
 import nl.hsleiden.model.Answer;
 
 import javax.inject.Singleton;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,10 +29,11 @@ public class AnswerDAO {
             statement.setInt(2, id);
             rs = statement.executeQuery();
             while (rs.next()) {
-                answer.add(rs.getString("parent_email"));
-                answer.add(rs.getInt("dilemma_id"));
-                answer.add(rs.getDate("answered_time"));
-                answer.add(rs.getInt("answer"));
+                answer = new Answer();
+                answer.set_parent_email(rs.getString("parent_email"));
+                answer.set_dilemma_id(rs.getInt("dilemma_id"));
+                answer.set_answered_time(rs.getString("answered_time"));
+                answer.set_answer(rs.getInt("answer"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -81,21 +83,20 @@ public class AnswerDAO {
 
 
     public void add(Answer answer) {
-        String SQL = "INSERT INTO answer VALUES(DEFAULT,?,?,?,?)";
+        String SQL = "INSERT INTO answer VALUES(?,?,?,?)";
         PreparedStatement statement = null;
-
         try {
             statement = this.database.getConnection().prepareStatement(SQL);
-            statement.setString(1, answer.getParent_email());
-            statement.setInt(2, answer.getDilemma_id());
-            statement.setDate(3, answer.getAnswered_time());
-            statement.setInt(4, answer.getAnswer());
+            statement.setString(1, answer.get_parent_email());
+            statement.setInt(2, answer.get_dilemma_id());
+            statement.setDate(3, new Date(System.currentTimeMillis()));
+            statement.setInt(4, answer.get_answer());
 
             statement.executeQuery();
 
             statement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            e.getStackTrace();
         }
     }
 

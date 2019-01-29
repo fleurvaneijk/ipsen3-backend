@@ -1,56 +1,52 @@
 package nl.hsleiden.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-
-import java.sql.Date;
-
 public class Answer {
-    private String parent_email;
-    private int dilemma_id;
-    private Date answered_time;
-    private int answer;
+    private String _parent_email;
+    private int _dilemma_id;
+    private String _answered_time;
+    private int _answer;
 
-    public Answer(String parent_email, int dilemma_id, Date answered_time, int answer) {
-        this.parent_email = parent_email;
-        this.dilemma_id = dilemma_id;
-        this.answered_time = answered_time;
-        this.answer = answer;
+    public Answer(String _parent_email, int _dilemma_id, String _answered_time, int _answer) {
+        this._parent_email = _parent_email;
+        this._dilemma_id = _dilemma_id;
+        this._answered_time = _answered_time;
+        this._answer = _answer;
     }
 
     public Answer() {
 
     }
 
-    public String getParent_email() {
-        return parent_email;
+    public String get_parent_email() {
+        return _parent_email;
     }
 
-    public void setParent_email(String parent_email) {
-        this.parent_email = parent_email;
+    public void set_parent_email(String _parent_email) {
+        this._parent_email = _parent_email;
     }
 
-    public int getDilemma_id() {
-        return dilemma_id;
+    public int get_dilemma_id() {
+        return _dilemma_id;
     }
 
-    public void setDilemma_id(int dilemma_id) {
-        this.dilemma_id = dilemma_id;
+    public void set_dilemma_id(int _dilemma_id) {
+        this._dilemma_id = _dilemma_id;
     }
 
-    public Date getAnswered_time() {
-        return answered_time;
+    public String get_answered_time() {
+        return _answered_time;
     }
 
-    public void setAnswered_time(Date answered_time) {
-        this.answered_time = answered_time;
+    public void set_answered_time(String _answered_time) {
+        this._answered_time = _answered_time;
     }
 
-    public int getAnswer() {
-        return answer;
+    public int get_answer() {
+        return _answer;
     }
 
-    public void setAnswer(int answer) {
-        this.answer = answer;
+    public void set_answer(int _answer) {
+        this._answer = _answer;
     }
 }
 

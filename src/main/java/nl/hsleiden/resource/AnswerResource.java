@@ -7,10 +7,9 @@ import nl.hsleiden.service.AnswerService;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.Collection;
+
 
 @Singleton
 @Path("/answer")
@@ -38,7 +37,8 @@ public class AnswerResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)
-    public void create(@Valid Answer answer) {
+    public void create(Answer answer) {
+        System.out.println("DILEMMA BOYSSSSSS");
         service.add(answer);
     }
 }
