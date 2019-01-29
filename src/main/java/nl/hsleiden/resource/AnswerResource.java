@@ -33,7 +33,10 @@ public class AnswerResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)
-    public void create(@Valid Answer answer) {
+    public void create(Answer answer) {
+        System.out.println("==========================================");
+        System.out.println(answer);
+        System.out.println("==========================================");
         service.add(answer);
     }
 }
