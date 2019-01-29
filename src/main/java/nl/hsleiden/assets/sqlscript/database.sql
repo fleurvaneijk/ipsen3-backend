@@ -99,12 +99,12 @@ CREATE TABLE rating
 );
 
 
--- Insert tests
+-- Insert roles
 INSERT INTO user_roles VALUES('OUDER');
 INSERT INTO user_roles VALUES('BEHEERDER');
 INSERT INTO user_roles VALUES('MEDEWERKER');
 
--- User 1
+-- Couple 1
 INSERT INTO users
 VALUES('robinsilverio@hotmail.com', 'Robin', 'Silverio', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'OUDER');
 INSERT INTO users
@@ -112,7 +112,7 @@ VALUES('fleur@hotmail.com', 'Fleur', 'van Eijk', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4
 INSERT INTO couple
 VALUES(DEFAULT, 'robinsilverio@hotmail.com', 'fleur@hotmail.com', TRUE, 30, 30);
 
--- User 2
+-- Couple 2
 INSERT INTO users
 VALUES('yme@hotmail.com', 'Yme', 'Brugts', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'OUDER');
 INSERT INTO users
@@ -122,17 +122,13 @@ VALUES(DEFAULT, 'yme@hotmail.com', 'dilisha@hotmail.com', FALSE, 0, 36);
 
 INSERT INTO child VALUES(DEFAULT,(SELECT id FROM couple WHERE parent_email_1 = 'yme@hotmail.com'), '2019-01-14');
 
--- Users 3 met kleine wachtwoorden (wachtwoord is abc).
+-- Couple 3
 INSERT INTO users
 VALUES('koen@gmail.com', 'Koen', 'Warner', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'OUDER');
-
 INSERT INTO users
 VALUES('gulag@ussr.com', 'Josef', 'Stalin', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'OUDER');
-
 INSERT INTO couple
 VALUES(DEFAULT, 'koen@gmail.com', 'gulag@ussr.com', TRUE, 30, 30);
-
-INSERT INTO child VALUES(DEFAULT,(SELECT id FROM couple WHERE parent_email_1 = 'koen@gmail.com'), '2019-01-14');
 
 -- Admin met kleine wachtwoord (wachtwoord is abc).
 INSERT INTO users

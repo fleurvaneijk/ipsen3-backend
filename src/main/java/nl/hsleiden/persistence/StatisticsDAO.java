@@ -33,7 +33,7 @@ public class StatisticsDAO {
         try {
             String query =  "SELECT couple.pregnant, dilemma.subject, ROUND(AVG(rating_dilemma + rating_time)/2::numeric,1) AS rating " +
                             "FROM rating " +
-                                "JOIN dilemma ON(dilemma_id = id) " +
+                                "JOIN dilemma ON(dilemma_id = dilemma.id) " +
                                 "JOIN couple ON(parent_email = parent_email_1 OR parent_email = parent_email_2) " +
                             "GROUP BY couple.pregnant, dilemma.subject";
 
