@@ -68,6 +68,7 @@ public class UserDAO
             try{
                 rs.close();
                 pstmt.close();
+                this.database.getConnection().close();
                 System.out.println("Preparedstatement users selecteren gestopt");
             }
             catch (SQLException e){
@@ -106,6 +107,7 @@ public class UserDAO
             try{
                 rs.close();
                 statement.close();
+                this.database.getConnection().close();
                 System.out.println("Preparedstatement ouders selecteren gestopt");
             }
             catch (SQLException e){
@@ -144,6 +146,7 @@ public class UserDAO
             try{
                 rs.close();
                 statement.close();
+                this.database.getConnection().close();
                 System.out.println("Preparedstatement administratoren selecteren gestopt");
             }
             catch (SQLException e){
@@ -182,6 +185,7 @@ public class UserDAO
             try{
                 rs.close();
                 pstmt.close();
+                this.database.getConnection().close();
                 System.out.println("Preparedstatement individuele gebruiker selecteren gestopt");
             }
             catch (SQLException e){
@@ -227,6 +231,7 @@ public class UserDAO
                 System.out.println("Gebruiker is toegevoegd");
 
                 pstmt.close();
+                this.database.getConnection().close();
                 System.out.println("Preparedstatement gebruiker toevoegen gestopt");
 
             } catch (SQLException ex) {
@@ -268,6 +273,7 @@ public class UserDAO
             System.out.println("Gebruiker is verwijderd");
 
             pstmt.close();
+            this.database.getConnection().close();
             System.out.println("Preparedstatement gebruiker verwijderd gestopt");
         }
         catch (SQLException e){

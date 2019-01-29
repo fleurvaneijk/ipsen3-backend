@@ -48,6 +48,7 @@ public class CoupleDAO {
             try{
                 rs.close();
                 pstmt.close();
+                this.database.getConnection().close();
                 System.out.println("Preparedstatement koppels selecteren gestopt");
             }
             catch (SQLException e){
@@ -90,6 +91,7 @@ public class CoupleDAO {
             try{
                 rs.close();
                 pstmt.close();
+                this.database.getConnection().close();
                 System.out.println("Preparedstatement individuele koppel selecteren gestopt");
             }
             catch (SQLException e){
@@ -127,6 +129,7 @@ public class CoupleDAO {
             try{
                 rs.close();
                 pstmt.close();
+                this.database.getConnection().close();
                 System.out.println("Preparedstatement individuele koppel selecteren gestopt");
             }
             catch (SQLException e){
@@ -159,6 +162,7 @@ public class CoupleDAO {
             System.out.println("Koppel is toegevoegd");
 
             pstmt.close();
+            this.database.getConnection().close();
             System.out.println("Preparedstatement koppel toevoegen gestopt");
 
         } catch (SQLException ex) {
@@ -184,6 +188,7 @@ public class CoupleDAO {
             System.out.println("Koppel is verwijderd");
 
             pstmt.close();
+            this.database.getConnection().close();
             System.out.println("Preparedstatement koppel verwijderen gestopt");
         }
         catch (SQLException e){

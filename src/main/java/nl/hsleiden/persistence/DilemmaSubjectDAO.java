@@ -96,6 +96,7 @@ public class DilemmaSubjectDAO {
             while(resultSet.next()) {
                 subjects.add(resultSet.getString("subject"));
             }
+            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

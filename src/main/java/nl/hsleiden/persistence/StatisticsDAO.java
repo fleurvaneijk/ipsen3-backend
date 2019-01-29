@@ -48,6 +48,7 @@ public class StatisticsDAO {
 
                 ratingPerSubjectList.add(row);
             }
+            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -89,6 +90,7 @@ public class StatisticsDAO {
 
                 dilemmaAnswersClicksAmount.add(row);
             }
+            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -119,6 +121,7 @@ public class StatisticsDAO {
             while(resultSet.next()) {
                 answerDateTimes.add(resultSet.getString("answered_time"));
             }
+            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
