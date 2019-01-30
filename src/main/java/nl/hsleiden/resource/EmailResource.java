@@ -5,8 +5,10 @@ import nl.hsleiden.View;
 import nl.hsleiden.service.EmailService;
 
 import javax.inject.Inject;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 
+@Path("/email")
 public class EmailResource {
 
     private final EmailService service;
@@ -16,9 +18,10 @@ public class EmailResource {
         this.service = service;
     }
 
+    @PUT
     @Path("/sendMail")
     @JsonView(View.Public.class)
-    public void SendEmail() {
-        service.readyMail();
+    public void SendEmail(String email) {
+        service.readyMail(email);
     }
 }

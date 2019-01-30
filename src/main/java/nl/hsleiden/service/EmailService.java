@@ -21,10 +21,10 @@ public class EmailService {
      Use Authentication: Yes
      Port for TLS/STARTTLS: 587
      */
-    public static void readyMail() {
+    public static void readyMail(String email) {
         final String fromEmail = "dubio.klantenservice@gmail.com"; //requires valid gmail id
         final String password = "Dubio*00"; // correct password for gmail id
-        final String toEmail = "fleur.vaneijk99@gmail.com"; // can be any email id
+        final String toEmail = email; // can be any email id
 
         System.out.println("TLSEmail Start");
         Properties props = new Properties();
