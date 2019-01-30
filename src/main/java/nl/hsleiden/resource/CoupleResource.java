@@ -114,7 +114,6 @@ public class CoupleResource
         String dateString = list.get(1).toString();
         service.updateBirthdate(email, dateString);
     }
-}
 
 
     @PUT

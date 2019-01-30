@@ -32,7 +32,6 @@ public class CoupleService extends BaseService<Couple> {
     public CoupleService(CoupleDAO dao, CoupleManagementDAO cmDao, ChildService childService)
     {
         this.childService = childService;
-    public CoupleService(CoupleDAO dao, CoupleManagementDAO cmDao) {
         this.dao = dao;
         this.cmDao = cmDao;
         this.dao.setDatabase(ApiApplication.getDatabase());
