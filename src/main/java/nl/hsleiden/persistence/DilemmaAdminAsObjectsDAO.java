@@ -44,8 +44,13 @@ public class DilemmaAdminAsObjectsDAO {
         dilemmaOptionsDAO.setDatabase(database);
     }
 
-    public void addDilemma(Dilemma dilemma) {
-        dilemmaDAO.insert(dilemma);
+    public Dilemma addDilemma(Dilemma dilemma) {
+        return dilemmaDAO.insert(dilemma);
+    }
+
+    public void addDilemmaOptions(DilemmaOptions dilemmaOption1, DilemmaOptions dilemmaOption2) {
+        dilemmaOptionsDAO.addDilemmaOption(dilemmaOption1);
+        dilemmaOptionsDAO.addDilemmaOption(dilemmaOption2);
     }
 
     public void addSubjectIfNotFound(DilemmaSubjectAdmin subject) {

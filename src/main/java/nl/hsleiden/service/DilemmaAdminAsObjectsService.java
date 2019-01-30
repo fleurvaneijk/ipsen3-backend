@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.security.auth.Subject;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Singleton
 public class DilemmaAdminAsObjectsService {
@@ -35,9 +36,28 @@ public class DilemmaAdminAsObjectsService {
                 dilemmaAdminAsAttributes.is_pregnant(),
                 dilemmaAdminAsAttributes.get_weekNr()
         );
-        System.out.println("DilemmaId dat is gegeven: " + dilemmaAdminAsAttributes.get_dilemmaId());
-        System.out.println(dilemmaDatabase.getDilemmaId());
-        dao.addDilemma(dilemmaDatabase);
+        Dilemma NewlyMadeDilemma = dao.addDilemma(dilemmaDatabase);
+
+        try {
+            TimeUnit.SECONDS.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        DilemmaOptions dilemmaOptionsDatabase1 = new DilemmaOptions(
+                1,
+                dilemmaAdminAsAttributes.get_imagePathLeft(),
+                dilemmaAdminAsAttributes.get_textLeft(),
+                NewlyMadeDilemma.getDilemmaId()
+        );
+        DilemmaOptions dilemmaOptionsDatabase2 = new DilemmaOptions(
+                2,
+                dilemmaAdminAsAttributes.get_imagePathLeft(),
+                dilemmaAdminAsAttributes.get_textLeft(),
+                NewlyMadeDilemma.getDilemmaId()
+        );
+        dao.addDilemmaOptions(dilemmaOptionsDatabase1,dilemmaOptionsDatabase2);
+
     }
 }
 

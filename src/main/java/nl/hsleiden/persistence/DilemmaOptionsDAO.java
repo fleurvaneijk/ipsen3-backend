@@ -28,6 +28,32 @@ public class DilemmaOptionsDAO {
         this.database = database;
     }
 
+    public void addDilemmaOption(DilemmaOptions dilemmaOption) {
+        String SQL = "INSERT INTO dilemma_option VALUES(?,?,?,?)";
+        PreparedStatement statement = null;
+        try {
+            statement = this.database.getConnection().prepareStatement(SQL);
+            statement.setInt(1, dilemmaOption.getId());
+            statement.setString(2, dilemmaOption.getImagePath());
+            statement.setString(3, dilemmaOption.getText());
+            statement.setInt(4, dilemmaOption.getDilemmaId());
+            statement.executeUpdate();
+            statement.close();
+            this.database.getConnection().close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+                this.database.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
     /**
      * @Author Yme Brugts
      */
