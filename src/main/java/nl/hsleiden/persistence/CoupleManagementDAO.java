@@ -88,21 +88,17 @@ public class CoupleManagementDAO {
     }
 
     public void changePregnant(int coupleId, boolean pregnant) {
-        System.out.println("DAODAOAODODAODOADOAOADADOADOD");
-        ResultSet resultSet = null;
-
         try {
             String query =  "UPDATE couple SET pregnant = ? WHERE id = ?";
             PreparedStatement statement = database.getConnection().prepareStatement(query);
             statement.setBoolean(1, pregnant);
             statement.setInt(2, coupleId);
-            resultSet = statement.executeQuery();
+            statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         finally {
             try {
-                resultSet.close();
                 this.database.getConnection().close();
             } catch (SQLException e) {
                 e.printStackTrace();

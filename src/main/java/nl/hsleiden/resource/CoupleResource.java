@@ -11,7 +11,6 @@ import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -81,13 +80,14 @@ public class CoupleResource
     }
 
     @PUT
-    @Path("/updatePregnant{email}{pregnant}")
+    @Path("/updatePregnant")
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Public.class)
-    public void updatePregnant(@PathParam("email") String parentEmail, @PathParam("pregnant") boolean pregnant)
+    public void updatePregnant(@Valid List list)
     {
-        System.out.println("RESOURCE RESOURCE RESOURCE RESOURCE");
-        service.updatePregnant(parentEmail, pregnant);
+        String email = list.get(0).toString();
+        boolean pregnant = Boolean.valueOf(list.get(1).toString());
+        service.updatePregnant(email, pregnant);
     }
 
     @PUT
