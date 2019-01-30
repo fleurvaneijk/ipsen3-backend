@@ -1,5 +1,7 @@
 package nl.hsleiden.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,6 +10,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import nl.hsleiden.ApiApplication;
+import nl.hsleiden.model.Child;
 import nl.hsleiden.model.Couple;
 import nl.hsleiden.persistence.CoupleDAO;
 import nl.hsleiden.persistence.CoupleManagementDAO;
@@ -23,9 +26,12 @@ import org.joda.time.Weeks;
 public class CoupleService extends BaseService<Couple> {
     private final CoupleDAO dao;
     private final CoupleManagementDAO cmDao;
+    private final ChildService childService;
 
     @Inject
-    public CoupleService(CoupleDAO dao, CoupleManagementDAO cmDao) {
+    public CoupleService(CoupleDAO dao, CoupleManagementDAO cmDao, ChildService childService)
+    {
+        this.childService = childService;
         this.dao = dao;
         this.cmDao = cmDao;
         this.dao.setDatabase(ApiApplication.getDatabase());
@@ -73,6 +79,26 @@ public class CoupleService extends BaseService<Couple> {
 
     public void updatePregnant(String email, boolean pregnant) {
         cmDao.changePregnant(dao.getCoupleId(email), pregnant);
+    }
+
+    public void updatePregnantWeeks(String email, int weeks) {
+        cmDao.changePregnantWeeks(dao.getCoupleId(email), weeks);
+    }
+
+    public void updateBirthdate(String email, String birthdate) {
+        int coupleId = dao.getCoupleId(email);
+        if (childService.getChildExistsByCoupleId(coupleId) == false) { // If child doesnt exist
+            childService.add(new Child(email, birthdate));   // Make new child
+        }
+        else {
+            Date dateBirthdate = null;
+            try {
+                dateBirthdate = new SimpleDateFormat("yyyy-mm-dd").parse(birthdate);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            childService.updateBirthdate(coupleId, dateBirthdate);
+        }
     }
 
     public void updateCouplePregnant(String email2, boolean pregnant, int weeks_pregnant) {
