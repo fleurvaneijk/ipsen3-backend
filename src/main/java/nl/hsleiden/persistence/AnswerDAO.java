@@ -18,36 +18,35 @@ public class AnswerDAO {
     public AnswerDAO() {
     }
 
-//    public List getSingleAnswer(String email, int id) {
-//        List answer = new ArrayList();
-//        String SQL = "SELECT * FROM answer WHERE parent_email = ? AND dilemma_id = ?";
-//        PreparedStatement statement = null;
-//        ResultSet rs = null;
-//        try {
-//            statement = this.database.getConnection().prepareStatement(SQL);
-//            statement.setString(1, email);
-//            statement.setInt(2, id);
-//            rs = statement.executeQuery();
-//            while (rs.next()) {
-//                answer = new Answer();
-//                answer.set_parent_email(rs.getString("parent_email"));
-//                answer.set_dilemma_id(rs.getInt("dilemma_id"));
-//                answer.set_answered_time(rs.getString("answered_time"));
-//                answer.set_answer(rs.getInt("answer"));
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        } finally {
-//            try {
-//                rs.close();
-//                statement.close();
-//                this.database.getConnection().close();
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        return answer;
-//    }
+    public List getSingleAnswer(String email, int id) {
+        List answer = new ArrayList();
+        String SQL = "SELECT * FROM answer WHERE parent_email = ? AND dilemma_id = ?";
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        try {
+            statement = this.database.getConnection().prepareStatement(SQL);
+            statement.setString(1, email);
+            statement.setInt(2, id);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                answer.add(rs.getString("parent_email"));
+                answer.add(rs.getInt("dilemma_id"));
+                answer.add(rs.getDate("answered_time"));
+                answer.add(rs.getInt("answer"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                rs.close();
+                statement.close();
+                this.database.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return answer;
+    }
 
     public List getAllAnswers() {
         String SQL = "SELECT * FROM answer";
