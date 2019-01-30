@@ -26,11 +26,11 @@ public class Dilemma {
     @JsonView(View.Public.class)
     private String subject;
 
-    @Column(name = "pregnant", nullable = false)
+    @Column(name = "pregnant")
     @JsonView(View.Public.class)
     private boolean pregnant;
 
-    @Column(name = "week_no", nullable = false)
+    @Column(name = "week_no")
     @JsonView(View.Public.class)
     private int weekNr;
 

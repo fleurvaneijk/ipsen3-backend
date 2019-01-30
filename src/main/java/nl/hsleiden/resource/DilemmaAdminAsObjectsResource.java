@@ -1,14 +1,17 @@
 package nl.hsleiden.resource;
 
+import com.codahale.metrics.annotation.Timed;
 import com.fasterxml.jackson.annotation.JsonView;
 import io.dropwizard.hibernate.UnitOfWork;
 import nl.hsleiden.View;
 import nl.hsleiden.model.Dilemma;
+import nl.hsleiden.model.DilemmaAdminAsAttributes;
 import nl.hsleiden.model.DilemmaAdminAsObjects;
 import nl.hsleiden.service.DilemmaAdminAsObjectsService;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.Collection;
@@ -34,9 +37,11 @@ public class DilemmaAdminAsObjectsResource {
     }
 
     @POST
+    @Timed
     @Consumes
     @JsonView(View.Public.class)
-    public void updateDilemmaAdminAsAttributes(List dilemmaAdminAsAttributes) {
+    public void updateDilemmaAdminAsAttributes(@Valid DilemmaAdminAsAttributes dilemmaAdminAsAttributes) {
+        System.out.println("test");
         dilemmaAdminAsObjectsService.AddDilemmaAdmin(dilemmaAdminAsAttributes);
     }
 
