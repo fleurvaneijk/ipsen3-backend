@@ -116,7 +116,6 @@ public class CoupleDAO {
             try{
                 rs.close();
                 this.database.getConnection().close();
-                System.out.println("Koppel ID selecteren gestopt");
             }
             catch (SQLException e){
                 e.printStackTrace();

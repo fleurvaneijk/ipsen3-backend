@@ -85,11 +85,8 @@ public class CoupleResource
     @JsonView(View.Public.class)
     public void updatePregnant(@Valid List list)
     {
-        System.out.println("RESOURCE RESOURCE RESOURCE RESOURCE");
-        System.out.println(list);
         String email = list.get(0).toString();
         boolean pregnant = Boolean.valueOf(list.get(1).toString());
-        System.out.println("email = " + email.getClass());
         service.updatePregnant(email, pregnant);
     }
 }
