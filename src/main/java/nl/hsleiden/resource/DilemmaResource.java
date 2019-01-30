@@ -47,12 +47,13 @@ public class DilemmaResource {
         return service.get(id);
     }
 
-//    @GET
-//    @UnitOfWork
-//    @Path("/{id}/{pregnant}")
-//    @JsonView(View.Public.class)
-//    public Dilemma retrieve(@PathParam("id") int id, @PathParam("pregnant") boolean pregnant) {
-//       return service.get(id, pregnant);
-//    }
+    @GET
+    @UnitOfWork
+    @Path("/{id}/{pregnant}")
+    @JsonView(View.Public.class)
+    public Dilemma retrieve(@PathParam("id") int id, @PathParam("pregnant") boolean pregnant) {
+        System.out.println("Ik ben nu hier RESOURCE");
+        return service.getByPregnant(id, pregnant);
+    }
 
 }
