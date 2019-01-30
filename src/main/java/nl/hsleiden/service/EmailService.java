@@ -43,7 +43,7 @@ public class EmailService {
         Session session = Session.getInstance(props, auth);
 
         String subject = "Er staat een nieuw dilemma voor u klaar! - Dubio";
-        String body = "Beste gebruiker,\nEr staat een nieuw dilemma voor u klaar op onze website, beantwoord hem snel!\n- Dubio klantenservice";
+        String body = "<div style=\"color:red;\">BRIDGEYE</div>"; // YME YME YME YME
 
         sendEmail(session, toEmail,subject, body);
     }
@@ -70,7 +70,8 @@ public class EmailService {
 
             msg.setSubject(subject, "UTF-8");
 
-            msg.setText(body, "UTF-8");
+//            msg.setText(body, "UTF-8");
+            msg.setContent(body, "text/html; charset=utf-8");
 
             msg.setSentDate(new Date());
 
