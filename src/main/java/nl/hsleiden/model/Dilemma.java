@@ -16,7 +16,8 @@ import javax.persistence.*;
 )
 @NamedQueries({
         @NamedQuery(name = "Dilemma.getByWeekAndPregnant",
-                query = "SELECT e FROM dilemma WHERE week_no = :id AND pregnant = :pregnant")
+                query = "FROM Dilemma WHERE week_no = :id AND pregnant = :pregnant"
+        )
 })
 public class Dilemma {
 
