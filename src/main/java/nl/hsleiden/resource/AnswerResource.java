@@ -23,16 +23,16 @@ public class AnswerResource {
         this.service = service;
     }
 
-    @GET
-    @JsonView(View.Public.class)
-    public Collection retrieveAllAnswers() { return service.getAllAnswers(); }
-
-    @GET
-    @Path("/{email}/{id}")
-    @JsonView(View.Public.class)
-    public Collection retrieveAnswer(@PathParam("email") String email, @PathParam("id") int id) {
-        return service.getSingleAnswer(email, id);
-    }
+//    @GET
+//    @JsonView(View.Public.class)
+//    public Collection retrieveAllAnswers() { return service.getAllAnswers(); }
+//
+//    @GET
+//    @Path("/{email}/{id}")
+//    @JsonView(View.Public.class)
+//    public Collection retrieveAnswer(@PathParam("email") String email, @PathParam("id") int id) {
+//        return service.getSingleAnswer(email, id);
+//    }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
