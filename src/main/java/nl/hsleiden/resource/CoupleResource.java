@@ -95,7 +95,6 @@ public class CoupleResource
     @JsonView(View.Public.class)
     public void updateCouplePregnant(Couple couple)
     {
-        System.out.println("RESOURCE RESOURCE RESOURCE RESOURCE");
         service.updateCouplePregnant(couple.getParentMail2(), couple.getPregnant(), couple.getWeeksPregnant());
     }
 }
