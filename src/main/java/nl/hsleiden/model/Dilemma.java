@@ -14,9 +14,10 @@ import javax.persistence.*;
         name = "dilemma",
         uniqueConstraints = {@UniqueConstraint(columnNames = {"pregnant", "week_no"})}
 )
-@NamedQueries({
-        @NamedQuery(name = "Dilemma.getByWeekAndPregnant",
-                query = "FROM Dilemma WHERE week_no = :id AND pregnant = :pregnant"
+@NamedNativeQueries({
+        @NamedNativeQuery(name = "Dilemma.getByWeekAndPregnant",
+                query = "select * FROM Dilemma WHERE week_no = :id AND pregnant = :pregnant",
+                resultClass = Dilemma.class
         )
 })
 public class Dilemma {

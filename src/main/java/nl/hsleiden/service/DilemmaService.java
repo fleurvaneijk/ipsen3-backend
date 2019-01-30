@@ -3,6 +3,7 @@ package nl.hsleiden.service;
 import nl.hsleiden.ApiApplication;
 import nl.hsleiden.model.Dilemma;
 import nl.hsleiden.persistence.DilemmaDAO;
+import nl.hsleiden.persistence.DilemmaDAONoHybernate;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -12,11 +13,13 @@ import java.util.Collection;
 public class DilemmaService extends BaseService<Dilemma>{
 
     private final DilemmaDAO dao;
+    private final DilemmaDAONoHybernate daoNoHybernate;
 
     @Inject
-    public DilemmaService(DilemmaDAO dao){
+    public DilemmaService(DilemmaDAO dao, DilemmaDAONoHybernate daoNoHybernate){
         this.dao = dao;
-//        this.dao.setDatabase(ApiApplication.getDatabase());
+        this.daoNoHybernate = daoNoHybernate;
+        daoNoHybernate.setDatabase(ApiApplication.getDatabase());
     }
 
     public Collection<Dilemma> getAll(){
@@ -28,6 +31,8 @@ public class DilemmaService extends BaseService<Dilemma>{
     }
 
     public Dilemma getByPregnant(int id, boolean pregnant){
-        return requireResult(dao.getByWeeknumberAndPregnant(id, pregnant));
+        System.out.println("Ik ben nu hier SERVICE");
+        System.out.println(requireResult(daoNoHybernate.getByWeeknumberAndPregnant(id, pregnant)));
+        return daoNoHybernate.getByWeeknumberAndPregnant(id, pregnant);
     }
 }
