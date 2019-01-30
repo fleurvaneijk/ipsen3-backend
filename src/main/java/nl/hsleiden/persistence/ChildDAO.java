@@ -99,7 +99,7 @@ public class ChildDAO {
     public void add(Child child)
     {
         String SQL = "INSERT INTO child "
-                + "VALUES(DEFAULT, (SELECT id FROM couple WHERE parent_email_1 = ?), ?)";
+                + "VALUES(DEFAULT, (SELECT id FROM couple WHERE parent_email_1 = ? OR parent_email_2 = ?), ?)";
 
         PreparedStatement pstmt = null;
 
@@ -113,7 +113,8 @@ public class ChildDAO {
 
 
             pstmt.setString(1, child.getParentMail());
-            pstmt.setDate(2, sqlBirthDate);
+            pstmt.setString(2, child.getParentMail());
+            pstmt.setDate(3, sqlBirthDate);
 
             pstmt.executeUpdate();
 
@@ -153,6 +154,55 @@ public class ChildDAO {
         }
         catch (SQLException e){
             System.out.println(e.getMessage());
+        }
+    }
+
+    public boolean getChildExistsByCoupleId(int coupleId) {
+        ResultSet resultSet = null;
+        boolean childExists = false;
+        try {
+            String query =  "SELECT * FROM child WHERE couple_id = ?";
+            PreparedStatement statement = database.getConnection().prepareStatement(query);
+            statement.setInt(1, coupleId);
+            resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                childExists = true;
+            }else{
+                childExists = false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                resultSet.close();
+                this.database.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return childExists;
+    }
+
+    public void updateBirthdate(int coupleId, java.sql.Date birthdate) {
+        ResultSet resultSet = null;
+        boolean childExists = false;
+        try {
+            String query =  "UPDATE child SET birthdate = ? WHERE couple_id = ?";
+            PreparedStatement statement = database.getConnection().prepareStatement(query);
+            statement.setDate(1, birthdate);
+            statement.setInt(2, coupleId);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                resultSet.close();
+                this.database.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 

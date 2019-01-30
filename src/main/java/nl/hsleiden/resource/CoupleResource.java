@@ -10,7 +10,10 @@ import javax.inject.Inject;
 import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -98,6 +101,18 @@ public class CoupleResource
         int weeks = Integer.parseInt(list.get(1).toString());
         System.out.println(weeks);
         service.updatePregnantWeeks(email, weeks);
+    }
+
+    @PUT
+    @Path("/updateBirthdate")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @JsonView(View.Public.class)
+    public void updateBirthdate(List list) {
+        System.out.println(list);
+        String email = list.get(0).toString();
+
+        String dateString = list.get(1).toString();
+        service.updateBirthdate(email, dateString);
     }
 }
 

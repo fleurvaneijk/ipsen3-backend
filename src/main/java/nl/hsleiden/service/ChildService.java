@@ -1,6 +1,7 @@
 package nl.hsleiden.service;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -55,4 +56,14 @@ public class ChildService extends BaseService<Child>
     {
         dao.delete(id);
     }
+
+    public boolean getChildExistsByCoupleId(int coupleId){
+        return dao.getChildExistsByCoupleId(coupleId);
+    }
+
+    public void updateBirthdate(int coupleId, Date birthdate){
+        java.sql.Date birthdateSQL = new java.sql.Date(birthdate.getTime());
+        dao.updateBirthdate(coupleId, birthdateSQL);
+    }
+
 }
