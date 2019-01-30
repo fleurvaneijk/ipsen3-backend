@@ -116,3 +116,12 @@ public class CoupleResource
     }
 }
 
+
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @JsonView(View.Public.class)
+    public void updateCouplePregnant(Couple couple)
+    {
+        service.updateCouplePregnant(couple.getParentMail2(), couple.getPregnant(), couple.getWeeksPregnant());
+    }
+}

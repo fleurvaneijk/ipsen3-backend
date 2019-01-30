@@ -14,40 +14,44 @@ import javax.persistence.*;
         name = "dilemma",
         uniqueConstraints = {@UniqueConstraint(columnNames = {"pregnant", "week_no"})}
 )
+@NamedQueries({
+        @NamedQuery(name = "Dilemma.getByWeekAndPregnant",
+                query = "SELECT e FROM dilemma WHERE week_no = :id AND pregnant = :pregnant")
+})
 public class Dilemma {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonView(View.Public.class)
-    private int dilemmaId;
+    private Integer dilemmaId;
 
     @Column(name = "subject", length = 30)
     @JsonView(View.Public.class)
     private String subject;
 
-    @Column(name = "pregnant", nullable = false)
+    @Column(name = "pregnant")
     @JsonView(View.Public.class)
     private boolean pregnant;
 
-    @Column(name = "week_no", nullable = false)
+    @Column(name = "week_no")
     @JsonView(View.Public.class)
     private int weekNr;
 
     public Dilemma(){}
 
-    public Dilemma(int dilemmaId, String subject, boolean pregnant, int weekNr) {
+    public Dilemma(Integer dilemmaId, String subject, boolean pregnant, int weekNr) {
         this.dilemmaId = dilemmaId;
         this.subject = subject;
         this.pregnant = pregnant;
         this.weekNr = weekNr;
     }
 
-    public int getDilemmaId() {
+    public Integer getDilemmaId() {
         return dilemmaId;
     }
 
-    public void setDilemmaId(int dilemmaId) {
+    public void setDilemmaId(Integer dilemmaId) {
         this.dilemmaId = dilemmaId;
     }
 

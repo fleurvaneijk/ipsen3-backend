@@ -153,7 +153,6 @@ public class CoupleDAO {
                 rs.close();
                 pstmt.close();
                 this.database.getConnection().close();
-                System.out.println("Preparedstatement individuele koppel selecteren gestopt");
             }
             catch (SQLException e){
                 e.printStackTrace();
@@ -182,11 +181,8 @@ public class CoupleDAO {
 
             pstmt.executeUpdate();
 
-            System.out.println("Koppel is toegevoegd");
-
             pstmt.close();
             this.database.getConnection().close();
-            System.out.println("Preparedstatement koppel toevoegen gestopt");
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -208,11 +204,8 @@ public class CoupleDAO {
             pstmt.setInt(1, id);
             pstmt.executeQuery();
 
-            System.out.println("Koppel is verwijderd");
-
             pstmt.close();
             this.database.getConnection().close();
-            System.out.println("Preparedstatement koppel verwijderen gestopt");
         }
         catch (SQLException e){
             System.out.println(e.getMessage());

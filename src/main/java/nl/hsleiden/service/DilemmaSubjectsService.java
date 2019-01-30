@@ -25,9 +25,7 @@ public class DilemmaSubjectsService extends BaseService {
     public List getAllSubjects() { return dao.getAllSubjects(); }
 
     public Collection<DilemmaSubject> getSubject(String subject) {
-        System.out.println("!!!!!!!!!!!!");
         List a = dao.getSubject(subject);
-        System.out.println(a);
         return dao.getSubject(subject);
 
     }

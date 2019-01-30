@@ -26,4 +26,8 @@ public class DilemmaService extends BaseService<Dilemma>{
     public Dilemma get(int id){
         return requireResult(dao.get(id));
     }
+
+    public Dilemma getByPregnant(int id, boolean pregnant){
+        return requireResult(dao.getByWeeknumberAndPregnant(id, pregnant));
+    }
 }

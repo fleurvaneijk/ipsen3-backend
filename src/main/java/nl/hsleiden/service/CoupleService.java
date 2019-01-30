@@ -20,12 +20,10 @@ import org.joda.time.Weeks;
 
 
 /**
- *
  * @author Robin Silverio
  */
 @Singleton
-public class CoupleService extends BaseService<Couple>
-{
+public class CoupleService extends BaseService<Couple> {
     private final CoupleDAO dao;
     private final CoupleManagementDAO cmDao;
     private final ChildService childService;
@@ -34,49 +32,43 @@ public class CoupleService extends BaseService<Couple>
     public CoupleService(CoupleDAO dao, CoupleManagementDAO cmDao, ChildService childService)
     {
         this.childService = childService;
+    public CoupleService(CoupleDAO dao, CoupleManagementDAO cmDao) {
         this.dao = dao;
         this.cmDao = cmDao;
         this.dao.setDatabase(ApiApplication.getDatabase());
         this.cmDao.setDatabase(ApiApplication.getDatabase());
     }
 
-    public List<Couple> getAll()
-    {
+    public List<Couple> getAll() {
         return dao.getAll();
     }
 
-    public Couple get(String id)
-    {
+    public Couple get(String id) {
         return requireResult(dao.get(id));
     }
 
-    public void add(Couple user)
-    {
+    public void add(Couple user) {
         dao.add(user);
     }
 
-    public void update(String id, Couple couple)
-    {
+    public void update(String id, Couple couple) {
         // Controleren of deze gebruiker wel bestaat
         Couple oldCouple = get(id);
         dao.update(id, couple);
     }
 
-    public void delete(int id)
-    {
+    public void delete(int id) {
         dao.delete(id);
     }
 
-    public List getCoupleTableInfo()
-    {
+    public List getCoupleTableInfo() {
         ArrayList<ArrayList> coupleTableInfo = cmDao.getCoupleTableInfo();
-        for(int i = 0 ; i < coupleTableInfo.size() ; i++){
-            int coupleId = (int)coupleTableInfo.get(i).get(0);
+        for (int i = 0; i < coupleTableInfo.size(); i++) {
+            int coupleId = (int) coupleTableInfo.get(i).get(0);
             Date childBirthdate = cmDao.getBirthdate(coupleId);
-            if(childBirthdate == null){
+            if (childBirthdate == null) {
                 coupleTableInfo.get(i).add(null);
-            }
-            else {
+            } else {
                 DateTime dateTime = new DateTime(childBirthdate);
                 DateTime today = new DateTime();
                 int weeks = Weeks.weeksBetween(dateTime, today).getWeeks();
@@ -108,5 +100,13 @@ public class CoupleService extends BaseService<Couple>
             }
             childService.updateBirthdate(coupleId, dateBirthdate);
         }
+    }
+
+    public void updateCouplePregnant(String email2, boolean pregnant, int weeks_pregnant) {
+        cmDao.changeCouplePregnant(email2, pregnant, weeks_pregnant);
+    }
+
+    public void updateFullCouple(Couple couple) {
+        cmDao.changeCoupleComplete(couple.getParentMail2(), couple.getWeeksPregnant(), couple.getLastAnswerWeekNo());
     }
 }

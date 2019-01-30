@@ -1,6 +1,7 @@
 package nl.hsleiden.persistence;
 
 import nl.hsleiden.database.Database;
+import nl.hsleiden.model.Couple;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -106,6 +107,50 @@ public class CoupleManagementDAO {
         }
     }
 
+    public void changeCouplePregnant(String email2, Boolean pregnant, int weeksPregnant){
+
+        try {
+            String query =  "UPDATE couple SET pregnant = ?, weeks_pregnant = ? WHERE parent_email_2 = ?";
+            PreparedStatement statement = database.getConnection().prepareStatement(query);
+            statement.setBoolean(1, pregnant);
+            statement.setInt(2, weeksPregnant);
+            statement.setString(3, email2);
+            statement.executeUpdate();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                this.database.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void changeCoupleComplete(String mail, int weeksPregnant, int lastWeekAnsered){
+
+        try {
+            String query =  "UPDATE couple SET weeks_pregnant = ?, last_answer_week_no = ? WHERE parent_email_2 = ?";
+            PreparedStatement statement = database.getConnection().prepareStatement(query);
+            statement.setInt(1, weeksPregnant);
+            statement.setInt(2, lastWeekAnsered);
+            statement.setString(3, mail);
+            statement.executeUpdate();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                this.database.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void changePregnantWeeks(int coupleId, int weeks) {
         try {
             String query =  "UPDATE couple SET weeks_pregnant = ? WHERE id = ?";
@@ -128,4 +173,5 @@ public class CoupleManagementDAO {
     public void setDatabase(Database database) {
         this.database = database;
     }
+
 }

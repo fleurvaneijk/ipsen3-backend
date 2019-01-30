@@ -6,6 +6,7 @@ import nl.hsleiden.model.*;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import javax.security.auth.Subject;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -43,6 +44,14 @@ public class DilemmaAdminAsObjectsDAO {
         dilemmaOptionsDAO.setDatabase(database);
     }
 
+    public void addDilemma(Dilemma dilemma) {
+        dilemmaDAO.insert(dilemma);
+    }
+
+    public void addSubject(Subject subject) {
+        dilemmaSubjectDAO.addSubject(subject);
+    }
+
     public DilemmaAdminAsObjects getDilemmaAdminAsObject() {
         DilemmaAdminAsObjects dilemmaAdminAsObjects = new DilemmaAdminAsObjects();
 
@@ -55,7 +64,7 @@ public class DilemmaAdminAsObjectsDAO {
         return dilemmaAdminAsObjects;
     }
 
-    public void addDilemmaAdminAsObject(DilemmaAdminAsObjects dilemma) {
+    public void addDilemmaAdminAsAttributes(DilemmaAdminAsAttributes dilemma) {
 
     }
 
