@@ -39,6 +39,7 @@ public class DilemmaAdminAsObjectsResource {
     @POST
     @Timed
     @Consumes
+    @UnitOfWork
     @JsonView(View.Public.class)
     public void updateDilemmaAdminAsAttributes(@Valid DilemmaAdminAsAttributes dilemmaAdminAsAttributes) {
         System.out.println("test");

@@ -8,8 +8,10 @@ import nl.hsleiden.model.DilemmaAdminAsObjects;
 import nl.hsleiden.persistence.DilemmaAdminAsObjectsDAO;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.util.List;
 
+@Singleton
 public class DilemmaAdminAsObjectsService {
 
     private final DilemmaAdminAsObjectsDAO dao;
@@ -28,11 +30,12 @@ public class DilemmaAdminAsObjectsService {
                 dilemmaAdminAsAttributes.is_pregnant(),
                 dilemmaAdminAsAttributes.get_weekNr()
         );
-        System.out.println(dilemmaDatabase);
+        System.out.println("DilemmaId dat is gegeven: " + dilemmaAdminAsAttributes.get_dilemmaId());
+        System.out.println(dilemmaDatabase.getDilemmaId());
         dao.addDilemma(dilemmaDatabase);
 
-//        System.out.println(dilemmaDatabase);
-        //dao.addDilemmaAdminAsAttributes(dilemmaAdminAsAttributes);
+        System.out.println(dilemmaDatabase);
+        dao.addDilemma(dilemmaDatabase);
     }
 }
 

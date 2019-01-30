@@ -3,7 +3,7 @@ package nl.hsleiden.model;
 public class DilemmaAdminAsAttributes {
 
 
-    private int _dilemmaId;
+    private Integer _dilemmaId;
     private String _subject;
     private boolean _pregnant;
     private int _weekNr;
@@ -18,11 +18,11 @@ public class DilemmaAdminAsAttributes {
     public DilemmaAdminAsAttributes() {
     }
 
-    public int get_dilemmaId() {
+    public Integer get_dilemmaId() {
         return _dilemmaId;
     }
 
-    public void set_dilemmaId(int _dilemmaId) {
+    public void set_dilemmaId(Integer _dilemmaId) {
         this._dilemmaId = _dilemmaId;
     }
 

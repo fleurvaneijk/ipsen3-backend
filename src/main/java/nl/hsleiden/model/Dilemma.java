@@ -20,7 +20,7 @@ public class Dilemma {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonView(View.Public.class)
-    private int dilemmaId;
+    private Integer dilemmaId;
 
     @Column(name = "subject", length = 30)
     @JsonView(View.Public.class)
@@ -36,18 +36,18 @@ public class Dilemma {
 
     public Dilemma(){}
 
-    public Dilemma(int dilemmaId, String subject, boolean pregnant, int weekNr) {
+    public Dilemma(Integer dilemmaId, String subject, boolean pregnant, int weekNr) {
         this.dilemmaId = dilemmaId;
         this.subject = subject;
         this.pregnant = pregnant;
         this.weekNr = weekNr;
     }
 
-    public int getDilemmaId() {
+    public Integer getDilemmaId() {
         return dilemmaId;
     }
 
-    public void setDilemmaId(int dilemmaId) {
+    public void setDilemmaId(Integer dilemmaId) {
         this.dilemmaId = dilemmaId;
     }
 
