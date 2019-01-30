@@ -14,6 +14,10 @@ import javax.persistence.*;
         name = "dilemma",
         uniqueConstraints = {@UniqueConstraint(columnNames = {"pregnant", "week_no"})}
 )
+@NamedQueries({
+        @NamedQuery(name = "Dilemma.getByWeekAndPregnant",
+                query = "SELECT e FROM dilemma WHERE week_no = :id AND pregnant = :pregnant")
+})
 public class Dilemma {
 
     @Id

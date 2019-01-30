@@ -4,6 +4,7 @@ import nl.hsleiden.database.Database;
 import nl.hsleiden.model.DilemmaSubjectAdmin;
 
 import javax.inject.Singleton;
+import javax.security.auth.Subject;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,6 +21,10 @@ public class DilemmaSubjectDAO {
 
     public void setDatabase(Database database) {
         this.database = database;
+    }
+
+    public void addSubject(Subject subject) {
+
     }
 
     public List getSubject(String subject) {
