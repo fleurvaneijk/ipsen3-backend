@@ -23,9 +23,45 @@ public class DilemmaSubjectDAO {
         this.database = database;
     }
 
-    public void addSubject(Subject subject) {
+    public void addSubject(DilemmaSubjectAdmin subject) {
+        boolean exists = false;
+
+        ArrayList AllSubjectList = new ArrayList();
+        List dilemmaSubjectList = getAllSubjects();
+        System.out.println(dilemmaSubjectList);
+        for (int i=0;i < dilemmaSubjectList.size(); i++) {
+            if (subject.getSubject().equals(dilemmaSubjectList.get(i).toString())) {
+                exists = true;
+            }
+        }
+        if (!exists) {
+            addSubjectWithoutCheck(subject);
+        }
 
     }
+
+    public void addSubjectWithoutCheck(DilemmaSubjectAdmin subject) {
+        String SQL = "INSERT INTO dilemma_subject VALUES(?)";
+        PreparedStatement statement = null;
+        try {
+            statement = this.database.getConnection().prepareStatement(SQL);
+            statement.setString(1, subject.getSubject());
+            statement.executeUpdate();
+            statement.close();
+            this.database.getConnection().close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+                this.database.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
     public List getSubject(String subject) {
         List dilemmaSubjectProperties = new ArrayList<>();

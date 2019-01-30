@@ -1,14 +1,12 @@
 package nl.hsleiden.service;
 
 import nl.hsleiden.ApiApplication;
-import nl.hsleiden.model.Dilemma;
-import nl.hsleiden.model.DilemmaAdmin;
-import nl.hsleiden.model.DilemmaAdminAsAttributes;
-import nl.hsleiden.model.DilemmaAdminAsObjects;
+import nl.hsleiden.model.*;
 import nl.hsleiden.persistence.DilemmaAdminAsObjectsDAO;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import javax.security.auth.Subject;
 import java.util.List;
 
 @Singleton
@@ -24,6 +22,13 @@ public class DilemmaAdminAsObjectsService {
     public DilemmaAdminAsObjects getAll() { return dao.getDilemmaAdminAsObject(); }
 
     public void AddDilemmaAdmin(DilemmaAdminAsAttributes dilemmaAdminAsAttributes) {
+        DilemmaSubjectAdmin subjectDatabase = new DilemmaSubjectAdmin(
+                dilemmaAdminAsAttributes.get_subject(),
+                dilemmaAdminAsAttributes.get_link()
+        );
+        dao.addSubjectIfNotFound(subjectDatabase);
+
+
         Dilemma dilemmaDatabase = new Dilemma(
                 dilemmaAdminAsAttributes.get_dilemmaId(),
                 dilemmaAdminAsAttributes.get_subject(),
@@ -32,9 +37,6 @@ public class DilemmaAdminAsObjectsService {
         );
         System.out.println("DilemmaId dat is gegeven: " + dilemmaAdminAsAttributes.get_dilemmaId());
         System.out.println(dilemmaDatabase.getDilemmaId());
-        dao.addDilemma(dilemmaDatabase);
-
-        System.out.println(dilemmaDatabase);
         dao.addDilemma(dilemmaDatabase);
     }
 }

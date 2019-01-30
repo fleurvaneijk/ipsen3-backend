@@ -48,7 +48,7 @@ public class DilemmaAdminAsObjectsDAO {
         dilemmaDAO.insert(dilemma);
     }
 
-    public void addSubject(Subject subject) {
+    public void addSubjectIfNotFound(DilemmaSubjectAdmin subject) {
         dilemmaSubjectDAO.addSubject(subject);
     }
 

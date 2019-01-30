@@ -219,7 +219,6 @@ public class UserDAO
 
                 pstmt = this.database.getConnection().prepareStatement(SQL);
 
-
                 pstmt.setString(1, u.getEmailAddress());
                 pstmt.setString(2, u.getFirstname());
                 pstmt.setString(3, u.getLastname());
