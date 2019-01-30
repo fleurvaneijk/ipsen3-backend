@@ -58,8 +58,8 @@ CREATE TABLE dilemma
 (
   id       SERIAL,
   subject  VARCHAR(30),
-  pregnant boolean NOT NULL,
-  week_no  int     NOT NULL,
+  pregnant boolean,
+  week_no  int,
   unique (pregnant, week_no),
   PRIMARY KEY (id),
   CONSTRAINT fk_subject FOREIGN KEY (subject) REFERENCES dilemma_subject (subject) ON DELETE CASCADE ON UPDATE CASCADE
