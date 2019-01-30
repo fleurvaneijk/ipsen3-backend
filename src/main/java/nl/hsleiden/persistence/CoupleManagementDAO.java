@@ -110,6 +110,28 @@ public class CoupleManagementDAO {
         }
     }
 
+    public void changeCouplePregnant(String email2, Boolean pregnant, int weeksPregnant){
+
+        try {
+            String query =  "UPDATE couple SET pregnant = ?, weeks_pregnant = ? WHERE parent_email_2 = ?";
+            PreparedStatement statement = database.getConnection().prepareStatement(query);
+            statement.setBoolean(1, pregnant);
+            statement.setInt(2, weeksPregnant);
+            statement.setString(3, email2);
+            statement.executeUpdate();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                this.database.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void setDatabase(Database database) {
         this.database = database;
     }

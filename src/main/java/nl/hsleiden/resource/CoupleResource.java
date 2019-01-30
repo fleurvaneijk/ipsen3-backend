@@ -89,4 +89,13 @@ public class CoupleResource
         System.out.println("RESOURCE RESOURCE RESOURCE RESOURCE");
         service.updatePregnant(parentEmail, pregnant);
     }
+
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @JsonView(View.Public.class)
+    public void updateCouplePregnant(Couple couple)
+    {
+        System.out.println("RESOURCE RESOURCE RESOURCE RESOURCE");
+        service.updateCouplePregnant(couple.getParentMail2(), couple.getPregnant(), couple.getWeeksPregnant());
+    }
 }
