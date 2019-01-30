@@ -43,6 +43,10 @@ public class DilemmaDAO extends AbstractDAO<Dilemma> {
         return currentSession().get(Dilemma.class, id);
     }
 
+    public Dilemma getByWeeknumberAndPregnant(int id, boolean pregnant) {
+        return currentSession().get(Dilemma.class, id);
+    }
+
     public void delete(Dilemma dilemma) {
         currentSession().delete(dilemma);
     }
