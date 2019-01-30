@@ -83,11 +83,21 @@ public class CoupleResource
     @Path("/updatePregnant")
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Public.class)
-    public void updatePregnant(@Valid List list)
-    {
+    public void updatePregnant(List list) {
         String email = list.get(0).toString();
         boolean pregnant = Boolean.valueOf(list.get(1).toString());
         service.updatePregnant(email, pregnant);
+    }
+
+    @PUT
+    @Path("/updatePregnantWeeks")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @JsonView(View.Public.class)
+    public void updatePregnantWeeks(List list) {
+        String email = list.get(0).toString();
+        int weeks = Integer.parseInt(list.get(1).toString());
+        System.out.println(weeks);
+        service.updatePregnantWeeks(email, weeks);
     }
 }
 

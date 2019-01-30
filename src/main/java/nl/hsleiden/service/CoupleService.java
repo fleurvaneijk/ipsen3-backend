@@ -84,4 +84,8 @@ public class CoupleService extends BaseService<Couple>
     public void updatePregnant(String email, boolean pregnant) {
         cmDao.changePregnant(dao.getCoupleId(email), pregnant);
     }
+
+    public void updatePregnantWeeks(String email, int weeks) {
+        cmDao.changePregnantWeeks(dao.getCoupleId(email), weeks);
+    }
 }

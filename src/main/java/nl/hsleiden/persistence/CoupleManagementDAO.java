@@ -106,8 +106,26 @@ public class CoupleManagementDAO {
         }
     }
 
+    public void changePregnantWeeks(int coupleId, int weeks) {
+        try {
+            String query =  "UPDATE couple SET weeks_pregnant = ? WHERE id = ?";
+            PreparedStatement statement = database.getConnection().prepareStatement(query);
+            statement.setInt(1, weeks);
+            statement.setInt(2, coupleId);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                this.database.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void setDatabase(Database database) {
         this.database = database;
     }
-
 }
