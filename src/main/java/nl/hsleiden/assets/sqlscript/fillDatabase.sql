@@ -41,10 +41,18 @@ INSERT INTO child VALUES(DEFAULT,(SELECT id FROM couple WHERE parent_email_1 = '
 INSERT INTO users
 VALUES('tom@hotmail.com', 'Tom', 'Poes', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'OUDER');
 INSERT INTO users
+VALUES('sylvester@hotmail.com', 'Sylvester', 'Kater', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'OUDER');
+INSERT INTO couple
+VALUES(DEFAULT, 'tom@hotmail.com', 'sylvester@hotmail.com', False, 3, 99);
+INSERT INTO child VALUES(DEFAULT,(SELECT id FROM couple WHERE parent_email_1 = 'tom@hotmail.com'), '2018-01-09');
+
+-- Couple 5 -- for answers
+INSERT INTO users
+VALUES('tweety@hotmail.com', 'Tweety', 'Vogel', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'OUDER');
+INSERT INTO users
 VALUES('jerry@hotmail.com', 'Jerry', 'Muis', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'OUDER');
 INSERT INTO couple
-VALUES(DEFAULT, 'tom@hotmail.com', 'jerry@hotmail.com', False, 3, 99);
-INSERT INTO child VALUES(DEFAULT,(SELECT id FROM couple WHERE parent_email_1 = 'tom@hotmail.com'), '2018-01-09');
+VALUES(DEFAULT, 'tweety@hotmail.com', 'jerry@hotmail.com', True, 33, 99);
 
 -- Admins
 INSERT INTO users
@@ -65,10 +73,10 @@ INSERT INTO users
 VALUES ('robin@dubio.nl', 'Robin', 'Silverio', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'MEDEWERKER');
 
 -- Dilemma subjects / themes
-INSERT INTO dilemma_subject VALUES ('sociaal','https://www.24baby.nl/baby/ontwikkeling/baby-stelt-zich-open/', 5);
-INSERT INTO dilemma_subject VALUES ('persoonlijk','https://www.24baby.nl/zwanger/sporten-en-zwanger/tips-sporten-zwangerschap/', 4);
-INSERT INTO dilemma_subject VALUES ('relatie','https://www.24baby.nl/baby/relatie-ouderschap/hoe-verandert-relatie-krijgen-baby/', 7);
-INSERT INTO dilemma_subject VALUES ('opvoeding','https://www.24baby.nl/peuter/gezin-opvoeding/opvoeding-dos-en-donts/', 8);
+INSERT INTO dilemma_subject VALUES ('sociaal','https://www.24baby.nl/baby/ontwikkeling/baby-stelt-zich-open/', 2);
+INSERT INTO dilemma_subject VALUES ('persoonlijk','https://www.24baby.nl/zwanger/sporten-en-zwanger/tips-sporten-zwangerschap/', 1);
+INSERT INTO dilemma_subject VALUES ('relatie','https://www.24baby.nl/baby/relatie-ouderschap/hoe-verandert-relatie-krijgen-baby/', 3);
+INSERT INTO dilemma_subject VALUES ('opvoeding','https://www.24baby.nl/peuter/gezin-opvoeding/opvoeding-dos-en-donts/', 4);
 
 -- Dilemma 1 -- Child
 INSERT INTO dilemma VALUES (DEFAULT, 'opvoeding', FALSE , 1);
@@ -153,16 +161,34 @@ INSERT INTO answer VALUES ('tom@hotmail.com', 8, '2019-01-31 20:10:25', 1);
 INSERT INTO answer VALUES ('tom@hotmail.com', 9, '2018-12-11 13:10:25', 1);
 INSERT INTO answer VALUES ('tom@hotmail.com', 10, '2018-12-23 14:10:25', 0);
 
-INSERT INTO answer VALUES ('jerry@hotmail.com', 1, '2018-12-10 18:10:25', 1);
-INSERT INTO answer VALUES ('jerry@hotmail.com', 2, '2018-12-19 09:10:25', 0);
+INSERT INTO answer VALUES ('sylvester@hotmail.com', 1, '2018-12-10 09:10:25', 1);
+INSERT INTO answer VALUES ('sylvester@hotmail.com', 2, '2018-12-18 09:10:25', 0);
+INSERT INTO answer VALUES ('sylvester@hotmail.com', 3, '2018-12-27 09:10:23', 1);
+INSERT INTO answer VALUES ('sylvester@hotmail.com', 4, '2018-12-31 09:10:25', 1);
+INSERT INTO answer VALUES ('sylvester@hotmail.com', 5, '2019-01-07 01:10:25', 0);
+INSERT INTO answer VALUES ('sylvester@hotmail.com', 6, '2019-01-15 20:10:25', 0);
+INSERT INTO answer VALUES ('sylvester@hotmail.com', 7, '2019-01-23 09:10:23', 0);
+INSERT INTO answer VALUES ('sylvester@hotmail.com', 8, '2019-01-31 20:10:25', 0);
+INSERT INTO answer VALUES ('sylvester@hotmail.com', 9, '2018-12-11 13:10:25', 1);
+
+INSERT INTO answer VALUES ('jerry@hotmail.com', 1, '2018-12-10 18:10:25', 0);
+INSERT INTO answer VALUES ('jerry@hotmail.com', 2, '2018-12-19 09:10:25', 1);
 INSERT INTO answer VALUES ('jerry@hotmail.com', 3, '2018-12-27 09:10:23', 1);
-INSERT INTO answer VALUES ('jerry@hotmail.com', 4, '2018-12-31 20:10:25', 1);
+INSERT INTO answer VALUES ('jerry@hotmail.com', 4, '2018-12-31 20:10:25', 0);
 INSERT INTO answer VALUES ('jerry@hotmail.com', 5, '2019-01-08 01:10:25', 0);
-INSERT INTO answer VALUES ('jerry@hotmail.com', 6, '2019-01-15 20:10:25', 0);
+INSERT INTO answer VALUES ('jerry@hotmail.com', 6, '2019-01-15 20:10:25', 1);
 INSERT INTO answer VALUES ('jerry@hotmail.com', 7, '2019-01-23 20:10:23', 1);
-INSERT INTO answer VALUES ('jerry@hotmail.com', 8, '2019-01-30 20:10:25', 0);
+INSERT INTO answer VALUES ('jerry@hotmail.com', 8, '2019-01-30 20:10:25', 1);
 INSERT INTO answer VALUES ('jerry@hotmail.com', 9, '2018-12-11 13:10:25', 1);
-INSERT INTO answer VALUES ('jerry@hotmail.com', 10, '2018-12-24 14:10:25', 0);
+
+INSERT INTO answer VALUES ('tweety@hotmail.com', 1, '2018-12-10 18:10:25', 1);
+INSERT INTO answer VALUES ('tweety@hotmail.com', 2, '2018-12-19 09:10:25', 0);
+INSERT INTO answer VALUES ('tweety@hotmail.com', 3, '2018-12-27 09:10:23', 1);
+INSERT INTO answer VALUES ('tweety@hotmail.com', 4, '2018-12-31 20:10:25', 1);
+INSERT INTO answer VALUES ('tweety@hotmail.com', 5, '2019-01-08 01:10:25', 0);
+INSERT INTO answer VALUES ('tweety@hotmail.com', 6, '2019-01-15 20:10:25', 0);
+INSERT INTO answer VALUES ('tweety@hotmail.com', 7, '2019-01-23 20:10:23', 1);
+INSERT INTO answer VALUES ('tweety@hotmail.com', 8, '2019-01-30 20:10:25', 0);
 
 -- ratings
 insert into rating values(DEFAULT, 'tom@hotmail.com', '1', '4', '3');
@@ -176,6 +202,16 @@ insert into rating values(DEFAULT, 'tom@hotmail.com', '8', '3', '2');
 insert into rating values(DEFAULT, 'tom@hotmail.com', '9', '3', '2');
 insert into rating values(DEFAULT, 'tom@hotmail.com', '10', '3', '2');
 
+insert into rating values(DEFAULT, 'sylvester@hotmail.com', '1', '4', '3');
+insert into rating values(DEFAULT, 'sylvester@hotmail.com', '2', '2', '5');
+insert into rating values(DEFAULT, 'sylvester@hotmail.com', '3', '5', '4');
+insert into rating values(DEFAULT, 'sylvester@hotmail.com', '4', '3', '2');
+insert into rating values(DEFAULT, 'sylvester@hotmail.com', '5', '4', '3');
+insert into rating values(DEFAULT, 'sylvester@hotmail.com', '6', '2', '5');
+insert into rating values(DEFAULT, 'sylvester@hotmail.com', '7', '5', '4');
+insert into rating values(DEFAULT, 'sylvester@hotmail.com', '8', '3', '2');
+insert into rating values(DEFAULT, 'sylvester@hotmail.com', '9', '3', '2');
+
 insert into rating values(DEFAULT, 'jerry@hotmail.com', '1', '5', '4');
 insert into rating values(DEFAULT, 'jerry@hotmail.com', '2', '4', '2');
 insert into rating values(DEFAULT, 'jerry@hotmail.com', '3', '3', '3');
@@ -185,4 +221,12 @@ insert into rating values(DEFAULT, 'jerry@hotmail.com', '6', '4', '2');
 insert into rating values(DEFAULT, 'jerry@hotmail.com', '7', '3', '3');
 insert into rating values(DEFAULT, 'jerry@hotmail.com', '8', '4', '5');
 insert into rating values(DEFAULT, 'jerry@hotmail.com', '9', '3', '3');
-insert into rating values(DEFAULT, 'jerry@hotmail.com', '10', '4', '5');
+
+insert into rating values(DEFAULT, 'tweety@hotmail.com', '1', '5', '4');
+insert into rating values(DEFAULT, 'tweety@hotmail.com', '2', '4', '2');
+insert into rating values(DEFAULT, 'tweety@hotmail.com', '3', '3', '3');
+insert into rating values(DEFAULT, 'tweety@hotmail.com', '4', '4', '5');
+insert into rating values(DEFAULT, 'tweety@hotmail.com', '5', '5', '4');
+insert into rating values(DEFAULT, 'tweety@hotmail.com', '6', '4', '2');
+insert into rating values(DEFAULT, 'tweety@hotmail.com', '7', '3', '3');
+insert into rating values(DEFAULT, 'tweety@hotmail.com', '8', '4', '5');
