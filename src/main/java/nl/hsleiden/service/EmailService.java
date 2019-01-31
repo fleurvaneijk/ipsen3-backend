@@ -42,8 +42,9 @@ public class EmailService {
         };
         Session session = Session.getInstance(props, auth);
 
-        String subject = "Er staat een nieuw dilemma voor u klaar! - Dubio";
-        String body = "<div style=\"color:red;\">BRIDGEYE</div>"; // YME YME YME YME
+        String subject = "Welkom bij Dubio!";
+        String body = "<div style=\"color:blue;\">Beste gebruiker,\nWelkom bij Dubio!\nElke maandag staat er een nieuw deksels dilemma voor u klaar." +
+                "\nGa naar de Dubio website om uw dilemma te bekijken.\n - Dubio klantenservice</div>";
 
         sendEmail(session, toEmail,subject, body);
     }
