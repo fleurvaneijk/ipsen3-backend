@@ -24,10 +24,12 @@ import nl.hsleiden.model.Rating;
 import nl.hsleiden.model.User;
 import nl.hsleiden.persistence.DilemmaDAO;
 import nl.hsleiden.resource.DilemmaResource;
+import nl.hsleiden.resource.ImageResource;
 import nl.hsleiden.service.AuthenticationService;
 import nl.hsleiden.service.DilemmaService;
 import org.eclipse.jetty.servlet.FilterHolder;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
+import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -83,6 +85,13 @@ public class ApiApplication extends Application<ApiConfiguration>
         setupAuthentication(environment);
         configureClientFilter(environment);
         initieerDatabase();
+
+
+        // Setup image uploading
+        environment.jersey().register(MultiPartFeature.class);
+        environment.jersey().register(ImageResource.class);
+
+
     }
     
     private GuiceBundle createGuiceBundle(Class<ApiConfiguration> configurationClass, Module module)

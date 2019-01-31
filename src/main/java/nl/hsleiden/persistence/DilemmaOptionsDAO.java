@@ -37,7 +37,7 @@ public class DilemmaOptionsDAO {
             statement.setString(2, dilemmaOption.getImagePath());
             statement.setString(3, dilemmaOption.getText());
             statement.setInt(4, dilemmaOption.getDilemmaId());
-            statement.executeUpdate();
+            statement.execute();
             statement.close();
             this.database.getConnection().close();
 

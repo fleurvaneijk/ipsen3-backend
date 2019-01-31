@@ -7,6 +7,7 @@ import nl.hsleiden.model.*;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.security.auth.Subject;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -44,7 +45,7 @@ public class DilemmaAdminAsObjectsDAO {
         dilemmaOptionsDAO.setDatabase(database);
     }
 
-    public Dilemma addDilemma(Dilemma dilemma) {
+    public int addDilemma(Dilemma dilemma) {
         return dilemmaDAO.insert(dilemma);
     }
 

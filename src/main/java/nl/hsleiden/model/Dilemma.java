@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonView;
 import nl.hsleiden.View;
 
 import javax.persistence.*;
+import java.io.Serializable;
+
 /**
  * This Model works based on the Hibernate Framework.
  *
@@ -20,7 +22,7 @@ import javax.persistence.*;
                 resultClass = Dilemma.class
         )
 })
-public class Dilemma {
+public class Dilemma implements Serializable {
 
     @Id
     @Column(name = "id")
@@ -79,5 +81,15 @@ public class Dilemma {
 
     public void setWeekNr(int weekNr) {
         this.weekNr = weekNr;
+    }
+
+    @Override
+    public String toString() {
+        return "Dilemma{" +
+                "dilemmaId=" + dilemmaId +
+                ", subject='" + subject + '\'' +
+                ", pregnant=" + pregnant +
+                ", weekNr=" + weekNr +
+                '}';
     }
 }

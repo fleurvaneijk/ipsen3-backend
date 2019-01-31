@@ -36,27 +36,26 @@ public class DilemmaAdminAsObjectsService {
                 dilemmaAdminAsAttributes.is_pregnant(),
                 dilemmaAdminAsAttributes.get_weekNr()
         );
-        Dilemma NewlyMadeDilemma = dao.addDilemma(dilemmaDatabase);
 
-        try {
-            TimeUnit.SECONDS.sleep(10);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        int key = dao.addDilemma(dilemmaDatabase);
+        if (key == 0) {
+            // TODO: handle error
         }
 
         DilemmaOptions dilemmaOptionsDatabase1 = new DilemmaOptions(
                 1,
                 dilemmaAdminAsAttributes.get_imagePathLeft(),
                 dilemmaAdminAsAttributes.get_textLeft(),
-                NewlyMadeDilemma.getDilemmaId()
+                key
+
         );
         DilemmaOptions dilemmaOptionsDatabase2 = new DilemmaOptions(
                 2,
-                dilemmaAdminAsAttributes.get_imagePathLeft(),
-                dilemmaAdminAsAttributes.get_textLeft(),
-                NewlyMadeDilemma.getDilemmaId()
+                dilemmaAdminAsAttributes.get_imagePathRight(),
+                dilemmaAdminAsAttributes.get_textRight(),
+                key
         );
-        dao.addDilemmaOptions(dilemmaOptionsDatabase1,dilemmaOptionsDatabase2);
+        dao.addDilemmaOptions(dilemmaOptionsDatabase1, dilemmaOptionsDatabase2);
 
     }
 }
