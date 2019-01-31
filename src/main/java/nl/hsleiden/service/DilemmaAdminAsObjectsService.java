@@ -22,6 +22,10 @@ public class DilemmaAdminAsObjectsService {
 
     public DilemmaAdminAsObjects getAll() { return dao.getDilemmaAdminAsObject(); }
 
+    public void deleteDilemmaAdmin(int dilemmaId) {
+        dao.deleteDilemma(dilemmaId);
+    }
+
     public void AddDilemmaAdmin(DilemmaAdminAsAttributes dilemmaAdminAsAttributes) {
         DilemmaSubjectAdmin subjectDatabase = new DilemmaSubjectAdmin(
                 dilemmaAdminAsAttributes.get_subject(),

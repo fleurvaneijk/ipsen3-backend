@@ -49,6 +49,10 @@ public class DilemmaAdminAsObjectsDAO {
         return dilemmaDAO.insert(dilemma);
     }
 
+    public void deleteDilemma(int dilemmaId) {
+        dilemmaDAO.delete(dilemmaId);
+    }
+
     public void addDilemmaOptions(DilemmaOptions dilemmaOption1, DilemmaOptions dilemmaOption2) {
         dilemmaOptionsDAO.addDilemmaOption(dilemmaOption1);
         dilemmaOptionsDAO.addDilemmaOption(dilemmaOption2);

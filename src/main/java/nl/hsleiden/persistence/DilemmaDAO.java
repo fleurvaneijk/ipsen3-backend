@@ -48,8 +48,15 @@ public class DilemmaDAO extends AbstractDAO<Dilemma> {
         return currentSession().get(Dilemma.class, id);
     }
 
-    public void delete(Dilemma dilemma) {
-        currentSession().delete(dilemma);
+    public void delete(int dilemmaId) {
+        Session session ;
+        Dilemma myObject ;
+
+        session = sessionFactory.getCurrentSession();
+        myObject = (Dilemma)session.load(Dilemma.class,dilemmaId);
+        session.delete(myObject);
+        //This makes the pending delete to be done
+        session.flush();
     }
 
     public void update(Dilemma dilemma) {

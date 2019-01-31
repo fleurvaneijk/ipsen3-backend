@@ -38,6 +38,17 @@ public class DilemmaAdminAsObjectsResource {
 
     @POST
     @Timed
+    @Path("/delete")
+    @Consumes
+    @UnitOfWork
+    @JsonView(View.Public.class)
+    public void delete(DilemmaAdminAsAttributes dilemmaAdminAsAttributes) {
+        System.out.println(">>>>>>>>>>>>>>>> HIERRRRR" + dilemmaAdminAsAttributes.get_dilemmaId());
+        dilemmaAdminAsObjectsService.deleteDilemmaAdmin(dilemmaAdminAsAttributes.get_dilemmaId());
+    }
+
+    @POST
+    @Timed
     @Consumes
     @UnitOfWork
     @JsonView(View.Public.class)

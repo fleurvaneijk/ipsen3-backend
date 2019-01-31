@@ -14,13 +14,14 @@ public class ImageResource {
     @POST
     @Consumes({MediaType.MULTIPART_FORM_DATA})
     @Produces({MediaType.TEXT_PLAIN})
-    public boolean uploadFile(@Auth User authenticator,
+    public boolean uploadFile(
+//            @Auth User authenticator,
                               @FormDataParam("file") InputStream imageData,
                               @FormDataParam("filename") String fileName) {
-        String role = authenticator.getRole();
-        if (!role.equals("MEDEWERKER") && !role.equals("ADMIN")) {
-            throw new NotAuthorizedException("");
-        }
+//        String role = authenticator.getRole();
+//        if (!role.equals("MEDEWERKER") && !role.equals("ADMIN")) {
+//            throw new NotAuthorizedException("");
+//        }
         String path = ""; // TODO
         return saveFile(imageData, path);
     }
