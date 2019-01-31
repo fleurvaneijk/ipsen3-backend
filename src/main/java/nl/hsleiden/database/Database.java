@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class Database {
     // Dit zijn de credentials om toegang te krijgen naar de database
-    private final String url = "jdbc:postgresql://localhost/dubio";
+    private final String url = "jdbc:postgresql://www.ipsen3.nl/dubio";
     private final String user = "postgres";
     private final String pass = "postgres";
     private static Connection conn = null;
