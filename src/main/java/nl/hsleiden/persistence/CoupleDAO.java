@@ -49,13 +49,13 @@ public class CoupleDAO {
                 rs.close();
                 pstmt.close();
                 this.database.getConnection().close();
-                System.out.println("Preparedstatement koppels selecteren gestopt");
+
             }
             catch (SQLException e){
                 e.printStackTrace();
             }
         }
-        System.out.println(couples);
+
         return couples;
 
     }
@@ -86,7 +86,7 @@ public class CoupleDAO {
                 rs.close();
                 pstmt.close();
                 this.database.getConnection().close();
-                System.out.println("Preparedstatement individuele koppel selecteren gestopt YOYOYOYOY");
+
             }
             catch (SQLException e){
                 e.printStackTrace();
@@ -185,7 +185,7 @@ public class CoupleDAO {
             this.database.getConnection().close();
 
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+
         }
     }
 
@@ -208,7 +208,7 @@ public class CoupleDAO {
             this.database.getConnection().close();
         }
         catch (SQLException e){
-            System.out.println(e.getMessage());
+
         }
     }
 

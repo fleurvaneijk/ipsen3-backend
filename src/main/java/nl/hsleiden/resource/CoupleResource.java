@@ -99,7 +99,7 @@ public class CoupleResource
     public void updatePregnantWeeks(List list) {
         String email = list.get(0).toString();
         int weeks = Integer.parseInt(list.get(1).toString());
-        System.out.println(weeks);
+
         service.updatePregnantWeeks(email, weeks);
     }
 
@@ -108,7 +108,7 @@ public class CoupleResource
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Public.class)
     public void updateBirthdate(List list) {
-        System.out.println(list);
+
         String email = list.get(0).toString();
 
         String dateString = list.get(1).toString();

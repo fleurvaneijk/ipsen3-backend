@@ -26,7 +26,7 @@ public class SaveRatingResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)
     public void create(SaveRating saveRating) {
-        System.out.println("RATING BOYSSSSSS");
+
         service.add(saveRating);
     }
 }

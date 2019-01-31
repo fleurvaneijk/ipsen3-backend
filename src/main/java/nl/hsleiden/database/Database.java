@@ -34,9 +34,9 @@ public class Database {
         }
 
         if (conn != null) {
-            System.out.println("Database is connected.");
+
         } else {
-            System.out.println("Couldn't getConnection with the database.");
+
         }
     }
 
@@ -76,7 +76,7 @@ public class Database {
         }catch (SQLException sqlEx)
         {
             sqlEx.printStackTrace();
-            System.out.println("Couldn't disconnect from the database");
+
         }
     }
 }

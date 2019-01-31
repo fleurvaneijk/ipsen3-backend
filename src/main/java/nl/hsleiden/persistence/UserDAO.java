@@ -69,7 +69,7 @@ public class UserDAO
                 rs.close();
                 pstmt.close();
                 this.database.getConnection().close();
-                System.out.println("Preparedstatement users selecteren gestopt");
+
             }
             catch (SQLException e){
                 e.printStackTrace();
@@ -108,7 +108,7 @@ public class UserDAO
                 rs.close();
                 statement.close();
                 this.database.getConnection().close();
-                System.out.println("Preparedstatement ouders selecteren gestopt");
+
             }
             catch (SQLException e){
                 e.printStackTrace();
@@ -147,7 +147,7 @@ public class UserDAO
                 rs.close();
                 statement.close();
                 this.database.getConnection().close();
-                System.out.println("Preparedstatement administratoren selecteren gestopt");
+
             }
             catch (SQLException e){
                 e.printStackTrace();
@@ -186,7 +186,7 @@ public class UserDAO
                 rs.close();
                 pstmt.close();
                 this.database.getConnection().close();
-                System.out.println("Preparedstatement individuele gebruiker selecteren gestopt");
+
             }
             catch (SQLException e){
                 e.printStackTrace();
@@ -227,14 +227,14 @@ public class UserDAO
 
                 pstmt.executeUpdate();
 
-                System.out.println("Gebruiker is toegevoegd");
+
 
                 pstmt.close();
                 this.database.getConnection().close();
-                System.out.println("Preparedstatement gebruiker toevoegen gestopt");
+
 
             } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
+
             }
         }
     }
@@ -255,7 +255,7 @@ public class UserDAO
             statement.close();
             this.database.getConnection().close();
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+
         }
     }
     
@@ -269,14 +269,14 @@ public class UserDAO
             pstmt.setString(1, id);
             pstmt.executeQuery();
 
-            System.out.println("Gebruiker is verwijderd");
+
 
             pstmt.close();
             this.database.getConnection().close();
-            System.out.println("Preparedstatement gebruiker verwijderd gestopt");
+
         }
         catch (SQLException e){
-            System.out.println(e.getMessage());
+
         }
     }
 

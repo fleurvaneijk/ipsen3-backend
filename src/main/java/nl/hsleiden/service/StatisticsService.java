@@ -36,7 +36,7 @@ public class StatisticsService {
             date = dateTime.substring(0, dateTime.indexOf(' '));
             dates.add(date);
         }
-        System.out.println("de data zijn: " + dates);
+
         return dates;
     }
 
@@ -49,7 +49,7 @@ public class StatisticsService {
             time = dateTime.substring(dateTime.indexOf(' ') + 1);
             times.add(time);
         }
-        System.out.println("de tijden zijn: " + times);
+
         return times;
     }
 }

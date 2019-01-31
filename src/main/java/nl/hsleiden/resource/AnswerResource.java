@@ -39,7 +39,7 @@ public class AnswerResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)
     public void create(Answer answer) {
-        System.out.println("DILEMMA BOYSSSSSS");
+
         service.add(answer);
     }
 }

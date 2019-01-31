@@ -26,7 +26,7 @@ public class EmailService {
         final String password = "Dubio*00"; // correct password for gmail id
         final String toEmail = email; // can be any email id
 
-        System.out.println("TLSEmail Start");
+
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com"); //SMTP Host
         props.put("mail.smtp.port", "587"); //TLS Port
@@ -77,10 +77,10 @@ public class EmailService {
             msg.setSentDate(new Date());
 
             msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail, false));
-            System.out.println("Message is ready");
+
             Transport.send(msg);
 
-            System.out.println("EMail Sent Successfully!!");
+
         }
         catch (Exception e) {
             e.printStackTrace();

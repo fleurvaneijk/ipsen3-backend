@@ -34,7 +34,7 @@ public class SecondCoupleResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Public.class)
     public void updateCouplePregnant(Couple couple) {
-        System.out.println("RESOURCE RESOURCE RESOURCE RESOURCE");
+
         service.updateFullCouple(couple);
     }
 }
