@@ -1,9 +1,7 @@
 package nl.hsleiden.service;
 
 import nl.hsleiden.ApiApplication;
-
 import nl.hsleiden.model.DilemmaSubject;
-import nl.hsleiden.model.DilemmaSubjectAdmin;
 import nl.hsleiden.persistence.DilemmaSubjectDAO;
 
 import javax.inject.Inject;

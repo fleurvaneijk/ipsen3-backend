@@ -1,14 +1,12 @@
 package nl.hsleiden.persistence;
 
 import nl.hsleiden.database.Database;
-import nl.hsleiden.model.Couple;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Executes queries on the multiple tables in the database (Couple, parent & child) for the couple-management screen for the admin.

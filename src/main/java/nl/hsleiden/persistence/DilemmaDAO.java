@@ -1,13 +1,10 @@
 package nl.hsleiden.persistence;
 
 import io.dropwizard.hibernate.AbstractDAO;
-import io.dropwizard.hibernate.HibernateBundle;
 import nl.hsleiden.ApiApplication;
-import nl.hsleiden.database.Database;
 import nl.hsleiden.model.Dilemma;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -18,7 +15,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**

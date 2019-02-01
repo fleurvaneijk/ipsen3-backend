@@ -1,14 +1,10 @@
 package nl.hsleiden.service;
 
-import nl.hsleiden.ApiApplication;
 import nl.hsleiden.model.*;
 import nl.hsleiden.persistence.DilemmaAdminAsObjectsDAO;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import javax.security.auth.Subject;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 @Singleton
 public class DilemmaAdminAsObjectsService {

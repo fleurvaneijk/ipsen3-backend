@@ -1,18 +1,13 @@
 package nl.hsleiden.service;
 
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
 import nl.hsleiden.ApiApplication;
 import nl.hsleiden.model.Child;
-import nl.hsleiden.model.Couple;
-import nl.hsleiden.model.User;
 import nl.hsleiden.persistence.ChildDAO;
-import nl.hsleiden.persistence.CoupleDAO;
-import nl.hsleiden.persistence.UserDAO;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
+import java.util.Collection;
+import java.util.Date;
 
 /**
  * Connects the DAO to the resource and handles logic

@@ -1,10 +1,11 @@
 package nl.hsleiden.resource;
 
-import io.dropwizard.auth.Auth;
-import nl.hsleiden.model.User;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.io.*;
 
@@ -15,13 +16,8 @@ public class ImageResource {
     @Consumes({MediaType.MULTIPART_FORM_DATA})
     @Produces({MediaType.TEXT_PLAIN})
     public boolean uploadFile(
-//            @Auth User authenticator,
                               @FormDataParam("file") InputStream imageData,
                               @FormDataParam("filename") String fileName) {
-//        String role = authenticator.getRole();
-//        if (!role.equals("MEDEWERKER") && !role.equals("ADMIN")) {
-//            throw new NotAuthorizedException("");
-//        }
         String path = ""; // TODO
         return saveFile(imageData, path);
     }

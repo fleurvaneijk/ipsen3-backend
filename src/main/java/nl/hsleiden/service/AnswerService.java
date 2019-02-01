@@ -7,7 +7,6 @@ import nl.hsleiden.persistence.AnswerDAO;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.Collection;
-import java.util.List;
 
 @Singleton
 public class AnswerService extends BaseService {

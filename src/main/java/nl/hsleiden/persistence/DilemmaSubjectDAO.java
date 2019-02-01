@@ -4,7 +4,6 @@ import nl.hsleiden.database.Database;
 import nl.hsleiden.model.DilemmaSubjectAdmin;
 
 import javax.inject.Singleton;
-import javax.security.auth.Subject;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -100,7 +100,7 @@ public class UserDAO
 
     public List<User> getAllAdmins()
     {
-        List<User> usersOuders = new ArrayList<User>();
+        List<User> usersAdministrators = new ArrayList<User>();
         String SQL = "SELECT*FROM users WHERE role = 'BEHEERDER' OR role = 'MEDEWERKER'";
         PreparedStatement statement = null;
         ResultSet rs = null;
@@ -108,7 +108,7 @@ public class UserDAO
             statement = this.database.getConnection().prepareStatement(SQL);
             rs = statement.executeQuery();
             while(rs.next()){
-                usersOuders.add(
+                usersAdministrators.add(
                         new User(
                                 rs.getString("email"),
                                 rs.getString("firstname"),
@@ -132,7 +132,7 @@ public class UserDAO
                 e.printStackTrace();
             }
         }
-        return usersOuders;
+        return usersAdministrators;
 
     }
     
