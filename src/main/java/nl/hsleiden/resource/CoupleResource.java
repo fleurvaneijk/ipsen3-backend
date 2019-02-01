@@ -17,10 +17,8 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Meer informatie over resources:
- *  https://jersey.java.net/documentation/latest/user-guide.html#jaxrs-resources
- *
- * @author Peter van Vliet
+ * Handles requests from clients and sends them to the server
+ * @author Robin Silverio & Fleur van Eijk & Joost de Winter
  */
 @Singleton
 @Path("/couples")

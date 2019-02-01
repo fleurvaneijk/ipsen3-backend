@@ -11,7 +11,9 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.Collection;
 
-
+/**
+ * Handles requests from clients and sends them to the server
+ */
 @Singleton
 @Path("/answer")
 @Produces(MediaType.APPLICATION_JSON)

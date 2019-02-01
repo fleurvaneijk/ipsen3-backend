@@ -16,6 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * Handles requests from clients and sends them to the server
  * @author Fleur van Eijk
  */
 @Singleton
