@@ -84,7 +84,7 @@ public class UserResource
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/admin")
-    @RolesAllowed({"BEHEERDER", "MEDEWERKER"})
+    @RolesAllowed({"BEHEERDER"})
     @JsonView(View.Protected.class)
     public void createAdmin(@Valid User[] user)
     {
