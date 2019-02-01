@@ -1,4 +1,4 @@
--- Volgorde verwijderen tabellen
+-- Correct order
 drop table child cascade;
 drop table couple cascade;
 drop table users cascade;

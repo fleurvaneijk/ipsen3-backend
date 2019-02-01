@@ -16,7 +16,7 @@ public class Database {
     }
 
     /**
-     * Hiermee willen we ervoor zorgen dat de applicatie met de database verbonden is
+     * We can connect with the database using this function
      * @author Yme Brugts, Robin Silverio, Fleur van Eijk
      */
     public void connect(){
@@ -35,7 +35,7 @@ public class Database {
     }
 
     /**
-     * Verbindt met de PostgreSQL server naar de database DUBIO*
+     * Connects tot the database Postgresql "DUBIO"
      * @return a Connection object
      * @author Robin Silverio
      */
@@ -54,7 +54,7 @@ public class Database {
     }
 
     /**
-     * Dit is voor het sluiten van verbinding met de PostgreSQL server
+     * This is is for closing the connection
      * @author Fleur van Eijk
      */
     public void disconnect(){
