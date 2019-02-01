@@ -10,6 +10,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Executes queries on the couple table in the database
+ * @author Robin Silverio & Joost de Winter & Fleur van Eijk
+ */
 @Singleton
 public class CoupleDAO {
 

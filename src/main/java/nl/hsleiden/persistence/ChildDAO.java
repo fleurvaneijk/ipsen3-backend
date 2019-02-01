@@ -13,6 +13,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Executes queries on the child table in the database
+ * @author Robin Silverio & Fleur van Eijk
+ */
 @Singleton
 public class ChildDAO {
 
@@ -62,9 +66,6 @@ public class ChildDAO {
 
     public Child get(int id)
     {
-        // Voer query uit (middels een prepared statement!)
-        // Maak een nieuw Serie object aan met gegevens uit de database
-        // Retourneer Serie object
         Child child = null;
         String SQL = "SELECT*FROM child WHERE id = ?";
         PreparedStatement pstmt = null;
