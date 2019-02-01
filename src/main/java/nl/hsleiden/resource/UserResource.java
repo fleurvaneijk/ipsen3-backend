@@ -20,10 +20,8 @@ import nl.hsleiden.model.User;
 import nl.hsleiden.service.UserService;
 
 /**
- * Meer informatie over resources:
- *  https://jersey.java.net/documentation/latest/user-guide.html#jaxrs-resources
- * 
- * @author Peter van Vliet
+ *
+ * @author Robin Silverio
  */
 @Singleton
 @Path("/users")
@@ -80,7 +78,6 @@ public class UserResource
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)
-//    @RolesAllowed("PARENT")
     public void update(User user)
     {
         service.update(user);
@@ -88,7 +85,6 @@ public class UserResource
     
     @DELETE
     @Path("/{id}")
-//    @RolesAllowed("ADMIN")
     public void delete(@PathParam("id") String id)
     {
         service.delete(id);

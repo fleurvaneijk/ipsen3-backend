@@ -13,32 +13,14 @@ import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
- * @author Peter van Vliet
+ * @author Robin Silverio
  */
 @Singleton
 public class UserDAO
 {
-    private final List<User> users;
     private Database database;
     
-    public UserDAO()
-    {
-        User user1 = new User();
-        user1.setFirstname("First user");
-        user1.setEmailAddress("first@user.com");
-        user1.setPassword("first");
-        user1.setRole("ADMIN");
-
-        User user2 = new User();
-        user2.setFirstname("Second user");
-        user2.setEmailAddress("second@user.com");
-        user2.setPassword("second");
-        user2.setRole("PARENT");
-
-        users = new ArrayList<>();
-        users.add(user1);
-        users.add(user2);
-    }
+    public UserDAO() { }
     
     public List<User> getAll()
     {
@@ -49,7 +31,6 @@ public class UserDAO
         try {
             pstmt = this.database.getConnection().prepareStatement(SQL);
             rs = pstmt.executeQuery();
-            int columnCount = rs.getMetaData().getColumnCount();
             while(rs.next()){
                 users.add(
                         new User(
@@ -88,7 +69,6 @@ public class UserDAO
         try {
             statement = this.database.getConnection().prepareStatement(SQL);
             rs = statement.executeQuery();
-            int columnCount = rs.getMetaData().getColumnCount();
             while(rs.next()){
                 usersOuders.add(
                         new User(
@@ -127,7 +107,6 @@ public class UserDAO
         try {
             statement = this.database.getConnection().prepareStatement(SQL);
             rs = statement.executeQuery();
-            int columnCount = rs.getMetaData().getColumnCount();
             while(rs.next()){
                 usersOuders.add(
                         new User(
@@ -283,6 +262,7 @@ public class UserDAO
     /**
      * This is for setting a database to a DAO.
      * @param database
+     * @author Robin Silverio
      */
     public void setDatabase(Database database) {
         this.database = database;
