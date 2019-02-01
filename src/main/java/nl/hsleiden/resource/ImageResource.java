@@ -19,7 +19,7 @@ public class ImageResource {
                               @FormDataParam("file") InputStream imageData,
                               @FormDataParam("filename") String fileName) {
 //        String role = authenticator.getRole();
-//        if (!role.equals("MEDEWERKER") && !role.equals("ADMIN")) {
+//        if (!role.equals("MEDEWERKER") && !role.equals("BEHEERDER")) {
 //            throw new NotAuthorizedException("");
 //        }
         String path = ""; // TODO

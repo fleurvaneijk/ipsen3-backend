@@ -76,9 +76,9 @@ public class AuthenticationServiceTest
     public void testAuthorizeSuccess()
     {
         User user = new User();
-        user.setRole("ADMIN");
+        user.setRole("BEHEERDER");
         
-        boolean actual = subject.authorize(user, "ADMIN");
+        boolean actual = subject.authorize(user, "BEHEERDER");
         
         assertTrue(actual);
     }
@@ -89,7 +89,7 @@ public class AuthenticationServiceTest
         User user = new User();
         user.setRole("PARENT");
         
-        boolean actual = subject.authorize(user, "ADMIN");
+        boolean actual = subject.authorize(user, "BEHEERDER");
         
         assertFalse(actual);
     }

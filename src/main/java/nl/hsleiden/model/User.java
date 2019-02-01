@@ -41,7 +41,7 @@ public class User implements Principal
     @JsonView(View.Public.class)
     private String role;
 
-    private String[] roleList = { "PARENT", "ADMIN", "MEDEWERKER" };
+    private String[] roleList = { "OUDER", "BEHEERDER", "MEDEWERKER" };
 
     public User(String email, String firstname, String lastname, String password, String role) {
         this.email = email;

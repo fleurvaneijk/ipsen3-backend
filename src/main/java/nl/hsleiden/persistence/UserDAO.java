@@ -23,21 +23,7 @@ public class UserDAO
     
     public UserDAO()
     {
-        User user1 = new User();
-        user1.setFirstname("First user");
-        user1.setEmailAddress("first@user.com");
-        user1.setPassword("first");
-        user1.setRole("ADMIN");
-
-        User user2 = new User();
-        user2.setFirstname("Second user");
-        user2.setEmailAddress("second@user.com");
-        user2.setPassword("second");
-        user2.setRole("PARENT");
-
         users = new ArrayList<>();
-        users.add(user1);
-        users.add(user2);
     }
     
     public List<User> getAll()
