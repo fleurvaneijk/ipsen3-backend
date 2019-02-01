@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47cbe909-2f71-4cce-96ba-14904640d1f9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/assets/sqlscript/fillDatabase.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/assets/sqlscript/fillDatabase.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/model/DilemmaAdminAsObjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/model/DilemmaAdminAsObjects.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/model/DilemmaOptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/model/DilemmaOption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/persistence/DilemmaAdminAsObjectsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/persistence/DilemmaAdminAsObjectsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/persistence/DilemmaOptionsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/persistence/DilemmaOptionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/persistence/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/persistence/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/resource/DilemmaAdminAsObjectsResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/resource/DilemmaAdminAsObjectsResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/resource/DilemmaOptionsResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/resource/DilemmaOptionResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/resource/DilemmaSubjectsResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/resource/DilemmaSubjectResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/resource/ImageResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/resource/ImageResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/resource/StatisticsResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/resource/StatisticsResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/resource/UserResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/resource/UserResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/service/DilemmaAdminAsObjectsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/service/DilemmaAdminAsObjectsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/hsleiden/service/DilemmaOptionsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/hsleiden/service/DilemmaOptionsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/nl/hsleiden/service/AuthenticationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nl/hsleiden/service/AuthenticationServiceTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,20 +31,36 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/nl/hsleiden/resource/DilemmaAdminAsObjectsResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="500">
+              <caret line="34" column="10" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/nl/hsleiden/resource/UserResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1500">
-              <caret line="78" column="5" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
+            <state relative-caret-position="357">
+              <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+              <folding>
+                <element signature="e#864#865#0" expanded="true" />
+                <element signature="e#902#903#0" expanded="true" />
+                <element signature="e#1044#1045#0" expanded="true" />
+                <element signature="e#1083#1084#0" expanded="true" />
+                <element signature="e#1203#1204#0" expanded="true" />
+                <element signature="e#1249#1250#0" expanded="true" />
+                <element signature="e#1414#1415#0" expanded="true" />
+                <element signature="e#1459#1460#0" expanded="true" />
+                <element signature="e#1584#1585#0" expanded="true" />
+                <element signature="e#1622#1623#0" expanded="true" />
+                <element signature="e#2102#2103#0" expanded="true" />
+                <element signature="e#2135#2136#0" expanded="true" />
+                <element signature="e#1976#1977#0" expanded="true" />
+                <element signature="e#2012#2013#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -178,7 +179,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="26" />
     <option name="y" value="389" />
     <option name="width" value="934" />
@@ -348,7 +349,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14135000" />
+    <option name="totallyTimeSpent" value="15459000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -364,7 +365,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.13651137" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.20585048" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -748,13 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/hsleiden/resource/UserResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="78" column="5" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/hsleiden/resource/DilemmaSubjectResource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -778,8 +772,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/hsleiden/resource/DilemmaAdminAsObjectsResource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="500">
+          <caret line="34" column="10" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/hsleiden/resource/UserResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+          <folding>
+            <element signature="e#864#865#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#1044#1045#0" expanded="true" />
+            <element signature="e#1083#1084#0" expanded="true" />
+            <element signature="e#1203#1204#0" expanded="true" />
+            <element signature="e#1249#1250#0" expanded="true" />
+            <element signature="e#1414#1415#0" expanded="true" />
+            <element signature="e#1459#1460#0" expanded="true" />
+            <element signature="e#1584#1585#0" expanded="true" />
+            <element signature="e#1622#1623#0" expanded="true" />
+            <element signature="e#2102#2103#0" expanded="true" />
+            <element signature="e#2135#2136#0" expanded="true" />
+            <element signature="e#1976#1977#0" expanded="true" />
+            <element signature="e#2012#2013#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

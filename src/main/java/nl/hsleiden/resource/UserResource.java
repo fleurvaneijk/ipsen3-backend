@@ -75,9 +75,23 @@ public class UserResource
     @JsonView(View.Protected.class)
     public void create(@Valid User[] user)
     {
+        for (int i =0; i < user.length; i++) {
+            user[i].setRole("OUDER");
+        }
         service.add(user);
     }
-    
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/admin")
+    @RolesAllowed({"BEHEERDER", "MEDEWERKER"})
+    @JsonView(View.Protected.class)
+    public void createAdmin(@Valid User[] user)
+    {
+        service.add(user);
+    }
+
+
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)
