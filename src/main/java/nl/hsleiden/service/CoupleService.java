@@ -49,8 +49,6 @@ public class CoupleService extends BaseService<Couple> {
     }
 
     public void update(String id, Couple couple) {
-        // Controleren of deze gebruiker wel bestaat
-        Couple oldCouple = get(id);
         dao.update(id, couple);
     }
 

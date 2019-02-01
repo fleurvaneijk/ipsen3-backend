@@ -47,8 +47,6 @@ public class ChildService extends BaseService<Child>
 
     public void update(int id, Child child)
     {
-        // Controleren of deze gebruiker wel bestaat
-        Child oldChild = get(id);
         dao.update(id, child);
     }
 

@@ -11,10 +11,9 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
- * Meer informatie over validatie:
- *  http://hibernate.org/validator/
+ * Datamodel user
  * 
- * @author Peter van Vliet
+ * @author Robin Silverio
  */
 public class User implements Principal
 {
@@ -41,7 +40,7 @@ public class User implements Principal
     @JsonView(View.Public.class)
     private String role;
 
-    private String[] roleList = { "PARENT", "ADMIN", "MEDEWERKER" };
+    private String[] roleList = { "OUDER", "BEHEERDER", "MEDEWERKER" };
 
     public User(String email, String firstname, String lastname, String password, String role) {
         this.email = email;
@@ -131,7 +130,8 @@ public class User implements Principal
 
     /**
      * This is only for testing purpose.
-     * @return
+     * @return properties of a user object
+     * @author Robin Silverio
      */
     @Override
     public String toString() {
