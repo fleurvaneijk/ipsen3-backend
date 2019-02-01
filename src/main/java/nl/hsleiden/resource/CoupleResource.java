@@ -6,6 +6,7 @@ import nl.hsleiden.View;
 import nl.hsleiden.model.Couple;
 import nl.hsleiden.service.CoupleService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.validation.Valid;
 import javax.ws.rs.*;
@@ -75,6 +76,7 @@ public class CoupleResource
     @GET
     @Path("/coupleTableInfo")
     @JsonView(View.Public.class)
+    @RolesAllowed({"BEHEERDER", "MEDEWERKER"})
     public List retrieveCoupleTableInfo()
     {
         return service.getCoupleTableInfo();
@@ -84,6 +86,7 @@ public class CoupleResource
     @Path("/updatePregnant")
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Public.class)
+    @RolesAllowed("BEHEERDER")
     public void updatePregnant(List list) {
         String email = list.get(0).toString();
         boolean pregnant = Boolean.valueOf(list.get(1).toString());
@@ -94,10 +97,10 @@ public class CoupleResource
     @Path("/updatePregnantWeeks")
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Public.class)
+    @RolesAllowed("BEHEERDER")
     public void updatePregnantWeeks(List list) {
         String email = list.get(0).toString();
         int weeks = Integer.parseInt(list.get(1).toString());
-
         service.updatePregnantWeeks(email, weeks);
     }
 
@@ -105,20 +108,18 @@ public class CoupleResource
     @Path("/updateBirthdate")
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Public.class)
+    @RolesAllowed("BEHEERDER")
     public void updateBirthdate(List list) {
-
         String email = list.get(0).toString();
-
         String dateString = list.get(1).toString();
         service.updateBirthdate(email, dateString);
     }
 
-
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Public.class)
-    public void updateCouplePregnant(Couple couple)
-    {
+    @RolesAllowed("BEHEERDER")
+    public void updateCouplePregnant(Couple couple) {
         service.updateCouplePregnant(couple.getParentMail2(), couple.getPregnant(), couple.getWeeksPregnant());
     }
 }

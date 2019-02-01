@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import nl.hsleiden.View;
 import nl.hsleiden.service.EmailService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -25,6 +26,7 @@ public class EmailResource {
     @PUT
     @Path("/sendMail")
     @JsonView(View.Public.class)
+    @RolesAllowed({"BEHEERDER", "MEDEWERKER"})
     public void SendEmail(String email) {
         service.readyMail(email);
     }
