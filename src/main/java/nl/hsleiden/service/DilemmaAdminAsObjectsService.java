@@ -1,14 +1,10 @@
 package nl.hsleiden.service;
 
-import nl.hsleiden.ApiApplication;
 import nl.hsleiden.model.*;
 import nl.hsleiden.persistence.DilemmaAdminAsObjectsDAO;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import javax.security.auth.Subject;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 @Singleton
 public class DilemmaAdminAsObjectsService {
@@ -46,14 +42,14 @@ public class DilemmaAdminAsObjectsService {
             // TODO: handle error
         }
 
-        DilemmaOptions dilemmaOptionsDatabase1 = new DilemmaOptions(
+        DilemmaOption dilemmaOptionsDatabase1 = new DilemmaOption(
                 1,
                 dilemmaAdminAsAttributes.get_imagePathLeft(),
                 dilemmaAdminAsAttributes.get_textLeft(),
                 key
 
         );
-        DilemmaOptions dilemmaOptionsDatabase2 = new DilemmaOptions(
+        DilemmaOption dilemmaOptionsDatabase2 = new DilemmaOption(
                 2,
                 dilemmaAdminAsAttributes.get_imagePathRight(),
                 dilemmaAdminAsAttributes.get_textRight(),

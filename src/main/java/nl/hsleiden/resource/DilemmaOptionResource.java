@@ -1,11 +1,8 @@
 package nl.hsleiden.resource;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import io.dropwizard.hibernate.UnitOfWork;
 import nl.hsleiden.View;
-import nl.hsleiden.model.DilemmaOptions;
 import nl.hsleiden.service.DilemmaOptionsService;
-import nl.hsleiden.service.DilemmaService;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -19,12 +16,12 @@ import java.util.Collection;
 @Singleton
 @Path("/dilemmaoptions")
 @Produces(MediaType.APPLICATION_JSON)
-public class DilemmaOptionsResource {
+public class DilemmaOptionResource {
 
     private final DilemmaOptionsService service;
 
     @Inject
-    public DilemmaOptionsResource(DilemmaOptionsService service) {
+    public DilemmaOptionResource(DilemmaOptionsService service) {
         this.service = service;
     }
 

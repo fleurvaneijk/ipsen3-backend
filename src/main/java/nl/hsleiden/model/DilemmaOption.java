@@ -3,7 +3,7 @@ package nl.hsleiden.model;
 import com.fasterxml.jackson.annotation.JsonView;
 import nl.hsleiden.View;
 
-public class DilemmaOptions {
+public class DilemmaOption {
 
     @JsonView(View.Public.class)
     private int id;
@@ -17,7 +17,7 @@ public class DilemmaOptions {
     @JsonView(View.Public.class)
     private int dilemmaId;
 
-    public DilemmaOptions(int id, String imagePath, String text, int dilemmaId) {
+    public DilemmaOption(int id, String imagePath, String text, int dilemmaId) {
         this.id = id;
         this.imagePath = imagePath;
         this.text = text;

@@ -11,12 +11,12 @@ public class DilemmaAdminAsObjects {
 
     List<Dilemma> DilemmaList;
     List<Rating> RatingList;
-    List<DilemmaOptions> dilemmaOptionsList;
+    List<DilemmaOption> dilemmaOptionsList;
     List<DilemmaSubjectAdmin> dilemmaSubjectAdminList;
 
     public DilemmaAdminAsObjects(List<Dilemma> dilemmaList,
                                  List<Rating> ratingList,
-                                 List<DilemmaOptions> dilemmaOptionsList,
+                                 List<DilemmaOption> dilemmaOptionsList,
                                  List<DilemmaSubjectAdmin> dilemmaSubjectAdminList) {
         DilemmaList = dilemmaList;
         RatingList = ratingList;
@@ -44,11 +44,11 @@ public class DilemmaAdminAsObjects {
         RatingList = ratingList;
     }
 
-    public List<DilemmaOptions> getDilemmaOptionsList() {
+    public List<DilemmaOption> getDilemmaOptionsList() {
         return dilemmaOptionsList;
     }
 
-    public void setDilemmaOptionsList(List<DilemmaOptions> dilemmaOptionsList) {
+    public void setDilemmaOptionsList(List<DilemmaOption> dilemmaOptionsList) {
         this.dilemmaOptionsList = dilemmaOptionsList;
     }
 
