@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Connects the DAO to the resource and handles logic
  * @author Fleur van Eijk
  */
 public class StatisticsService {
@@ -36,7 +37,6 @@ public class StatisticsService {
             date = dateTime.substring(0, dateTime.indexOf(' '));
             dates.add(date);
         }
-
         return dates;
     }
 
@@ -49,7 +49,6 @@ public class StatisticsService {
             time = dateTime.substring(dateTime.indexOf(' ') + 1);
             times.add(time);
         }
-
         return times;
     }
 }

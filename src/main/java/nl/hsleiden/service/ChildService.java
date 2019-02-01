@@ -15,8 +15,8 @@ import nl.hsleiden.persistence.CoupleDAO;
 import nl.hsleiden.persistence.UserDAO;
 
 /**
- *
- * @author Robin Silverio
+ * Connects the DAO to the resource and handles logic
+ * @author Robin Silverio & Fleur van Eijk
  */
 @Singleton
 public class ChildService extends BaseService<Child>

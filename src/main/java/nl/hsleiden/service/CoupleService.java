@@ -2,7 +2,6 @@ package nl.hsleiden.service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Period;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,12 +14,11 @@ import nl.hsleiden.model.Couple;
 import nl.hsleiden.persistence.CoupleDAO;
 import nl.hsleiden.persistence.CoupleManagementDAO;
 import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
 import org.joda.time.Weeks;
 
-
 /**
- * @author Robin Silverio
+ * Connects the DAO to the resource and handles logic
+ * @author Robin Silverio & Fleur van Eijk & Joost de Winter & Dennis van Beelen
  */
 @Singleton
 public class CoupleService extends BaseService<Couple> {
