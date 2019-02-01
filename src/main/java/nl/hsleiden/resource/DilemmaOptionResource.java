@@ -16,12 +16,12 @@ import java.util.Collection;
 @Singleton
 @Path("/dilemmaoptions")
 @Produces(MediaType.APPLICATION_JSON)
-public class DilemmaOptionsResource {
+public class DilemmaOptionResource {
 
     private final DilemmaOptionsService service;
 
     @Inject
-    public DilemmaOptionsResource(DilemmaOptionsService service) {
+    public DilemmaOptionResource(DilemmaOptionsService service) {
         this.service = service;
     }
 

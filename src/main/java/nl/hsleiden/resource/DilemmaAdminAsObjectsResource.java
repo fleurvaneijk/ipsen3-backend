@@ -8,6 +8,7 @@ import nl.hsleiden.model.DilemmaAdminAsAttributes;
 import nl.hsleiden.model.DilemmaAdminAsObjects;
 import nl.hsleiden.service.DilemmaAdminAsObjectsService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.validation.Valid;
@@ -28,6 +29,7 @@ public class DilemmaAdminAsObjectsResource {
 
     @GET
     @UnitOfWork
+    @RolesAllowed({"BEHEERDER", "MEDEWERKER"})
     @JsonView(View.Public.class)
     public DilemmaAdminAsObjects retrieveAll() {
         return dilemmaAdminAsObjectsService.getAll();
@@ -37,6 +39,7 @@ public class DilemmaAdminAsObjectsResource {
     @Timed
     @Path("/delete")
     @Consumes
+    @RolesAllowed({"BEHEERDER", "MEDEWERKER"})
     @UnitOfWork
     @JsonView(View.Public.class)
     public void delete(DilemmaAdminAsAttributes dilemmaAdminAsAttributes) {
@@ -47,6 +50,7 @@ public class DilemmaAdminAsObjectsResource {
     @POST
     @Timed
     @Consumes
+    @RolesAllowed({"BEHEERDER", "MEDEWERKER"})
     @UnitOfWork
     @JsonView(View.Public.class)
     public void updateDilemmaAdminAsAttributes(@Valid DilemmaAdminAsAttributes dilemmaAdminAsAttributes) {

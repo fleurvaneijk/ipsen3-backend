@@ -21,7 +21,7 @@ public class UserDAO
     private Database database;
     
     public UserDAO() { }
-    
+
     public List<User> getAll()
     {
         List<User> users = new ArrayList<User>();

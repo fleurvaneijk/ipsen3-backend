@@ -22,18 +22,18 @@ public class DilemmaAdminAsObjectsDAO {
     private Database database;
     private DilemmaDAO dilemmaDAO;
     private DilemmaSubjectDAO dilemmaSubjectDAO;
-    private DilemmaOptionsDAO dilemmaOptionsDAO;
+    private DilemmaOptionDAO dilemmaOptionsDAO;
     private RatingDAO ratingDAO;
 
 
     private List<Dilemma> dilemmaList = new ArrayList<Dilemma>();
     private List<DilemmaSubjectAdmin> dilemmaSubjectAdminList = new ArrayList<DilemmaSubjectAdmin>();
-    private List<DilemmaOptions> dilemmaOptionList = new ArrayList<DilemmaOptions>();
+    private List<DilemmaOption> dilemmaOptionList = new ArrayList<DilemmaOption>();
     private List<Rating> dilemmaRatingList = new ArrayList<Rating>();
 
     @Inject
     public DilemmaAdminAsObjectsDAO(DilemmaDAO dilemmaDAO, DilemmaSubjectDAO dilemmaSubjectDAO,
-                                    DilemmaOptionsDAO dilemmaOptionsDAO, RatingDAO ratingDAO) {
+                                    DilemmaOptionDAO dilemmaOptionsDAO, RatingDAO ratingDAO) {
         this.setDatabase();
         this.dilemmaDAO = dilemmaDAO;
         this.dilemmaSubjectDAO = dilemmaSubjectDAO;
@@ -51,7 +51,7 @@ public class DilemmaAdminAsObjectsDAO {
         dilemmaDAO.delete(dilemmaId);
     }
 
-    public void addDilemmaOptions(DilemmaOptions dilemmaOption1, DilemmaOptions dilemmaOption2) {
+    public void addDilemmaOptions(DilemmaOption dilemmaOption1, DilemmaOption dilemmaOption2) {
         dilemmaOptionsDAO.addDilemmaOption(dilemmaOption1);
         dilemmaOptionsDAO.addDilemmaOption(dilemmaOption2);
     }

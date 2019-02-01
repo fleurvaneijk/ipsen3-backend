@@ -1,7 +1,7 @@
 package nl.hsleiden.persistence;
 
 import nl.hsleiden.database.Database;
-import nl.hsleiden.model.DilemmaOptions;
+import nl.hsleiden.model.DilemmaOption;
 
 import javax.inject.Singleton;
 import java.sql.PreparedStatement;
@@ -16,11 +16,11 @@ import java.util.List;
  * @Author Yme Brugts, Dennis van Beelen
  */
 @Singleton
-public class DilemmaOptionsDAO {
+public class DilemmaOptionDAO {
 
     private Database database;
 
-    public DilemmaOptionsDAO() {
+    public DilemmaOptionDAO() {
 
     }
 
@@ -28,7 +28,7 @@ public class DilemmaOptionsDAO {
         this.database = database;
     }
 
-    public void addDilemmaOption(DilemmaOptions dilemmaOption) {
+    public void addDilemmaOption(DilemmaOption dilemmaOption) {
         String SQL = "INSERT INTO dilemma_option VALUES(?,?,?,?)";
         PreparedStatement statement = null;
         try {
@@ -57,9 +57,9 @@ public class DilemmaOptionsDAO {
     /**
      * @Author Yme Brugts
      */
-    public List<DilemmaOptions> getAll()
+    public List<DilemmaOption> getAll()
     {
-        List<DilemmaOptions> dilemmaOptions = new ArrayList<DilemmaOptions>();
+        List<DilemmaOption> dilemmaOptions = new ArrayList<DilemmaOption>();
         String SQL = "SELECT*FROM dilemma_option";
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -69,7 +69,7 @@ public class DilemmaOptionsDAO {
             int columnCount = rs.getMetaData().getColumnCount();
             while(rs.next()){
                 dilemmaOptions.add(
-                        new DilemmaOptions(
+                        new DilemmaOption(
                                 rs.getInt("id"),
                                 rs.getString("image"),
                                 rs.getString("text"),
@@ -98,8 +98,8 @@ public class DilemmaOptionsDAO {
 
 
 
-    public List<DilemmaOptions> getOptions(int id) {
-        List<DilemmaOptions> dilemmaOptions = new ArrayList<>();
+    public List<DilemmaOption> getOptions(int id) {
+        List<DilemmaOption> dilemmaOptions = new ArrayList<>();
         String SQL = "SELECT * FROM dilemma_option WHERE dilemma_id = ?";
         PreparedStatement statement = null;
         ResultSet rs = null;
@@ -110,7 +110,7 @@ public class DilemmaOptionsDAO {
             rs = statement.executeQuery();
             while (rs.next()) {
                 dilemmaOptions.add(
-                        new DilemmaOptions(
+                        new DilemmaOption(
                                 rs.getInt("id"),
                                 rs.getString("image"),
                                 rs.getString("text"),

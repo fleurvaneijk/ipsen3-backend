@@ -17,7 +17,7 @@ VALUES('karin@gmail.com', 'Karin', 'de Vrij', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.z
 INSERT INTO users
 VALUES('fred@gmail.com', 'Fred', 'de Boer', '$2a$10$DGGzmlsoj2cSOs/jP/QMrO4I.zl5xka3H.STH0H9TjOz7bk7P9ZuG', 'OUDER');
 INSERT INTO couple
-VALUES(DEFAULT, 'karin@gmail.com', 'fred@gmail.com', TRUE, 35, 99);
+VALUES(DEFAULT, 'karin@gmail.com', 'fred@gmail.com', TRUE, 34, 99);
 
 -- Couple 3 -- child of 1 week
 INSERT INTO users
@@ -81,72 +81,72 @@ INSERT INTO dilemma_subject VALUES ('opvoeding','https://www.24baby.nl/peuter/ge
 -- Dilemma 1 -- Child
 INSERT INTO dilemma VALUES (DEFAULT, 'opvoeding', FALSE , 1);
 INSERT INTO dilemma_option
-VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/slapendeBaby.png', 'Alle slapende babies die je ziet moet je wakker maken', 1);
+VALUES (1, '../../../assets/images/Dilemma_images/slapendeBaby.png', 'Alle slapende babies die je ziet moet je wakker maken', 1);
 INSERT INTO dilemma_option
-VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/poppenwagen.jpg', 'Je loopt altijd met een poppenwagen rond', 1);
+VALUES (2, '../../../assets/images/Dilemma_images/poppenwagen.jpg', 'Je loopt altijd met een poppenwagen rond', 1);
 
 -- Dilemma 2 -- Child
 INSERT INTO dilemma VALUES (DEFAULT, 'persoonlijk', FALSE , 2);
 INSERT INTO dilemma_option
-VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/thuisBevallen.jpg', 'Thuis bevallen', 2);
+VALUES (1, '../../../assets/images/Dilemma_images/thuisBevallen.jpg', 'Thuis bevallen', 2);
 INSERT INTO dilemma_option
-VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/ziekenhuisBevallen.jpg', 'In het ziekenhuis bevallen', 2);
+VALUES (2, '../../../assets/images/Dilemma_images/ziekenhuisBevallen.jpg', 'In het ziekenhuis bevallen', 2);
 
 -- Dilemma 3 -- Child
 INSERT INTO dilemma VALUES (DEFAULT, 'relatie', FALSE , 3);
 INSERT INTO dilemma_option
-VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/vetvrij.jpg', 'Een gezond dieeet', 3);
+VALUES (1, '../../../assets/images/Dilemma_images/vetvrij.jpg', 'Een gezond dieeet', 3);
 INSERT INTO dilemma_option
-VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/geenDieet.jpg', 'Lekker vet', 3);
+VALUES (2, '../../../assets/images/Dilemma_images/geenDieet.jpg', 'Lekker vet', 3);
 
 -- Dilemma 4 -- Child
 INSERT INTO dilemma VALUES (DEFAULT, 'sociaal', FALSE , 4);
 INSERT INTO dilemma_option
-VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/yoga.jpg', 'Yoga', 4);
+VALUES (1, '../../../assets/images/Dilemma_images/yoga.jpg', 'Yoga', 4);
 INSERT INTO dilemma_option
-VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/kickboksen.jpg', 'Boxen', 4);
+VALUES (2, '../../../assets/images/Dilemma_images/kickboksen.jpg', 'Boxen', 4);
 
 -- Dilemma 5 -- Child
 INSERT INTO dilemma VALUES (DEFAULT, 'persoonlijk', FALSE , 5);
 INSERT INTO dilemma_option
-VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/vetvrij.jpg', 'Een gezond dieeet', 5);
+VALUES (1, '../../../assets/images/Dilemma_images/vetvrij.jpg', 'Een gezond dieeet', 5);
 INSERT INTO dilemma_option
-VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/geenDieet.jpg', 'Lekker vet', 5);
+VALUES (2, '../../../assets/images/Dilemma_images/geenDieet.jpg', 'Lekker vet', 5);
 
 -- Dilemma 6 -- Pregnant -- week 32
 INSERT INTO dilemma VALUES (DEFAULT, 'sociaal', TRUE , 32);
 INSERT INTO dilemma_option
-VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/slapendeBaby.png', 'Alle slapende babies die je ziet moet je wakker maken', 6);
+VALUES (1, '../../../assets/images/Dilemma_images/slapendeBaby.png', 'Alle slapende babies die je ziet moet je wakker maken', 6);
 INSERT INTO dilemma_option
-VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/poppenwagen.jpg', 'Je loopt altijd met een poppenwagen rond', 6);
+VALUES (2, '../../../assets/images/Dilemma_images/poppenwagen.jpg', 'Je loopt altijd met een poppenwagen rond', 6);
 
 -- Dilemma 7 -- Pregnant -- 33
 INSERT INTO dilemma VALUES (DEFAULT, 'relatie', TRUE , 33);
 INSERT INTO dilemma_option
-VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/thuisBevallen.jpg', 'Thuis bevallen', 7);
+VALUES (1, '../../../assets/images/Dilemma_images/thuisBevallen.jpg', 'Thuis bevallen', 7);
 INSERT INTO dilemma_option
-VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/ziekenhuisBevallen.jpg', 'In het ziekenhuis bevallen', 7);
+VALUES (2, '../../../assets/images/Dilemma_images/ziekenhuisBevallen.jpg', 'In het ziekenhuis bevallen', 7);
 
 -- Dilemma 8 -- Pregnant -- 34
 INSERT INTO dilemma VALUES (DEFAULT, 'persoonlijk', TRUE , 34);
 INSERT INTO dilemma_option
-VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/vetvrij.jpg', 'Een gezond dieeet', 8);
+VALUES (1, '../../../assets/images/Dilemma_images/vetvrij.jpg', 'Een gezond dieeet', 8);
 INSERT INTO dilemma_option
-VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/geenDieet.jpg', 'Lekker vet', 8);
+VALUES (2, '../../../assets/images/Dilemma_images/geenDieet.jpg', 'Lekker vet', 8);
 
 -- Dilemma 9 -- Pregnant -- 35
 INSERT INTO dilemma VALUES (DEFAULT, 'sociaal', TRUE , 35);
 INSERT INTO dilemma_option
-VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/yoga.jpg', 'Yoga', 9);
+VALUES (1, '../../../assets/images/Dilemma_images/yoga.jpg', 'Yoga', 9);
 INSERT INTO dilemma_option
-VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/kickboksen.jpg', 'Boxen', 9);
+VALUES (2, '../../../assets/images/Dilemma_images/kickboksen.jpg', 'Boxen', 9);
 
 -- Dilemma 10 -- Pregnant -- 36
 INSERT INTO dilemma VALUES (DEFAULT, 'opvoeding', TRUE , 36);
 INSERT INTO dilemma_option
-VALUES (1, '../../../assets/images/Dilemma_afbeeldingen/vetvrij.jpg', 'Een gezond dieeet', 10);
+VALUES (1, '../../../assets/images/Dilemma_images/vetvrij.jpg', 'Een gezond dieeet', 10);
 INSERT INTO dilemma_option
-VALUES (2, '../../../assets/images/Dilemma_afbeeldingen/geenDieet.jpg', 'Lekker vet', 10);
+VALUES (2, '../../../assets/images/Dilemma_images/geenDieet.jpg', 'Lekker vet', 10);
 
 
 -- answers

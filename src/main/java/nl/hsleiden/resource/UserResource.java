@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.google.inject.Singleton;
 import io.dropwizard.auth.Auth;
 import java.util.Collection;
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.validation.Valid;
 import javax.ws.rs.Consumes;
@@ -38,6 +39,7 @@ public class UserResource
     
     @GET
     @JsonView(View.Public.class)
+    @RolesAllowed({"BEHEERDER", "MEDEWERKER"})
     public Collection<User> retrieveAll()
     {
         return service.getAll();
@@ -53,6 +55,7 @@ public class UserResource
 
     @GET
     @Path("/admins")
+    @RolesAllowed({"BEHEERDER", "MEDEWERKER"})
     @JsonView(View.Public.class)
     public Collection<User> retrieveAllAdmins()
     {
@@ -78,6 +81,7 @@ public class UserResource
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)
+    @RolesAllowed({"BEHEERDER", "MEDEWERKER"})
     public void update(User user)
     {
         service.update(user);
@@ -85,6 +89,7 @@ public class UserResource
     
     @DELETE
     @Path("/{id}")
+    @RolesAllowed({"BEHEERDER", "MEDEWERKER"})
     public void delete(@PathParam("id") String id)
     {
         service.delete(id);

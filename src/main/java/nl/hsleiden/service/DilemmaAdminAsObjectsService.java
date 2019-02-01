@@ -42,14 +42,14 @@ public class DilemmaAdminAsObjectsService {
             // TODO: handle error
         }
 
-        DilemmaOptions dilemmaOptionsDatabase1 = new DilemmaOptions(
+        DilemmaOption dilemmaOptionsDatabase1 = new DilemmaOption(
                 1,
                 dilemmaAdminAsAttributes.get_imagePathLeft(),
                 dilemmaAdminAsAttributes.get_textLeft(),
                 key
 
         );
-        DilemmaOptions dilemmaOptionsDatabase2 = new DilemmaOptions(
+        DilemmaOption dilemmaOptionsDatabase2 = new DilemmaOption(
                 2,
                 dilemmaAdminAsAttributes.get_imagePathRight(),
                 dilemmaAdminAsAttributes.get_textRight(),

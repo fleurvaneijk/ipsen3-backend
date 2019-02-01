@@ -18,7 +18,8 @@ public class ImageResource {
     public boolean uploadFile(
                               @FormDataParam("file") InputStream imageData,
                               @FormDataParam("filename") String fileName) {
-        String path = ""; // TODO
+
+        String path = ""; 
         return saveFile(imageData, path);
     }
 
