@@ -20,7 +20,7 @@ public class UserDAOTest
     @Before
     public void setUp()
     {
-        System.out.println("Set up");
+
         
         subject = new UserDAO();
     }
@@ -28,7 +28,7 @@ public class UserDAOTest
     @After
     public void tearDown()
     {
-        System.out.println("Tear down");
+
         
         subject = null;
     }
@@ -36,7 +36,7 @@ public class UserDAOTest
     @Test
     public void testGetSuccess()
     {
-        System.out.println("test get success");
+
         
         String expectedName = "Second user";
         User actual = subject.get("a");
@@ -48,7 +48,7 @@ public class UserDAOTest
     @Test
     public void testGetFailed()
     {
-        System.out.println("Test get failed");
+
         
         User actual = subject.get("b");
         
@@ -58,7 +58,7 @@ public class UserDAOTest
     @Test
     public void testGetByEmailAddressSuccess()
     {
-        System.out.println("Test by email address success");
+
         
         String expectedName = "First user";
         User actual = subject.getByEmailAddress("first@user.com");
@@ -70,7 +70,7 @@ public class UserDAOTest
     @Test
     public void testGetByEmailAddressFailed()
     {
-        System.out.println("Test by email address failed");
+
         
         User actual = subject.getByEmailAddress("third@user.com");
         
@@ -80,7 +80,7 @@ public class UserDAOTest
     @Test
     public void testAdd()
     {
-        System.out.println("Test add");
+
         
         User user = new User();
         user.setFirstname("Peter van Vliet");

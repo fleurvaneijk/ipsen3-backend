@@ -24,7 +24,7 @@ public class DilemmaDAONoHybernate {
         // Voer query uit (middels een prepared statement!)
         // Maak een nieuw Serie object aan met gegevens uit de database
         // Retourneer Serie object
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
         Dilemma dilemma = null;
         String SQL = "SELECT * FROM dilemma WHERE week_no = ? AND pregnant = ?";
         PreparedStatement pstmt = null;
@@ -35,7 +35,7 @@ public class DilemmaDAONoHybernate {
             pstmt.setBoolean(2, pregnant);
             rs = pstmt.executeQuery();
             while(rs.next()){
-                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!");
+
                 dilemma = new Dilemma();
                 dilemma.setWeekNr(rs.getInt("week_no"));
                 dilemma.setPregnant(rs.getBoolean("pregnant"));
@@ -55,7 +55,7 @@ public class DilemmaDAONoHybernate {
                 e.printStackTrace();
             }
         }
-        System.out.println(dilemma.toString());
+
         return dilemma;
     }
 

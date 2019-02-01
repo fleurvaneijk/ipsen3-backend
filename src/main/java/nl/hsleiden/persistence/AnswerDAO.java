@@ -63,7 +63,7 @@ public class AnswerDAO {
                 a.add(rs.getDate("answered_time"));
                 a.add(rs.getInt("answer"));
                 answers.add(a);
-                System.out.println(a);
+
                 a = new ArrayList();
             }
         } catch (SQLException e) {

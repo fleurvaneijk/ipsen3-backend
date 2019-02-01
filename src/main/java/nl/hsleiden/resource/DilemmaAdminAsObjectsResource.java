@@ -43,7 +43,7 @@ public class DilemmaAdminAsObjectsResource {
     @UnitOfWork
     @JsonView(View.Public.class)
     public void delete(DilemmaAdminAsAttributes dilemmaAdminAsAttributes) {
-        System.out.println(">>>>>>>>>>>>>>>> HIERRRRR" + dilemmaAdminAsAttributes.get_dilemmaId());
+
         dilemmaAdminAsObjectsService.deleteDilemmaAdmin(dilemmaAdminAsAttributes.get_dilemmaId());
     }
 
@@ -53,7 +53,7 @@ public class DilemmaAdminAsObjectsResource {
     @UnitOfWork
     @JsonView(View.Public.class)
     public void updateDilemmaAdminAsAttributes(@Valid DilemmaAdminAsAttributes dilemmaAdminAsAttributes) {
-        System.out.println("test");
+
         dilemmaAdminAsObjectsService.AddDilemmaAdmin(dilemmaAdminAsAttributes);
     }
 

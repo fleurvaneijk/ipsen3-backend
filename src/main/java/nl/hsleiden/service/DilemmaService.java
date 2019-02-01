@@ -31,8 +31,8 @@ public class DilemmaService extends BaseService<Dilemma>{
     }
 
     public Dilemma getByPregnant(int id, boolean pregnant){
-        System.out.println("Ik ben nu hier SERVICE");
-        System.out.println(requireResult(daoNoHybernate.getByWeeknumberAndPregnant(id, pregnant)));
+
+
         return daoNoHybernate.getByWeeknumberAndPregnant(id, pregnant);
     }
 }

@@ -13,6 +13,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Executes queries on the child table in the database
+ * @author Robin Silverio & Fleur van Eijk
+ */
 @Singleton
 public class ChildDAO {
 
@@ -50,7 +54,7 @@ public class ChildDAO {
                 rs.close();
                 pstmt.close();
                 this.database.getConnection().close();
-                System.out.println("Preparedstatement kinderen selecteren gestopt");
+
             }
             catch (SQLException e){
                 e.printStackTrace();
@@ -62,9 +66,6 @@ public class ChildDAO {
 
     public Child get(int id)
     {
-        // Voer query uit (middels een prepared statement!)
-        // Maak een nieuw Serie object aan met gegevens uit de database
-        // Retourneer Serie object
         Child child = null;
         String SQL = "SELECT*FROM child WHERE id = ?";
         PreparedStatement pstmt = null;
@@ -87,7 +88,7 @@ public class ChildDAO {
                 rs.close();
                 pstmt.close();
                 this.database.getConnection().close();
-                System.out.println("Preparedstatement individuele kind selecteren gestopt");
+
             }
             catch (SQLException e){
                 e.printStackTrace();
@@ -118,14 +119,14 @@ public class ChildDAO {
 
             pstmt.executeUpdate();
 
-            System.out.println("Kind is toegevoegd");
+
 
             pstmt.close();
             this.database.getConnection().close();
-            System.out.println("Preparedstatement kind toevoegen gestopt");
+
 
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -146,14 +147,14 @@ public class ChildDAO {
             pstmt.setInt(1, id);
             pstmt.executeQuery();
 
-            System.out.println("kind is verwijderd");
+
 
             pstmt.close();
             this.database.getConnection().close();
-            System.out.println("Preparedstatement kind verwijderen gestopt");
+
         }
         catch (SQLException e){
-            System.out.println(e.getMessage());
+
         }
     }
 

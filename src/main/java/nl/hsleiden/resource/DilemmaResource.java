@@ -35,7 +35,7 @@ public class DilemmaResource {
     @UnitOfWork
     @JsonView(View.Public.class)
     public Collection<Dilemma> retrieveAll() {
-        System.out.println("GET WERKT !!!!!!");
+
         return service.getAll();
     }
 
@@ -52,7 +52,7 @@ public class DilemmaResource {
     @Path("/{id}/{pregnant}")
     @JsonView(View.Public.class)
     public Dilemma retrieve(@PathParam("id") int id, @PathParam("pregnant") boolean pregnant) {
-        System.out.println("Ik ben nu hier RESOURCE");
+
         return service.getByPregnant(id, pregnant);
     }
 

@@ -17,10 +17,8 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Meer informatie over resources:
- *  https://jersey.java.net/documentation/latest/user-guide.html#jaxrs-resources
- *
- * @author Peter van Vliet
+ * Handles requests from clients and sends them to the server
+ * @author Robin Silverio & Fleur van Eijk & Joost de Winter
  */
 @Singleton
 @Path("/couples")
@@ -99,7 +97,7 @@ public class CoupleResource
     public void updatePregnantWeeks(List list) {
         String email = list.get(0).toString();
         int weeks = Integer.parseInt(list.get(1).toString());
-        System.out.println(weeks);
+
         service.updatePregnantWeeks(email, weeks);
     }
 
@@ -108,7 +106,7 @@ public class CoupleResource
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Public.class)
     public void updateBirthdate(List list) {
-        System.out.println(list);
+
         String email = list.get(0).toString();
 
         String dateString = list.get(1).toString();

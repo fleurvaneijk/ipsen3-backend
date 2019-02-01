@@ -14,10 +14,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * Meer informatie over resources:
- * https://jersey.java.net/documentation/latest/user-guide.html#jaxrs-resources
- *
- * @author Peter van Vliet
+ * Handles requests from clients and sends them to the server
  */
 @Singleton
 @Path("/secondcouples")
@@ -34,7 +31,7 @@ public class SecondCoupleResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Public.class)
     public void updateCouplePregnant(Couple couple) {
-        System.out.println("RESOURCE RESOURCE RESOURCE RESOURCE");
+
         service.updateFullCouple(couple);
     }
 }

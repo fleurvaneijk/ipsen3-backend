@@ -10,6 +10,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Executes queries on the multiple tables in the database (Couple, parent & child) for the couple-management screen for the admin.
+ * @author Fleur van Eijk
+ */
 public class CoupleManagementDAO {
 
     private Database database;

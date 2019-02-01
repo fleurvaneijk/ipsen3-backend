@@ -8,6 +8,10 @@ import javax.inject.Inject;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 
+/**
+ * Handles requests from clients and sends them to the server
+ * @author Fleur van Eijk
+ */
 @Path("/email")
 public class EmailResource {
 

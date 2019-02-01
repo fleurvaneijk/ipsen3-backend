@@ -85,13 +85,13 @@ public class DilemmaOptionsDAO {
                 rs.close();
                 pstmt.close();
                 this.database.getConnection().close();
-                System.out.println("Preparedstatement users selecteren gestopt");
+
             }
             catch (SQLException e){
                 e.printStackTrace();
             }
         }
-        System.out.println(">>>>>>>>>>>>>>>>>>" +dilemmaOptions);
+
         return dilemmaOptions;
 
     }

@@ -28,7 +28,7 @@ public class DilemmaSubjectDAO {
 
         ArrayList AllSubjectList = new ArrayList();
         List dilemmaSubjectList = getAllSubjects();
-        System.out.println(dilemmaSubjectList);
+
         for (int i=0;i < dilemmaSubjectList.size(); i++) {
             if (subject.getSubject().equals(dilemmaSubjectList.get(i).toString())) {
                 exists = true;
