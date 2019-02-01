@@ -52,7 +52,7 @@ public class ChildDAO {
             try{
                 rs.close();
                 pstmt.close();
-                this.database.getConnection().close();
+                pstmt.getConnection().close();
 
             }
             catch (SQLException e){
@@ -86,7 +86,7 @@ public class ChildDAO {
             try{
                 rs.close();
                 pstmt.close();
-                this.database.getConnection().close();
+                pstmt.getConnection().close();
 
             }
             catch (SQLException e){
@@ -117,17 +117,19 @@ public class ChildDAO {
             pstmt.setDate(3, sqlBirthDate);
 
             pstmt.executeUpdate();
-
-
-
-            pstmt.close();
-            this.database.getConnection().close();
-
-
         } catch (SQLException ex) {
 
         } catch (ParseException e) {
             e.printStackTrace();
+        } finally {
+            try{
+                pstmt.close();
+                pstmt.getConnection().close();
+
+            }
+            catch (SQLException e){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -145,24 +147,28 @@ public class ChildDAO {
             pstmt = this.database.getConnection().prepareStatement(SQL);
             pstmt.setInt(1, id);
             pstmt.executeQuery();
-
-
-
-            pstmt.close();
-            this.database.getConnection().close();
-
         }
         catch (SQLException e){
 
+        }finally {
+            try{
+                pstmt.close();
+                pstmt.getConnection().close();
+
+            }
+            catch (SQLException e){
+                e.printStackTrace();
+            }
         }
     }
 
     public boolean getChildExistsByCoupleId(int coupleId) {
         ResultSet resultSet = null;
         boolean childExists = false;
+        PreparedStatement statement = null;
         try {
             String query =  "SELECT * FROM child WHERE couple_id = ?";
-            PreparedStatement statement = database.getConnection().prepareStatement(query);
+            statement = database.getConnection().prepareStatement(query);
             statement.setInt(1, coupleId);
             resultSet = statement.executeQuery();
             if(resultSet.next()){
@@ -174,10 +180,13 @@ public class ChildDAO {
             e.printStackTrace();
         }
         finally {
-            try {
+            try{
                 resultSet.close();
-                this.database.getConnection().close();
-            } catch (SQLException e) {
+                statement.close();
+                statement.getConnection().close();
+
+            }
+            catch (SQLException e){
                 e.printStackTrace();
             }
         }
@@ -187,9 +196,10 @@ public class ChildDAO {
     public void updateBirthdate(int coupleId, java.sql.Date birthdate) {
         ResultSet resultSet = null;
         boolean childExists = false;
+        PreparedStatement statement = null;
         try {
             String query =  "UPDATE child SET birthdate = ? WHERE couple_id = ?";
-            PreparedStatement statement = database.getConnection().prepareStatement(query);
+            statement = database.getConnection().prepareStatement(query);
             statement.setDate(1, birthdate);
             statement.setInt(2, coupleId);
             statement.executeUpdate();
@@ -199,7 +209,8 @@ public class ChildDAO {
         finally {
             try {
                 resultSet.close();
-                this.database.getConnection().close();
+                statement.close();
+                statement.getConnection().close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

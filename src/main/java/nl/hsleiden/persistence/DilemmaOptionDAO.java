@@ -39,14 +39,12 @@ public class DilemmaOptionDAO {
             statement.setInt(4, dilemmaOption.getDilemmaId());
             statement.execute();
             statement.close();
-            this.database.getConnection().close();
-
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             try {
                 statement.close();
-                this.database.getConnection().close();
+                statement.getConnection().close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -84,7 +82,7 @@ public class DilemmaOptionDAO {
             try{
                 rs.close();
                 pstmt.close();
-                this.database.getConnection().close();
+                pstmt.getConnection().close();
 
             }
             catch (SQLException e){
@@ -124,7 +122,7 @@ public class DilemmaOptionDAO {
             try {
                 rs.close();
                 statement.close();
-                this.database.getConnection().close();
+                statement.getConnection().close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

@@ -49,7 +49,7 @@ public class UserDAO
             try{
                 rs.close();
                 pstmt.close();
-                this.database.getConnection().close();
+                pstmt.getConnection().close();
 
             }
             catch (SQLException e){
@@ -87,7 +87,7 @@ public class UserDAO
             try{
                 rs.close();
                 statement.close();
-                this.database.getConnection().close();
+                statement.getConnection();
 
             }
             catch (SQLException e){
@@ -125,7 +125,7 @@ public class UserDAO
             try{
                 rs.close();
                 statement.close();
-                this.database.getConnection().close();
+                statement.getConnection().close();
 
             }
             catch (SQLException e){
@@ -138,9 +138,9 @@ public class UserDAO
     
     public User get(String id)
     {
-        // Voer query uit (middels een prepared statement!)
-        // Maak een nieuw Serie object aan met gegevens uit de database
-        // Retourneer Serie object
+        // Perform a query (by using a prepared statement for security reasons!)
+        // Create a new set of user object with properties based on ID
+        // Return a user object.
         User user = null;
         String SQL = "SELECT*FROM users WHERE email = ?";
         PreparedStatement pstmt = null;
@@ -164,8 +164,7 @@ public class UserDAO
             try{
                 rs.close();
                 pstmt.close();
-                this.database.getConnection().close();
-
+                pstmt.getConnection().close();
             }
             catch (SQLException e){
                 e.printStackTrace();
@@ -206,14 +205,16 @@ public class UserDAO
 
                 pstmt.executeUpdate();
 
-
-
-                pstmt.close();
-                this.database.getConnection().close();
-
-
             } catch (SQLException ex) {
-
+                ex.printStackTrace();
+            }finally {
+                try{
+                    pstmt.close();
+                    pstmt.getConnection().close();
+                }
+                catch (SQLException e){
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -231,10 +232,16 @@ public class UserDAO
             statement.setString(4, user.getRole());
             statement.setString(5, user.getEmailAddress());
             statement.executeQuery();
-            statement.close();
-            this.database.getConnection().close();
         } catch (SQLException e){
-
+            e.printStackTrace();
+        } finally {
+            try{
+                statement.close();
+                statement.getConnection().close();
+            }
+            catch (SQLException e){
+                e.printStackTrace();
+            }
         }
     }
     
@@ -247,15 +254,17 @@ public class UserDAO
             pstmt = this.database.getConnection().prepareStatement(SQL);
             pstmt.setString(1, id);
             pstmt.executeQuery();
-
-
-
-            pstmt.close();
-            this.database.getConnection().close();
-
         }
         catch (SQLException e){
-
+            e.printStackTrace();
+        } finally {
+            try{
+                pstmt.close();
+                pstmt.getConnection().close();
+            }
+            catch (SQLException e){
+                e.printStackTrace();
+            }
         }
     }
 

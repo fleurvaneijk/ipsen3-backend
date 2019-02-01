@@ -32,12 +32,6 @@ public class Database {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        if (conn != null) {
-
-        } else {
-
-        }
     }
 
     /**
@@ -46,7 +40,8 @@ public class Database {
      * @author Robin Silverio
      */
     public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(url, user, pass);
+        conn = DriverManager.getConnection(url,user,pass);
+        return conn;
     }
 
     private boolean hasConnection(){
@@ -64,12 +59,6 @@ public class Database {
      */
     public void disconnect(){
         try{
-            if(statement != null){
-                statement.close();
-            }
-            if(rs != null){
-                rs.close();
-            }
             if(conn != null){
                 conn.close();
             }

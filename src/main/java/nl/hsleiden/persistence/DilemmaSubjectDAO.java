@@ -47,14 +47,12 @@ public class DilemmaSubjectDAO {
             statement.setString(1, subject.getSubject());
             statement.executeUpdate();
             statement.close();
-            this.database.getConnection().close();
-
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             try {
                 statement.close();
-                this.database.getConnection().close();
+                statement.getConnection().close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -83,7 +81,7 @@ public class DilemmaSubjectDAO {
             try {
                 rs.close();
                 statement.close();
-                this.database.getConnection().close();
+                statement.getConnection().close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -94,11 +92,12 @@ public class DilemmaSubjectDAO {
     public List getAllSubjectsAdmin() {
         List<DilemmaSubjectAdmin> subjects = new ArrayList<DilemmaSubjectAdmin>();
         ResultSet resultSet = null;
+        PreparedStatement statement = null;
 
         try {
             String query =  "SELECT subject, link FROM dilemma_subject";
 
-            PreparedStatement statement = database.getConnection().prepareStatement(query);
+            statement = database.getConnection().prepareStatement(query);
             resultSet = statement.executeQuery();
 
             while(resultSet.next()){
@@ -115,7 +114,8 @@ public class DilemmaSubjectDAO {
         finally {
             try {
                 resultSet.close();
-                this.database.getConnection().close();
+                statement.close();
+                statement.getConnection().close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -126,11 +126,12 @@ public class DilemmaSubjectDAO {
     public List getAllSubjects() {
         ArrayList subjects = new ArrayList();
         ResultSet resultSet = null;
+        PreparedStatement statement = null;
 
         try {
             String query =  "SELECT subject FROM dilemma_subject ORDER BY subject";
 
-            PreparedStatement statement = database.getConnection().prepareStatement(query);
+            statement = database.getConnection().prepareStatement(query);
             resultSet = statement.executeQuery();
 
             while(resultSet.next()) {
@@ -143,7 +144,8 @@ public class DilemmaSubjectDAO {
         finally {
             try {
                 resultSet.close();
-                this.database.getConnection().close();
+                statement.close();
+                statement.getConnection().close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

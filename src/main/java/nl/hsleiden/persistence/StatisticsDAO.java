@@ -17,7 +17,7 @@ import java.util.List;
 public class StatisticsDAO {
 
     private Database database;
-    private ResultSet resultSet = null;
+
 
     public StatisticsDAO() {
 
@@ -29,6 +29,8 @@ public class StatisticsDAO {
      */
     public List getRatingPerSubject() {
         ArrayList ratingPerSubjectList = new ArrayList();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
 
         try {
             String query =  "SELECT couple.pregnant, dilemma.subject, ROUND(AVG(rating_dilemma + rating_time)/2::numeric,1) AS rating " +
@@ -37,7 +39,7 @@ public class StatisticsDAO {
                                 "JOIN couple ON(parent_email = parent_email_1 OR parent_email = parent_email_2) " +
                             "GROUP BY couple.pregnant, dilemma.subject";
 
-            PreparedStatement statement = database.getConnection().prepareStatement(query);
+            statement = database.getConnection().prepareStatement(query);
             resultSet = statement.executeQuery();
 
             while(resultSet.next()) {
@@ -54,7 +56,8 @@ public class StatisticsDAO {
         finally {
             try {
                 resultSet.close();
-                this.database.getConnection().close();
+                statement.close();
+                statement.getConnection().close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -69,7 +72,8 @@ public class StatisticsDAO {
      */
     public List getAmountDilemmaAnswersFeedbackClicks() {
         ArrayList dilemmaAnswersClicksAmount = new ArrayList();
-
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
         try {
             String query =  "SELECT dilemma_id, COUNT(dilemma_id) AS answer_amount, number_clicks " +
                             "FROM dilemma d " +
@@ -78,7 +82,7 @@ public class StatisticsDAO {
                             "GROUP BY dilemma_id, number_clicks " +
                             "ORDER BY dilemma_id";
 
-            PreparedStatement statement = database.getConnection().prepareStatement(query);
+            statement = database.getConnection().prepareStatement(query);
             resultSet = statement.executeQuery();
 
             while(resultSet.next()) {
@@ -95,7 +99,8 @@ public class StatisticsDAO {
         finally {
             try {
                 resultSet.close();
-                this.database.getConnection().close();
+                statement.close();
+                statement.getConnection().close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -109,11 +114,12 @@ public class StatisticsDAO {
      */
     public List getAnswerDateTimes() {
         ArrayList<String> answerDateTimes = new ArrayList<>();
-
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
         try {
             String query =  "SELECT answered_time FROM answer";
 
-            PreparedStatement statement = database.getConnection().prepareStatement(query);
+            statement = database.getConnection().prepareStatement(query);
             resultSet = statement.executeQuery();
 
             while(resultSet.next()) {
@@ -125,7 +131,8 @@ public class StatisticsDAO {
         finally {
             try {
                 resultSet.close();
-                this.database.getConnection().close();
+                statement.close();
+                statement.getConnection().close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

@@ -47,7 +47,7 @@ public class DilemmaDAONoHybernate {
             try{
                 rs.close();
                 pstmt.close();
-                this.database.getConnection().close();
+                pstmt.getConnection().close();
             }
             catch (SQLException e){
                 e.printStackTrace();

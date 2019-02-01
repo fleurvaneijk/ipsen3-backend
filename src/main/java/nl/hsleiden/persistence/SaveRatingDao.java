@@ -29,6 +29,14 @@ public class SaveRatingDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        finally {
+            try {
+                statement.close();
+                statement.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void setDatabase(Database database) {

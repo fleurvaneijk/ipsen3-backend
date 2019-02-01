@@ -40,7 +40,7 @@ public class AnswerDAO {
             try {
                 rs.close();
                 statement.close();
-                this.database.getConnection().close();
+                statement.getConnection().close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -69,13 +69,13 @@ public class AnswerDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            try {
-                rs.close();
-                statement.close();
-                this.database.getConnection().close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+                try {
+                    rs.close();
+                    statement.close();
+                    statement.getConnection().close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
         }
         return answers;
     }
@@ -96,6 +96,13 @@ public class AnswerDAO {
             statement.close();
         } catch (SQLException e) {
             e.getStackTrace();
+        } finally {
+            try {
+                statement.close();
+                statement.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 

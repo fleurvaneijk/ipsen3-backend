@@ -52,7 +52,7 @@ public class CoupleDAO {
             try{
                 rs.close();
                 pstmt.close();
-                this.database.getConnection().close();
+                pstmt.getConnection().close();
 
             }
             catch (SQLException e){
@@ -89,7 +89,7 @@ public class CoupleDAO {
             try{
                 rs.close();
                 pstmt.close();
-                this.database.getConnection().close();
+                pstmt.getConnection().close();
 
             }
             catch (SQLException e){
@@ -119,7 +119,8 @@ public class CoupleDAO {
         finally {
             try{
                 rs.close();
-                this.database.getConnection().close();
+                pstmt.close();
+                pstmt.getConnection().close();
             }
             catch (SQLException e){
                 e.printStackTrace();
@@ -156,7 +157,7 @@ public class CoupleDAO {
             try{
                 rs.close();
                 pstmt.close();
-                this.database.getConnection().close();
+                pstmt.getConnection().close();
             }
             catch (SQLException e){
                 e.printStackTrace();
@@ -186,10 +187,17 @@ public class CoupleDAO {
             pstmt.executeUpdate();
 
             pstmt.close();
-            this.database.getConnection().close();
-
         } catch (SQLException ex) {
-
+            ex.printStackTrace();
+        }
+        finally {
+            try{
+                pstmt.close();
+                pstmt.getConnection().close();
+            }
+            catch (SQLException e){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -198,8 +206,7 @@ public class CoupleDAO {
 //        couples.set(id, couple); // Doing it later
     }
 
-    public void delete(int id)
-    {
+    public void delete(int id) {
         String SQL = "DELETE FROM couple WHERE id = ?";
         PreparedStatement pstmt = null;
 
@@ -209,18 +216,23 @@ public class CoupleDAO {
             pstmt.executeQuery();
 
             pstmt.close();
-            this.database.getConnection().close();
-        }
-        catch (SQLException e){
-
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                pstmt.close();
+                pstmt.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    /**
-     * This is for setting a database to a DAO.
-     * @param database
-     */
-    public void setDatabase(Database database) {
-        this.database = database;
-    }
+        /**
+         * This is for setting a database to a DAO.
+         * @param database
+         */
+        public void setDatabase (Database database){
+            this.database = database;
+        }
 }
